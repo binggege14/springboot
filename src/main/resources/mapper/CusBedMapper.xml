@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yiyang.dao.CusBedMapper">
+  <resultMap id="BaseResultMap" type="com.yiyang.entity.CusBed">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="update_date" jdbcType="DATE" property="updateDate" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
+    <result column="customer_id" jdbcType="VARCHAR" property="customerId" />
+    <result column="content_id" jdbcType="VARCHAR" property="contentId" />
+    <result column="nursing_time" jdbcType="DATE" property="nursingTime" />
+    <result column="nursing_content" jdbcType="VARCHAR" property="nursingContent" />
+    <result column="nursing_count" jdbcType="VARCHAR" property="nursingCount" />
+    <result column="staffinfo_id" jdbcType="VARCHAR" property="staffinfoId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, create_by, create_date, update_by, update_date, remarks, del_flag, customer_id, 
+    content_id, nursing_time, nursing_content, nursing_count, staffinfo_id
+  </sql>
+  <select id="selectByExample" parameterType="com.yiyang.entity.CusBedExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from cus_bed
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from cus_bed
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from cus_bed
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.yiyang.entity.CusBedExample">
+    delete from cus_bed
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.yiyang.entity.CusBed">
+    insert into cus_bed (id, create_by, create_date, 
+      update_by, update_date, remarks, 
+      del_flag, customer_id, content_id, 
+      nursing_time, nursing_content, nursing_count, 
+      staffinfo_id)
+    values (#{id,jdbcType=INTEGER}, #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=DATE}, #{remarks,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=VARCHAR}, #{customerId,jdbcType=VARCHAR}, #{contentId,jdbcType=VARCHAR}, 
+      #{nursingTime,jdbcType=DATE}, #{nursingContent,jdbcType=VARCHAR}, #{nursingCount,jdbcType=VARCHAR}, 
+      #{staffinfoId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yiyang.entity.CusBed">
+    insert into cus_bed
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+      <if test="remarks != null">
+        remarks,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+      <if test="customerId != null">
+        customer_id,
+      </if>
+      <if test="contentId != null">
+        content_id,
+      </if>
+      <if test="nursingTime != null">
+        nursing_time,
+      </if>
+      <if test="nursingContent != null">
+        nursing_content,
+      </if>
+      <if test="nursingCount != null">
+        nursing_count,
+      </if>
+      <if test="staffinfoId != null">
+        staffinfo_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=DATE},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="customerId != null">
+        #{customerId,jdbcType=VARCHAR},
+      </if>
+      <if test="contentId != null">
+        #{contentId,jdbcType=VARCHAR},
+      </if>
+      <if test="nursingTime != null">
+        #{nursingTime,jdbcType=DATE},
+      </if>
+      <if test="nursingContent != null">
+        #{nursingContent,jdbcType=VARCHAR},
+      </if>
+      <if test="nursingCount != null">
+        #{nursingCount,jdbcType=VARCHAR},
+      </if>
+      <if test="staffinfoId != null">
+        #{staffinfoId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.yiyang.entity.CusBedExample" resultType="java.lang.Long">
+    select count(*) from cus_bed
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update cus_bed
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.createBy != null">
+        create_by = #{record.createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createDate != null">
+        create_date = #{record.createDate,jdbcType=DATE},
+      </if>
+      <if test="record.updateBy != null">
+        update_by = #{record.updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateDate != null">
+        update_date = #{record.updateDate,jdbcType=DATE},
+      </if>
+      <if test="record.remarks != null">
+        remarks = #{record.remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.delFlag != null">
+        del_flag = #{record.delFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerId != null">
+        customer_id = #{record.customerId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contentId != null">
+        content_id = #{record.contentId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nursingTime != null">
+        nursing_time = #{record.nursingTime,jdbcType=DATE},
+      </if>
+      <if test="record.nursingContent != null">
+        nursing_content = #{record.nursingContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nursingCount != null">
+        nursing_count = #{record.nursingCount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.staffinfoId != null">
+        staffinfo_id = #{record.staffinfoId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update cus_bed
+    set id = #{record.id,jdbcType=INTEGER},
+      create_by = #{record.createBy,jdbcType=VARCHAR},
+      create_date = #{record.createDate,jdbcType=DATE},
+      update_by = #{record.updateBy,jdbcType=VARCHAR},
+      update_date = #{record.updateDate,jdbcType=DATE},
+      remarks = #{record.remarks,jdbcType=VARCHAR},
+      del_flag = #{record.delFlag,jdbcType=VARCHAR},
+      customer_id = #{record.customerId,jdbcType=VARCHAR},
+      content_id = #{record.contentId,jdbcType=VARCHAR},
+      nursing_time = #{record.nursingTime,jdbcType=DATE},
+      nursing_content = #{record.nursingContent,jdbcType=VARCHAR},
+      nursing_count = #{record.nursingCount,jdbcType=VARCHAR},
+      staffinfo_id = #{record.staffinfoId,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yiyang.entity.CusBed">
+    update cus_bed
+    <set>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate,jdbcType=DATE},
+      </if>
+      <if test="remarks != null">
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="customerId != null">
+        customer_id = #{customerId,jdbcType=VARCHAR},
+      </if>
+      <if test="contentId != null">
+        content_id = #{contentId,jdbcType=VARCHAR},
+      </if>
+      <if test="nursingTime != null">
+        nursing_time = #{nursingTime,jdbcType=DATE},
+      </if>
+      <if test="nursingContent != null">
+        nursing_content = #{nursingContent,jdbcType=VARCHAR},
+      </if>
+      <if test="nursingCount != null">
+        nursing_count = #{nursingCount,jdbcType=VARCHAR},
+      </if>
+      <if test="staffinfoId != null">
+        staffinfo_id = #{staffinfoId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yiyang.entity.CusBed">
+    update cus_bed
+    set create_by = #{createBy,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=DATE},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=VARCHAR},
+      customer_id = #{customerId,jdbcType=VARCHAR},
+      content_id = #{contentId,jdbcType=VARCHAR},
+      nursing_time = #{nursingTime,jdbcType=DATE},
+      nursing_content = #{nursingContent,jdbcType=VARCHAR},
+      nursing_count = #{nursingCount,jdbcType=VARCHAR},
+      staffinfo_id = #{staffinfoId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

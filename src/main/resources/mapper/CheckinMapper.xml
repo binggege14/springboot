@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yiyang.dao.CheckinMapper">
+  <resultMap id="BaseResultMap" type="com.yiyang.entity.Checkin">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="update_date" jdbcType="DATE" property="updateDate" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
+    <result column="customername" jdbcType="VARCHAR" property="customername" />
+    <result column="customerage" jdbcType="INTEGER" property="customerage" />
+    <result column="customersex" jdbcType="CHAR" property="customersex" />
+    <result column="IDcard" jdbcType="VARCHAR" property="idcard" />
+    <result column="roomID" jdbcType="VARCHAR" property="roomid" />
+    <result column="buildingID" jdbcType="VARCHAR" property="buildingid" />
+    <result column="recordID" jdbcType="VARCHAR" property="recordid" />
+    <result column="eldertype" jdbcType="VARCHAR" property="eldertype" />
+    <result column="checktime" jdbcType="TIMESTAMP" property="checktime" />
+    <result column="duetime" jdbcType="TIMESTAMP" property="duetime" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="bedID" jdbcType="VARCHAR" property="bedid" />
+    <result column="psychocs" jdbcType="VARCHAR" property="psychocs" />
+    <result column="attention" jdbcType="VARCHAR" property="attention" />
+    <result column="borntime" jdbcType="TIMESTAMP" property="borntime" />
+    <result column="height" jdbcType="VARCHAR" property="height" />
+    <result column="maritalstatus" jdbcType="CHAR" property="maritalstatus" />
+    <result column="weight" jdbcType="VARCHAR" property="weight" />
+    <result column="bloodtype" jdbcType="VARCHAR" property="bloodtype" />
+    <result column="filepath" jdbcType="VARCHAR" property="filepath" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, create_by, create_date, update_by, update_date, remarks, del_flag, customername, 
+    customerage, customersex, IDcard, roomID, buildingID, recordID, eldertype, checktime, 
+    duetime, phone, bedID, psychocs, attention, borntime, height, maritalstatus, weight, 
+    bloodtype, filepath
+  </sql>
+  <select id="selectByExample" parameterType="com.yiyang.entity.CheckinExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from checkin
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from checkin
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from checkin
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.yiyang.entity.CheckinExample">
+    delete from checkin
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.yiyang.entity.Checkin">
+    insert into checkin (ID, create_by, create_date, 
+      update_by, update_date, remarks, 
+      del_flag, customername, customerage, 
+      customersex, IDcard, roomID, 
+      buildingID, recordID, eldertype, 
+      checktime, duetime, phone, 
+      bedID, psychocs, attention, 
+      borntime, height, maritalstatus, 
+      weight, bloodtype, filepath
+      )
+    values (#{id,jdbcType=INTEGER}, #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=DATE}, #{remarks,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=VARCHAR}, #{customername,jdbcType=VARCHAR}, #{customerage,jdbcType=INTEGER}, 
+      #{customersex,jdbcType=CHAR}, #{idcard,jdbcType=VARCHAR}, #{roomid,jdbcType=VARCHAR}, 
+      #{buildingid,jdbcType=VARCHAR}, #{recordid,jdbcType=VARCHAR}, #{eldertype,jdbcType=VARCHAR}, 
+      #{checktime,jdbcType=TIMESTAMP}, #{duetime,jdbcType=TIMESTAMP}, #{phone,jdbcType=VARCHAR}, 
+      #{bedid,jdbcType=VARCHAR}, #{psychocs,jdbcType=VARCHAR}, #{attention,jdbcType=VARCHAR}, 
+      #{borntime,jdbcType=TIMESTAMP}, #{height,jdbcType=VARCHAR}, #{maritalstatus,jdbcType=CHAR}, 
+      #{weight,jdbcType=VARCHAR}, #{bloodtype,jdbcType=VARCHAR}, #{filepath,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yiyang.entity.Checkin">
+    insert into checkin
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+      <if test="remarks != null">
+        remarks,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+      <if test="customername != null">
+        customername,
+      </if>
+      <if test="customerage != null">
+        customerage,
+      </if>
+      <if test="customersex != null">
+        customersex,
+      </if>
+      <if test="idcard != null">
+        IDcard,
+      </if>
+      <if test="roomid != null">
+        roomID,
+      </if>
+      <if test="buildingid != null">
+        buildingID,
+      </if>
+      <if test="recordid != null">
+        recordID,
+      </if>
+      <if test="eldertype != null">
+        eldertype,
+      </if>
+      <if test="checktime != null">
+        checktime,
+      </if>
+      <if test="duetime != null">
+        duetime,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="bedid != null">
+        bedID,
+      </if>
+      <if test="psychocs != null">
+        psychocs,
+      </if>
+      <if test="attention != null">
+        attention,
+      </if>
+      <if test="borntime != null">
+        borntime,
+      </if>
+      <if test="height != null">
+        height,
+      </if>
+      <if test="maritalstatus != null">
+        maritalstatus,
+      </if>
+      <if test="weight != null">
+        weight,
+      </if>
+      <if test="bloodtype != null">
+        bloodtype,
+      </if>
+      <if test="filepath != null">
+        filepath,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=DATE},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="customername != null">
+        #{customername,jdbcType=VARCHAR},
+      </if>
+      <if test="customerage != null">
+        #{customerage,jdbcType=INTEGER},
+      </if>
+      <if test="customersex != null">
+        #{customersex,jdbcType=CHAR},
+      </if>
+      <if test="idcard != null">
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="roomid != null">
+        #{roomid,jdbcType=VARCHAR},
+      </if>
+      <if test="buildingid != null">
+        #{buildingid,jdbcType=VARCHAR},
+      </if>
+      <if test="recordid != null">
+        #{recordid,jdbcType=VARCHAR},
+      </if>
+      <if test="eldertype != null">
+        #{eldertype,jdbcType=VARCHAR},
+      </if>
+      <if test="checktime != null">
+        #{checktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="duetime != null">
+        #{duetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="bedid != null">
+        #{bedid,jdbcType=VARCHAR},
+      </if>
+      <if test="psychocs != null">
+        #{psychocs,jdbcType=VARCHAR},
+      </if>
+      <if test="attention != null">
+        #{attention,jdbcType=VARCHAR},
+      </if>
+      <if test="borntime != null">
+        #{borntime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="height != null">
+        #{height,jdbcType=VARCHAR},
+      </if>
+      <if test="maritalstatus != null">
+        #{maritalstatus,jdbcType=CHAR},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=VARCHAR},
+      </if>
+      <if test="bloodtype != null">
+        #{bloodtype,jdbcType=VARCHAR},
+      </if>
+      <if test="filepath != null">
+        #{filepath,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.yiyang.entity.CheckinExample" resultType="java.lang.Long">
+    select count(*) from checkin
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update checkin
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.createBy != null">
+        create_by = #{record.createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createDate != null">
+        create_date = #{record.createDate,jdbcType=DATE},
+      </if>
+      <if test="record.updateBy != null">
+        update_by = #{record.updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateDate != null">
+        update_date = #{record.updateDate,jdbcType=DATE},
+      </if>
+      <if test="record.remarks != null">
+        remarks = #{record.remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.delFlag != null">
+        del_flag = #{record.delFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customername != null">
+        customername = #{record.customername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerage != null">
+        customerage = #{record.customerage,jdbcType=INTEGER},
+      </if>
+      <if test="record.customersex != null">
+        customersex = #{record.customersex,jdbcType=CHAR},
+      </if>
+      <if test="record.idcard != null">
+        IDcard = #{record.idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.roomid != null">
+        roomID = #{record.roomid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buildingid != null">
+        buildingID = #{record.buildingid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recordid != null">
+        recordID = #{record.recordid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eldertype != null">
+        eldertype = #{record.eldertype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checktime != null">
+        checktime = #{record.checktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.duetime != null">
+        duetime = #{record.duetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.phone != null">
+        phone = #{record.phone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bedid != null">
+        bedID = #{record.bedid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.psychocs != null">
+        psychocs = #{record.psychocs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.attention != null">
+        attention = #{record.attention,jdbcType=VARCHAR},
+      </if>
+      <if test="record.borntime != null">
+        borntime = #{record.borntime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.height != null">
+        height = #{record.height,jdbcType=VARCHAR},
+      </if>
+      <if test="record.maritalstatus != null">
+        maritalstatus = #{record.maritalstatus,jdbcType=CHAR},
+      </if>
+      <if test="record.weight != null">
+        weight = #{record.weight,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bloodtype != null">
+        bloodtype = #{record.bloodtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.filepath != null">
+        filepath = #{record.filepath,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update checkin
+    set ID = #{record.id,jdbcType=INTEGER},
+      create_by = #{record.createBy,jdbcType=VARCHAR},
+      create_date = #{record.createDate,jdbcType=DATE},
+      update_by = #{record.updateBy,jdbcType=VARCHAR},
+      update_date = #{record.updateDate,jdbcType=DATE},
+      remarks = #{record.remarks,jdbcType=VARCHAR},
+      del_flag = #{record.delFlag,jdbcType=VARCHAR},
+      customername = #{record.customername,jdbcType=VARCHAR},
+      customerage = #{record.customerage,jdbcType=INTEGER},
+      customersex = #{record.customersex,jdbcType=CHAR},
+      IDcard = #{record.idcard,jdbcType=VARCHAR},
+      roomID = #{record.roomid,jdbcType=VARCHAR},
+      buildingID = #{record.buildingid,jdbcType=VARCHAR},
+      recordID = #{record.recordid,jdbcType=VARCHAR},
+      eldertype = #{record.eldertype,jdbcType=VARCHAR},
+      checktime = #{record.checktime,jdbcType=TIMESTAMP},
+      duetime = #{record.duetime,jdbcType=TIMESTAMP},
+      phone = #{record.phone,jdbcType=VARCHAR},
+      bedID = #{record.bedid,jdbcType=VARCHAR},
+      psychocs = #{record.psychocs,jdbcType=VARCHAR},
+      attention = #{record.attention,jdbcType=VARCHAR},
+      borntime = #{record.borntime,jdbcType=TIMESTAMP},
+      height = #{record.height,jdbcType=VARCHAR},
+      maritalstatus = #{record.maritalstatus,jdbcType=CHAR},
+      weight = #{record.weight,jdbcType=VARCHAR},
+      bloodtype = #{record.bloodtype,jdbcType=VARCHAR},
+      filepath = #{record.filepath,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yiyang.entity.Checkin">
+    update checkin
+    <set>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate,jdbcType=DATE},
+      </if>
+      <if test="remarks != null">
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="customername != null">
+        customername = #{customername,jdbcType=VARCHAR},
+      </if>
+      <if test="customerage != null">
+        customerage = #{customerage,jdbcType=INTEGER},
+      </if>
+      <if test="customersex != null">
+        customersex = #{customersex,jdbcType=CHAR},
+      </if>
+      <if test="idcard != null">
+        IDcard = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="roomid != null">
+        roomID = #{roomid,jdbcType=VARCHAR},
+      </if>
+      <if test="buildingid != null">
+        buildingID = #{buildingid,jdbcType=VARCHAR},
+      </if>
+      <if test="recordid != null">
+        recordID = #{recordid,jdbcType=VARCHAR},
+      </if>
+      <if test="eldertype != null">
+        eldertype = #{eldertype,jdbcType=VARCHAR},
+      </if>
+      <if test="checktime != null">
+        checktime = #{checktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="duetime != null">
+        duetime = #{duetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="bedid != null">
+        bedID = #{bedid,jdbcType=VARCHAR},
+      </if>
+      <if test="psychocs != null">
+        psychocs = #{psychocs,jdbcType=VARCHAR},
+      </if>
+      <if test="attention != null">
+        attention = #{attention,jdbcType=VARCHAR},
+      </if>
+      <if test="borntime != null">
+        borntime = #{borntime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="height != null">
+        height = #{height,jdbcType=VARCHAR},
+      </if>
+      <if test="maritalstatus != null">
+        maritalstatus = #{maritalstatus,jdbcType=CHAR},
+      </if>
+      <if test="weight != null">
+        weight = #{weight,jdbcType=VARCHAR},
+      </if>
+      <if test="bloodtype != null">
+        bloodtype = #{bloodtype,jdbcType=VARCHAR},
+      </if>
+      <if test="filepath != null">
+        filepath = #{filepath,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yiyang.entity.Checkin">
+    update checkin
+    set create_by = #{createBy,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=DATE},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=VARCHAR},
+      customername = #{customername,jdbcType=VARCHAR},
+      customerage = #{customerage,jdbcType=INTEGER},
+      customersex = #{customersex,jdbcType=CHAR},
+      IDcard = #{idcard,jdbcType=VARCHAR},
+      roomID = #{roomid,jdbcType=VARCHAR},
+      buildingID = #{buildingid,jdbcType=VARCHAR},
+      recordID = #{recordid,jdbcType=VARCHAR},
+      eldertype = #{eldertype,jdbcType=VARCHAR},
+      checktime = #{checktime,jdbcType=TIMESTAMP},
+      duetime = #{duetime,jdbcType=TIMESTAMP},
+      phone = #{phone,jdbcType=VARCHAR},
+      bedID = #{bedid,jdbcType=VARCHAR},
+      psychocs = #{psychocs,jdbcType=VARCHAR},
+      attention = #{attention,jdbcType=VARCHAR},
+      borntime = #{borntime,jdbcType=TIMESTAMP},
+      height = #{height,jdbcType=VARCHAR},
+      maritalstatus = #{maritalstatus,jdbcType=CHAR},
+      weight = #{weight,jdbcType=VARCHAR},
+      bloodtype = #{bloodtype,jdbcType=VARCHAR},
+      filepath = #{filepath,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

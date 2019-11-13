@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yiyang.dao.RetreatMapper">
+  <resultMap id="BaseResultMap" type="com.yiyang.entity.Retreat">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="update_date" jdbcType="DATE" property="updateDate" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
+    <result column="customerid" jdbcType="VARCHAR" property="customerid" />
+    <result column="retreattime" jdbcType="DATE" property="retreattime" />
+    <result column="retreattype" jdbcType="VARCHAR" property="retreattype" />
+    <result column="retreatreason" jdbcType="VARCHAR" property="retreatreason" />
+    <result column="statu" jdbcType="VARCHAR" property="statu" />
+    <result column="asktime" jdbcType="DATE" property="asktime" />
+    <result column="auditopinion" jdbcType="VARCHAR" property="auditopinion" />
+    <result column="auditperson" jdbcType="VARCHAR" property="auditperson" />
+    <result column="audittime" jdbcType="DATE" property="audittime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, create_by, create_date, update_by, update_date, remarks, del_flag, customerid, 
+    retreattime, retreattype, retreatreason, statu, asktime, auditopinion, auditperson, 
+    audittime
+  </sql>
+  <select id="selectByExample" parameterType="com.yiyang.entity.RetreatExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from retreat
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from retreat
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from retreat
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.yiyang.entity.RetreatExample">
+    delete from retreat
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.yiyang.entity.Retreat">
+    insert into retreat (id, create_by, create_date, 
+      update_by, update_date, remarks, 
+      del_flag, customerid, retreattime, 
+      retreattype, retreatreason, statu, 
+      asktime, auditopinion, auditperson, 
+      audittime)
+    values (#{id,jdbcType=INTEGER}, #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=DATE}, #{remarks,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=VARCHAR}, #{customerid,jdbcType=VARCHAR}, #{retreattime,jdbcType=DATE}, 
+      #{retreattype,jdbcType=VARCHAR}, #{retreatreason,jdbcType=VARCHAR}, #{statu,jdbcType=VARCHAR}, 
+      #{asktime,jdbcType=DATE}, #{auditopinion,jdbcType=VARCHAR}, #{auditperson,jdbcType=VARCHAR}, 
+      #{audittime,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yiyang.entity.Retreat">
+    insert into retreat
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+      <if test="remarks != null">
+        remarks,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+      <if test="customerid != null">
+        customerid,
+      </if>
+      <if test="retreattime != null">
+        retreattime,
+      </if>
+      <if test="retreattype != null">
+        retreattype,
+      </if>
+      <if test="retreatreason != null">
+        retreatreason,
+      </if>
+      <if test="statu != null">
+        statu,
+      </if>
+      <if test="asktime != null">
+        asktime,
+      </if>
+      <if test="auditopinion != null">
+        auditopinion,
+      </if>
+      <if test="auditperson != null">
+        auditperson,
+      </if>
+      <if test="audittime != null">
+        audittime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=DATE},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="retreattime != null">
+        #{retreattime,jdbcType=DATE},
+      </if>
+      <if test="retreattype != null">
+        #{retreattype,jdbcType=VARCHAR},
+      </if>
+      <if test="retreatreason != null">
+        #{retreatreason,jdbcType=VARCHAR},
+      </if>
+      <if test="statu != null">
+        #{statu,jdbcType=VARCHAR},
+      </if>
+      <if test="asktime != null">
+        #{asktime,jdbcType=DATE},
+      </if>
+      <if test="auditopinion != null">
+        #{auditopinion,jdbcType=VARCHAR},
+      </if>
+      <if test="auditperson != null">
+        #{auditperson,jdbcType=VARCHAR},
+      </if>
+      <if test="audittime != null">
+        #{audittime,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.yiyang.entity.RetreatExample" resultType="java.lang.Long">
+    select count(*) from retreat
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update retreat
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.createBy != null">
+        create_by = #{record.createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createDate != null">
+        create_date = #{record.createDate,jdbcType=DATE},
+      </if>
+      <if test="record.updateBy != null">
+        update_by = #{record.updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateDate != null">
+        update_date = #{record.updateDate,jdbcType=DATE},
+      </if>
+      <if test="record.remarks != null">
+        remarks = #{record.remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.delFlag != null">
+        del_flag = #{record.delFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerid != null">
+        customerid = #{record.customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.retreattime != null">
+        retreattime = #{record.retreattime,jdbcType=DATE},
+      </if>
+      <if test="record.retreattype != null">
+        retreattype = #{record.retreattype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.retreatreason != null">
+        retreatreason = #{record.retreatreason,jdbcType=VARCHAR},
+      </if>
+      <if test="record.statu != null">
+        statu = #{record.statu,jdbcType=VARCHAR},
+      </if>
+      <if test="record.asktime != null">
+        asktime = #{record.asktime,jdbcType=DATE},
+      </if>
+      <if test="record.auditopinion != null">
+        auditopinion = #{record.auditopinion,jdbcType=VARCHAR},
+      </if>
+      <if test="record.auditperson != null">
+        auditperson = #{record.auditperson,jdbcType=VARCHAR},
+      </if>
+      <if test="record.audittime != null">
+        audittime = #{record.audittime,jdbcType=DATE},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update retreat
+    set id = #{record.id,jdbcType=INTEGER},
+      create_by = #{record.createBy,jdbcType=VARCHAR},
+      create_date = #{record.createDate,jdbcType=DATE},
+      update_by = #{record.updateBy,jdbcType=VARCHAR},
+      update_date = #{record.updateDate,jdbcType=DATE},
+      remarks = #{record.remarks,jdbcType=VARCHAR},
+      del_flag = #{record.delFlag,jdbcType=VARCHAR},
+      customerid = #{record.customerid,jdbcType=VARCHAR},
+      retreattime = #{record.retreattime,jdbcType=DATE},
+      retreattype = #{record.retreattype,jdbcType=VARCHAR},
+      retreatreason = #{record.retreatreason,jdbcType=VARCHAR},
+      statu = #{record.statu,jdbcType=VARCHAR},
+      asktime = #{record.asktime,jdbcType=DATE},
+      auditopinion = #{record.auditopinion,jdbcType=VARCHAR},
+      auditperson = #{record.auditperson,jdbcType=VARCHAR},
+      audittime = #{record.audittime,jdbcType=DATE}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yiyang.entity.Retreat">
+    update retreat
+    <set>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate,jdbcType=DATE},
+      </if>
+      <if test="remarks != null">
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="customerid != null">
+        customerid = #{customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="retreattime != null">
+        retreattime = #{retreattime,jdbcType=DATE},
+      </if>
+      <if test="retreattype != null">
+        retreattype = #{retreattype,jdbcType=VARCHAR},
+      </if>
+      <if test="retreatreason != null">
+        retreatreason = #{retreatreason,jdbcType=VARCHAR},
+      </if>
+      <if test="statu != null">
+        statu = #{statu,jdbcType=VARCHAR},
+      </if>
+      <if test="asktime != null">
+        asktime = #{asktime,jdbcType=DATE},
+      </if>
+      <if test="auditopinion != null">
+        auditopinion = #{auditopinion,jdbcType=VARCHAR},
+      </if>
+      <if test="auditperson != null">
+        auditperson = #{auditperson,jdbcType=VARCHAR},
+      </if>
+      <if test="audittime != null">
+        audittime = #{audittime,jdbcType=DATE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yiyang.entity.Retreat">
+    update retreat
+    set create_by = #{createBy,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=DATE},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=VARCHAR},
+      customerid = #{customerid,jdbcType=VARCHAR},
+      retreattime = #{retreattime,jdbcType=DATE},
+      retreattype = #{retreattype,jdbcType=VARCHAR},
+      retreatreason = #{retreatreason,jdbcType=VARCHAR},
+      statu = #{statu,jdbcType=VARCHAR},
+      asktime = #{asktime,jdbcType=DATE},
+      auditopinion = #{auditopinion,jdbcType=VARCHAR},
+      auditperson = #{auditperson,jdbcType=VARCHAR},
+      audittime = #{audittime,jdbcType=DATE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
