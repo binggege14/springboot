@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../About/css/bootstrap.min.css">
+		<link href="../About/css/myCss.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/main.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/base.css" type="text/css" rel="stylesheet">
+		<!--按钮样式表-->
+		<link href="../About/css/btn.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/css.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/index.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/search.css" type="text/css" rel="stylesheet">
+		<script src="../About/js/jquery.min.js"></script>
+		<script src="../About/js/bootstrap.min.js"></script>
+		<title>客户信息</title>
+		<script type="text/javascript">
+		function urlHtml(url,param,val) {
+             //var toUrl = "target.html?param =" + param;
+			 var toUrl = url+"?"+param+"="+val;
+             window.open(toUrl);
+         }
+		$(function(){
+
+		})
+		</script>
+	</head>
+	<body>
+		<div class="hlnr page">
+			<div class="col-md-12 pd20 RightContentBody fmt10">
+				<div class="col-md-3 pd0 fmt5">
+					<div class="input-group inputWidth_search" >
+						<input type="text" class="form-control" placeholder="客户姓名">
+						<span class="input-group-addon"><a href="javascript:alert('查询')">查询</a></span>								
+					</div>
+				</div>
+				<div class="col-md-9 pd0 fmt5">
+					<button class="btn btn-primary" onclick="alert('同步成功')"><span class="glyphicon glyphicon-refresh"></span>&nbsp;同步信息</button> 
+				</div>				
+				<div class="col-md-12 pd0 fmt10">
+					<hr class="commonHRCss"/>
+				</div>
+				<div class="col-md-12 pd0">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>序号</th>
+								<th>姓名</th>
+								<th>性别</th>
+								<th>年龄</th>
+								<th>档案号</th>
+								<th>评估医生</th>
+								<th>责任医生</th>
+								<th>健康管家</th>
+								<th>楼房</th>
+								<th>床号</th>
+								<th>入住时间</th>
+								<th>合同到期时间</th>
+								<th>身体状况简述</th>
+								<th>护理等级</th>
+								<th>紧急联系人</th>
+								<th>联系人电话</th>
+								<th>评估结果</th>
+								<th>健康档案</th>
+								<th>护理记录</th>
+								<th>评估记录</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>夏王玲</td>
+								<td>女</td>
+								<td>63</td>
+								<td>BH201712001</td>
+								<td>徐伟</td>
+								<td>林杰</td>
+								<td>唐磊</td>
+								<td>幸福花园19#</td>
+								<td>201</td>
+								<td>2016-12-12</td>
+								<td>2017-12-12</td>
+								<td>轻微中风、高血压</td>
+								<td>一级</td>
+								<td>李柏</td>
+								<td>15815815815</td>
+								<td>生活基本自理，无需看护</td>
+								<td><a href="jkdn_home.html" target="ckjkda"><span class="btn btn-success">查看</span></a></td>
+								<!--<td><a href="hljl.html" target="ckjkda"><span class="btn btn-success">查看</span></a></td>-->
+								<td><a href="#" onclick="urlHtml('hljl.html','flag2','true')" target="ckjkda"><span class="btn btn-success">查看</span></a></td>
+								<!--<td><a href="pgjl.html" target="ckjkda"><span class="btn btn-success">查看</span></a></td>-->
+								<td><a href="#" onclick="urlHtml('pgjl.html','flag2','true')" target="ckjkda"><span class="btn btn-success">查看</span></a></td>
+								<td>
+									<!--<button class="btn btn-primary">修改</button>
+									<button class="btn btn-danger">删除</button>-->
+									<a href="khxq.html" target="ckjkda"><button class="btn btn-warning">详情</button></a>
+								</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>王丽雅</td>
+								<td>女</td>
+								<td>66</td>
+								<td>BH201712002</td>
+								<td>徐伟</td>
+								<td>林杰</td>
+								<td>唐磊</td>
+								<td>幸福花园19#</td>
+								<td>202</td>
+								<td>2017-01-01</td>
+								<td>2018-01-01</td>
+								<td>糖尿病</td>
+								<td>二级</td>
+								<td>徐建坤</td>
+								<td>15915815816</td>
+								<td>生活半自理，需要人陪护</td>
+								<td><a href="#" target="ckjkda"><span class="btn btn-success">查看</span></a></td>
+								<td><a href="#" target="ckjkda"><span class="btn btn-success">查看</span></a></td>
+								<td><a href="#" target="ckjkda"><span class="btn btn-success">查看</span></a></td>
+								<td>
+									<a href="khxq.html" target="ckjkda"><button class="btn btn-warning">详情</button></a>
+								</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>贾文</td>
+								<td>男</td>
+								<td>73</td>
+								<td>BH201712003</td>
+								<td>徐伟</td>
+								<td>林杰</td>
+								<td>唐磊</td>
+								<td>幸福花园18#</td>
+								<td>301</td>
+								<td>2017-12-20</td>
+								<td>2019-12-20</td>
+								<td>脑梗</td>
+								<td>三级</td>
+								<td>贾似道</td>
+								<td>15715815717</td>
+								<td>生活基本不能自理，需要专人看护</td>
+								<td><a href="#" target="ckjkda"><span class="btn btn-success">查看</span></a></td>
+								<td><a href="#" target="ckjkda"><span class="btn btn-success">查看</span></a></td>
+								<td><a href="#" target="ckjkda"><span class="btn btn-success">查看</span></a></td>
+								<td>
+									<a href="khxq.html" target="ckjkda"><button class="btn btn-warning">详情</button></a>
+								</td>
+							</tr>
+							<!--<tr>
+								<td>4</td>
+								<td>周安</td>
+								<td>男</td>
+								<td>63</td>
+								<td>BH201712001</td>
+								<td>徐伟</td>
+								<td>林杰</td>
+								<td>唐磊</td>
+								<td>幸福花园19#</td>
+								<td>801-01</td>
+								<td>2017-12-22</td>
+								<td>2017-12-22</td>
+								<td>轻微中风、高血压</td>
+								<td>三级</td>
+								<td>李柏</td>
+								<td>15915915915</td>
+								<td>生活半自理，需要人陪护</td>
+								<td><a href="#" target="ckjkda"><span class="btn btn-success">查看</span></a></td>
+								<td><a href="#" target="ckjkda"><span class="btn btn-success">查看</span></a></td>
+								<td><a href="#" target="ckjkda"><span class="btn btn-success">查看</span></a></td>
+								<td>
+									<a href="khxq.html" target="ckjkda"><button class="btn btn-warning">详情</button></a>
+								</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>万淑兰</td>
+								<td>女</td>
+								<td>63</td>
+								<td>BH201712001</td>
+								<td>徐伟</td>
+								<td>林杰</td>
+								<td>唐磊</td>
+								<td>幸福花园19#</td>
+								<td>801-01</td>
+								<td>2017-12-22</td>
+								<td>2017-12-22</td>
+								<td>轻微中风、高血压</td>
+								<td>三级</td>
+								<td>李柏</td>
+								<td>15915915915</td>
+								<td>生活半自理，需要人陪护</td>
+								<td><a href="#" target="ckjkda"><span class="btn btn-success">查看</span></a></td>
+								<td><a href="#" target="ckjkda"><span class="btn btn-success">查看</span></a></td>
+								<td><a href="#" target="ckjkda"><span class="btn btn-success">查看</span></a></td>
+								<td>
+									<a href="khxq.html" target="ckjkda"><button class="btn btn-warning">详情</button></a>
+								</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>樊迪</td>
+								<td>女</td>
+								<td>63</td>
+								<td>BH201712001</td>
+								<td>徐伟</td>
+								<td>林杰</td>
+								<td>唐磊</td>
+								<td>幸福花园19#</td>
+								<td>801-01</td>
+								<td>2017-12-22</td>
+								<td>2017-12-22</td>
+								<td>轻微中风、高血压</td>
+								<td>三级</td>
+								<td>李柏</td>
+								<td>15915915915</td>
+								<td>生活半自理，需要人陪护</td>
+								<td><a href="#" target="ckjkda"><span class="btn btn-success">查看</span></a></td>
+								<td><a href="#" target="ckjkda"><span class="btn btn-success">查看</span></a></td>
+								<td><a href="#" target="ckjkda"><span class="btn btn-success">查看</span></a></td>
+								<td>
+									<a href="khxq.html" target="ckjkda"><button class="btn btn-warning">详情</button></a>
+								</td>
+							</tr>-->
+						</tbody>
+					</table>
+				</div>
+				<div class="col-md-12 pd0">
+					<div class="col-md-12 text-right pd0 fmt20">
+						<nav aria-label="Page navigation">
+							<ul class="pagination">
+								<li>
+									<a href="#" aria-label="Previous">
+										<span aria-hidden="true">&laquo;</span>
+									</a>
+								</li>
+								<li><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+								<li><a href="#">6</a></li>
+								<li>
+									<a href="#" aria-label="Next">
+										<span aria-hidden="true">&raquo;</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

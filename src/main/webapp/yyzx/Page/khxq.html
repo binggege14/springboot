@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../About/css/bootstrap.min.css">
+		<link href="../About/css/myCss.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/main.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/base.css" type="text/css" rel="stylesheet">
+		<!--按钮样式表-->
+		<link href="../About/css/btn.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/css.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/index.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/search.css" type="text/css" rel="stylesheet">
+		<script src="../About/js/jquery.min.js"></script>
+		<script src="../About/js/bootstrap.min.js"></script>
+		<!-- 支持模糊搜索的 下拉框 -->
+		<link rel="stylesheet" type="text/css" href="../About/css/bootstrap-select.min.css"/> 
+		<script type="text/javascript" src="../About/js/bootstrap-select.min.js"></script>
+		<title>客户详细信息</title>
+		<script type="text/javascript">
+		$(function(){
+
+		})
+		</script>
+	</head>
+	<body>
+		<div class="page">
+			<div class="col-md-12 pd20 RightContentBody fmt10">
+				<!--模态框-->			
+				<div class="modal fade myModal1">
+					<div class="modal-dialog">
+						<div class="modal-content" style="width:100%;">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<span class="glyphicon glyphicon-pencil"></span>&nbsp;【添加】
+							</div>
+							<div class="modal-body clearfix" style="height: auto;">
+								<div class="col-md-12 pd0">
+									<div class="col-md-1 pd0 mt10"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;姓名：</span>
+												<input class="form-control" />
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;性别</span>
+												<select class="form-control">
+													<option>男</option>
+													<option>女</option>
+													<option>其他</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;年龄</span>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;与老人关系</span>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;身份证号</span>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;地址：</span>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;电话：</span>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+							</div>
+							<div class="modal-footer mt20">
+								<button type="button" class="btn btn-primary" data-dismiss="modal">
+									确定
+								</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">
+									取消
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal fade myModal2">
+					<div class="modal-dialog">
+						<div class="modal-content" style="width:100%;">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<span class="glyphicon glyphicon-pencil"></span>&nbsp;【添加】
+							</div>
+							<div class="modal-body clearfix" style="height: auto;">
+								<div class="col-md-12 pd0">
+									<div class="col-md-1 pd0 mt10"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;姓名：</span>
+												<select class="selectpicker form-control" data-live-search="true">
+													<option>阿里</option>
+													<option>白起</option>
+													<option>岳飞</option>
+													<option>岳云鹏</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<!--<div class="col-md-12 pd0">
+									<div class="col-md-1 pd0 mt10"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;姓名：</span>
+												<input class="form-control" />
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;性别</span>
+												<select class="form-control">
+													<option>男</option>
+													<option>女</option>
+													<option>其他</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;年龄</span>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;身份证号</span>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;职称：</span>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;职务：</span>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;简介：</span>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;电话：</span>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>-->
+							</div>
+							<div class="modal-footer mt20">
+								<button type="button" class="btn btn-primary" data-dismiss="modal">
+									确定
+								</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">
+									取消
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>				
+				<ul id="myTab" class="nav nav-tabs">
+					<li class="active"><a href="#jsxx" data-toggle="tab">家属信息</a></li>
+					<li><a href="#jjlxr" data-toggle="tab">紧急联系人</a></li>
+					<li><a href="#pzr" data-toggle="tab">陪住人</a></li>
+					<li><a href="#pgys" data-toggle="tab">评估医生</a></li>
+					<li><a href="#zrys" data-toggle="tab">责任医生</a></li>
+					<li><a href="#jkgj" data-toggle="tab">健康管家</a></li>
+					<li><a href="#hg" data-toggle="tab">护工</a></li>
+				</ul>
+				<div id="myTabContent" class="tab-content">					
+					<div class="tab-pane fade in active" id="jsxx">
+						<div class="col-md-12 pd0 fmt5" style="margin-top:20px;">
+							<button class="btn btn-primary" data-toggle="modal" data-target=".myModal1"><span class="glyphicon glyphicon-plus"></span>&nbsp;添加</button> 
+						</div>
+						<div class="col-md-12 pd0 fmt10">
+							<hr class="commonHRCss"/>
+						</div>				
+						<div class="col-md-12 pd0">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>序号</th>
+										<th>姓名</th>
+										<th>性别</th>
+										<th>年龄</th>
+										<th>与老人关系</th>
+										<th>身份证号</th>
+										<th>住址</th>
+										<th>电话</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>陈晶晶</td>
+										<td>女</td>
+										<td>41</td>
+										<td>女儿</td>
+										<td>320111197707241026</td>
+										<td>碧桂园花园城</td>
+										<td>18218218218</td>
+										<td>
+											<button class="btn btn-primary">修改</button>
+											<button class="btn btn-danger">删除</button>
+										</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>陈媛媛</td>
+										<td>女</td>
+										<td>38</td>
+										<td>女儿</td>
+										<td>320111198007241026</td>
+										<td>碧桂园花园城</td>
+										<td>18218218218</td>
+										<td>
+											<button class="btn btn-primary">修改</button>
+											<button class="btn btn-danger">删除</button>
+										</td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td>陈壮壮</td>
+										<td>男</td>
+										<td>35</td>
+										<td>儿子</td>
+										<td>320111198307241026</td>
+										<td>碧桂园花园城</td>
+										<td>18218218218</td>
+										<td>
+											<button class="btn btn-primary">修改</button>
+											<button class="btn btn-danger">删除</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="jjlxr">
+						<div class="col-md-12 pd0 fmt5" style="margin-top:20px;">
+							<button class="btn btn-primary" data-toggle="modal" data-target=".myModal1"><span class="glyphicon glyphicon-plus"></span>&nbsp;添加</button> 
+						</div>
+						<div class="col-md-12 pd0 fmt10">
+							<hr class="commonHRCss"/>
+						</div>					
+						<div class="col-md-12 pd0">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>序号</th>
+										<th>姓名</th>
+										<th>性别</th>
+										<th>年龄</th>
+										<th>与老人关系</th>
+										<th>身份证号</th>
+										<th>住址</th>
+										<th>电话</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>陈晶晶</td>
+										<td>女</td>
+										<td>41</td>
+										<td>女儿</td>
+										<td>320111197707241026</td>
+										<td>碧桂园花园城</td>
+										<td>18218218218</td>
+										<td>
+											<button class="btn btn-primary">修改</button>
+											<button class="btn btn-danger">删除</button>
+										</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>陈媛媛</td>
+										<td>女</td>
+										<td>38</td>
+										<td>女儿</td>
+										<td>320111198007241026</td>
+										<td>碧桂园花园城</td>
+										<td>18218218218</td>
+										<td>
+											<button class="btn btn-primary">修改</button>
+											<button class="btn btn-danger">删除</button>
+										</td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td>陈壮壮</td>
+										<td>男</td>
+										<td>35</td>
+										<td>儿子</td>
+										<td>320111198307241026</td>
+										<td>碧桂园花园城</td>
+										<td>18218218218</td>
+										<td>
+											<button class="btn btn-primary">修改</button>
+											<button class="btn btn-danger">删除</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="pzr">
+						<div class="col-md-12 pd0 fmt5" style="margin-top:20px;">
+							<button class="btn btn-primary" data-toggle="modal" data-target=".myModal1"><span class="glyphicon glyphicon-plus"></span>&nbsp;添加</button> 
+						</div>
+						<div class="col-md-12 pd0 fmt10">
+							<hr class="commonHRCss"/>
+						</div>				
+						<div class="col-md-12 pd0">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>序号</th>
+										<th>姓名</th>
+										<th>性别</th>
+										<th>年龄</th>
+										<th>身份证号</th>
+										<th>住址</th>
+										<th>电话</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>唐丽丽</td>
+										<td>女</td>
+										<td>41</td>
+										<td>320111197707241026</td>
+										<td>碧桂园欧洲城</td>
+										<td>18218218218</td>
+										<td>
+											<button class="btn btn-primary">修改</button>
+											<button class="btn btn-danger">删除</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="pgys">
+						<div class="col-md-12 pd0 fmt5" style="margin-top:20px;">
+							<button class="btn btn-primary" data-toggle="modal" data-target=".myModal2"><span class="glyphicon glyphicon-plus"></span>&nbsp;添加</button> 
+						</div>
+						<div class="col-md-12 pd0 fmt10">
+							<hr class="commonHRCss"/>
+						</div>	
+				
+						<div class="col-md-12 pd0">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>序号</th>
+										<th>姓名</th>
+										<th>性别</th>
+										<th>年龄</th>
+										<th>身份证号</th>
+										<th>职称</th>
+										<th>职务</th>
+										<th>简介</th>
+										<th>电话</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>耿思</td>
+										<td>男</td>
+										<td>48</td>
+										<td>320111197007241026</td>
+										<td>副主任医师</td>
+										<td></td>
+										<td></td>
+										<td>18218218218</td>
+										<td>
+											<button class="btn btn-primary">修改</button>
+											<button class="btn btn-danger">删除</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="zrys">
+						<div class="col-md-12 pd0 fmt5" style="margin-top:20px;">
+							<button class="btn btn-primary" data-toggle="modal" data-target=".myModal2"><span class="glyphicon glyphicon-plus"></span>&nbsp;添加</button> 
+						</div>
+						<div class="col-md-12 pd0 fmt10">
+							<hr class="commonHRCss"/>
+						</div>	
+				
+						<div class="col-md-12 pd0">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>序号</th>
+										<th>姓名</th>
+										<th>性别</th>
+										<th>年龄</th>
+										<th>身份证号</th>
+										<th>职称</th>
+										<th>职务</th>
+										<th>简介</th>
+										<th>电话</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>陶宏</td>
+										<td>男</td>
+										<td>48</td>
+										<td>320111197007241026</td>
+										<td>主任医师</td>
+										<td>护理科主任</td>
+										<td>护理专家</td>
+										<td>18218218218</td>
+										<td>
+											<button class="btn btn-primary">修改</button>
+											<button class="btn btn-danger">删除</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="jkgj">
+						<div class="col-md-12 pd0 fmt5" style="margin-top:20px;">
+							<button class="btn btn-primary" data-toggle="modal" data-target=".myModal2"><span class="glyphicon glyphicon-plus"></span>&nbsp;添加</button> 
+						</div>
+						<div class="col-md-12 pd0 fmt10">
+							<hr class="commonHRCss"/>
+						</div>	
+				
+						<div class="col-md-12 pd0">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>序号</th>
+										<th>姓名</th>
+										<th>性别</th>
+										<th>年龄</th>
+										<th>身份证号</th>
+										<th>职称</th>
+										<th>职务</th>
+										<th>简介</th>
+										<th>电话</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>李芳芳</td>
+										<td>女</td>
+										<td>48</td>
+										<td>320111197007241026</td>
+										<td>高级健康师</td>
+										<td>主任</td>
+										<td></td>
+										<td>18218218218</td>
+										<td>
+											<button class="btn btn-primary">修改</button>
+											<button class="btn btn-danger">删除</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="hg">
+						<div class="col-md-12 pd0 fmt5" style="margin-top:20px;">
+							<button class="btn btn-primary" data-toggle="modal" data-target=".myModal2"><span class="glyphicon glyphicon-plus"></span>&nbsp;添加</button> 
+						</div>
+						<div class="col-md-12 pd0 fmt10">
+							<hr class="commonHRCss"/>
+						</div>	
+				
+						<div class="col-md-12 pd0">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>序号</th>
+										<th>姓名</th>
+										<th>性别</th>
+										<th>年龄</th>
+										<th>身份证号</th>
+										<th>职称</th>
+										<th>职务</th>
+										<th>简介</th>
+										<th>电话</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>陈方圆</td>
+										<td>女</td>
+										<td>48</td>
+										<td>320111197007241026</td>
+										<td>高级护理师</td>
+										<td>护工</td>
+										<td>专业护理15年</td>
+										<td>18218218218</td>
+										<td>
+											<button class="btn btn-primary">修改</button>
+											<button class="btn btn-danger">删除</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>												
+				<div class="col-md-12 pd0">
+					<div class="col-md-12 text-right pd0 fmt20">
+						<nav aria-label="Page navigation">
+							<ul class="pagination">
+								<li>
+									<a href="#" aria-label="Previous">
+										<span aria-hidden="true">&laquo;</span>
+									</a>
+								</li>
+								<li><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+								<li><a href="#">6</a></li>
+								<li>
+									<a href="#" aria-label="Next">
+										<span aria-hidden="true">&raquo;</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+				<div style="text-align: right;" mt20">
+					<a href="khxx.html" target="ckjkda">
+						<button class="btn btn-success">返回</button>
+					</a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

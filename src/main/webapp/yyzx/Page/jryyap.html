@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../About/css/bootstrap.min.css">
+		<link href="../About/css/myCss.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/main.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/base.css" type="text/css" rel="stylesheet">
+		<!--按钮样式表-->
+		<link href="../About/css/btn.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/css.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/index.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/search.css" type="text/css" rel="stylesheet">
+		<script src="../About/js/jquery.min.js"></script>
+		<script src="../About/js/bootstrap.min.js"></script>
+		<script src="../About/js/jQuery.rTabs.js"></script>
+		<title>今日用药安排</title>
+		<script type="text/javascript">
+		//等待dom元素加载完毕。点击切换tab标签
+		$(function(){
+			$("#tab4").rTabs({
+				bind : 'click'
+			});
+			
+			$(".add_hlnr").click(function(){
+				//$("#hlnr").append("<input type='text' />");
+				$("#hlnr").append("<tr><td><input style='width:100%;border:0;' placeholder='请输入内容'/></td></tr>");
+			})
+
+		})
+		
+		var i = 0;
+		$(function(){
+			$('.ok').click(function(){
+				/*var content = $(this).parent().prevAll().eq(3).text();
+				var quantity = $(this).parent().prevAll().eq(1).text();
+				$("#used").append("<tr><td>"+i+"</td><td>"+content+"</td><td>2017-12-30 08:30:00</td><td>"+quantity+"</td><td><button class='btn btn-primary'>修改</button>&nbsp;<button class='btn btn-danger'>删除</button></td><tr>");*/
+				//$(this).css("background-color","gray"); 
+				$(this).parentsUntil("tbody").css("background-color","gray");
+				//$('button').attr('disabled',"true");
+			});
+			
+			$('.remove').click(function(){
+				$(this).parentsUntil("tbody").remove();
+			});
+		})
+		</script>
+	</head>
+	<body>
+		<div class="hljl_add page">
+			<div style="height:800px;" class="col-md-12 pd0 CPJBXX_RightContentBody mt20">
+				<div class="col-md-3 pd0 fmt5">
+					<div class="input-group inputWidth_search" >
+						<input type="text" class="form-control" placeholder="客户">
+						<span class="input-group-addon"><a href="javascript:alert('查询')">查询</a></span>								
+					</div>
+				</div>
+				<div class="col-md-9 pd0 fmt5">
+					<a href="yygl.html" target="ckjkda">
+						<button type="button" class="btn btn-primary" onclick="nextPage('hlfxpg');"><span class="glyphicon glyphicon-chevron-left"></span>返回</button>
+					</a>
+				</div>
+				<div class="col-md-12 pd0 fmt10">
+					<hr class="commonHRCss"/>
+				</div>						
+				<div class="col-md-12 pd0">
+					<div class="tab" id="tab4">
+						<div class="tab-nav j-tab-nav">
+							<a href="javascript:void(0);" class="current">&nbsp;&nbsp;汇总</a>
+							<a href="javascript:void(0);">&nbsp;&nbsp;夏王玲 1-101</a>
+							<a href="javascript:void(0);">&nbsp;&nbsp;王丽雅 1-102</a>
+						</div>
+						<div class="tab-con">
+							<div class="j-tab-con">
+								<div class="tab-con-item" style="display:block;">
+									<div class="col-md-12 pd10">
+										<div class="col-md-12 pd0">
+											<table class="table">
+												<thead>
+													<tr>
+														<th>
+															<center>
+																<font color="#000">序号</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">药品</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">厂商</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">规格</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">数量</font>
+															</center>
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td><font color="#000">1</font></td>
+														<td><font color="#000">康泰</font></td>
+														<td><font color="#000">山东齐都药业有限公司</font></td>
+														<td><font color="#000">50g/盒</font></td>
+														<td><font color="#000">8盒</font></td>
+													</tr>
+													<tr>
+														<td><font color="#000">2</font></td>
+														<td><font color="#000">罗红霉素</font></td>
+														<td><font color="#000">上海罗氏制药有限公司</font></td>
+														<td><font color="#000">200g/盒</font></td>
+														<td><font color="#000">5盒</font></td>
+													</tr>
+													<tr>
+														<td><font color="#000">3</font></td>
+														<td><font color="#000">注射用头孢曲松钠</font></td>
+														<td><font color="#000">上海罗氏制药有限公司</font></td>
+														<td><font color="#000">1g/瓶</font></td>
+														<td><font color="#000">15瓶</font></td>
+													</tr>
+													<tr>
+														<td><font color="#000">4</font></td>
+														<td><font color="#000">0.9%氯化钠注射液</font></td>
+														<td><font color="#000">山东齐都药业有限公司</font></td>
+														<td><font color="#000">500ml（双管双阀）</font></td>
+														<td><font color="#000">3袋</font></td>
+													</tr>
+													<tr>
+														<td><font color="#000">5</font></td>
+														<td><font color="#000">5%葡萄糖注射液</font></td>
+														<td><font color="#000">山东齐都药业有限公司</font></td>
+														<td><font color="#000">500ml/袋</font></td>
+														<td><font color="#000">12袋</font></td>
+													</tr>
+													<tr>
+														<td><font color="#000">6</font></td>
+														<td><font color="#000">氨基酸注射液（洛安命）</font></td>
+														<td><font color="#000">广东利泰制药股份有限公司</font></td>
+														<td><font color="#000">250ml/瓶</font></td>
+														<td><font color="#000">2瓶</font></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+								<div class="tab-con-item">
+									<div class="col-md-12 pd10">
+										<div class="col-md-12 pd0">
+											<table class="table">
+												<thead>
+													<tr>
+														<th>
+															<center>
+																<font color="#000">序号</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">药品</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">厂商</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">规格</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">数量</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">执行频次</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">执行时间</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">操作</font>
+															</center>
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td><font color="#000">1</font></td>
+														<td><font color="#000">盐酸法舒地尔注射液</font></td>
+														<td><font color="#000">山东齐都药业有限公司</font></td>
+														<td><font color="#000">50g/瓶</font></td>
+														<td><font color="#000">5瓶</font></td>
+														<td><font color="#000">1天1次</font></td>
+														<td><font color="#000">早</font></td>
+														<td>
+															<button class="btn btn-success ok"><span class="glyphicon glyphicon-ok"></span></button>
+															<button class="btn btn-danger remove"><span class="glyphicon glyphicon-remove"></span></button>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">2</font></td>
+														<td><font color="#000">0.9%氯化钠注射液</font></td>
+														<td><font color="#000">山东齐都药业有限公司</font></td>
+														<td><font color="#000">50g/瓶</font></td>
+														<td><font color="#000">5瓶</font></td>
+														<td><font color="#000">1天3次</font></td>
+														<td><font color="#000">早</font></td>
+														<td>
+															<button class="btn btn-success ok"><span class="glyphicon glyphicon-ok"></span></button>
+															<button class="btn btn-danger remove"><span class="glyphicon glyphicon-remove"></span></button>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">3</font></td>
+														<td><font color="#000">5%葡萄糖注射液</font></td>
+														<td><font color="#000">山东齐都药业有限公司</font></td>
+														<td><font color="#000">200g/瓶</font></td>
+														<td><font color="#000">5瓶</font></td>
+														<td><font color="#000">1天3次</font></td>
+														<td><font color="#000">中</font></td>
+														<td>
+															<button class="btn btn-success ok"><span class="glyphicon glyphicon-ok"></span></button>
+															<button class="btn btn-danger remove"><span class="glyphicon glyphicon-remove"></span></button>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">4</font></td>
+														<td><font color="#000">注射用复方维生素</font></td>
+														<td><font color="#000">山西普德药业有限公司</font></td>
+														<td><font color="#000">50g/瓶</font></td>
+														<td><font color="#000">5瓶</font></td>
+														<td><font color="#000">1天3次</font></td>
+														<td><font color="#000">中</font></td>
+														<td>
+															<button class="btn btn-success ok"><span class="glyphicon glyphicon-ok"></span></button>
+															<button class="btn btn-danger remove"><span class="glyphicon glyphicon-remove"></span></button>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">5</font></td>
+														<td><font color="#000">硫酸庆大霉素注射液</font></td>
+														<td><font color="#000">宜昌人福药业有限责任公司</font></td>
+														<td><font color="#000">50g/瓶</font></td>
+														<td><font color="#000">5瓶</font></td>
+														<td><font color="#000">1天3次</font></td>
+														<td><font color="#000">晚</font></td>
+														<td>
+															<button class="btn btn-success ok"><span class="glyphicon glyphicon-ok"></span></button>
+															<button class="btn btn-danger remove"><span class="glyphicon glyphicon-remove"></span></button>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">6</font></td>
+														<td><font color="#000">注射用胸腺法新</font></td>
+														<td><font color="#000">上海第一生化药业有限公司</font></td>
+														<td><font color="#000">50g/瓶</font></td>
+														<td><font color="#000">5瓶</font></td>
+														<td><font color="#000">1天3次</font></td>
+														<td><font color="#000">晚</font></td>
+														<td>
+															<button class="btn btn-success ok"><span class="glyphicon glyphicon-ok"></span></button>
+															<button class="btn btn-danger remove"><span class="glyphicon glyphicon-remove"></span></button>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+								<div class="tab-con-item">
+									<div class="col-md-12 pd10">
+										<div class="col-md-12 pd0">
+											<table class="table">
+												<thead>
+													<tr>
+														<th>
+															<center>
+																<font color="#000">序号</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">药品</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">厂商</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">规格</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">数量</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">执行频次</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">执行时间</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">操作</font>
+															</center>
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td><font color="#000">1</font></td>
+														<td><font color="#000">康泰</font></td>
+														<td><font color="#000">山东齐都药业有限公司</font></td>
+														<td><font color="#000">50g/盒</font></td>
+														<td><font color="#000">5盒</font></td>
+														<td><font color="#000">1天3次</font></td>
+														<td><font color="#000">早</font></td>
+														<td>
+															<button class="btn btn-success ok"><span class="glyphicon glyphicon-ok"></span></button>
+															<button class="btn btn-danger remove"><span class="glyphicon glyphicon-remove"></span></button>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">2</font></td>
+														<td><font color="#000">罗红霉素</font></td>
+														<td><font color="#000">山东齐都药业有限公司</font></td>
+														<td><font color="#000">50g/盒</font></td>
+														<td><font color="#000">12盒</font></td>
+														<td><font color="#000">1天3次</font></td>
+														<td><font color="#000">早</font></td>
+														<td>
+															<button class="btn btn-success ok"><span class="glyphicon glyphicon-ok"></span></button>
+															<button class="btn btn-danger remove"><span class="glyphicon glyphicon-remove"></span></button>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">3</font></td>
+														<td><font color="#000">康泰</font></td>
+														<td><font color="#000">山东齐都药业有限公司</font></td>
+														<td><font color="#000">50g/盒</font></td>
+														<td><font color="#000">8盒</font></td>
+														<td><font color="#000">1天3次</font></td>
+														<td><font color="#000">中</font></td>
+														<td>
+															<button class="btn btn-success ok"><span class="glyphicon glyphicon-ok"></span></button>
+															<button class="btn btn-danger remove"><span class="glyphicon glyphicon-remove"></span></button>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">4</font></td>
+														<td><font color="#000">罗红霉素</font></td>
+														<td><font color="#000">山东齐都药业有限公司</font></td>
+														<td><font color="#000">50g/盒</font></td>
+														<td><font color="#000">5盒</font></td>
+														<td><font color="#000">1天3次</font></td>
+														<td><font color="#000">中</font></td>
+														<td>
+															<button class="btn btn-success ok"><span class="glyphicon glyphicon-ok"></span></button>
+															<button class="btn btn-danger remove"><span class="glyphicon glyphicon-remove"></span></button>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">5</font></td>
+														<td><font color="#000">康泰</font></td>
+														<td><font color="#000">山东齐都药业有限公司</font></td>
+														<td><font color="#000">50g/盒</font></td>
+														<td><font color="#000">3盒</font></td>
+														<td><font color="#000">1天3次</font></td>
+														<td><font color="#000">晚</font></td>
+														<td>
+															<button class="btn btn-success ok"><span class="glyphicon glyphicon-ok"></span></button>
+															<button class="btn btn-danger remove"><span class="glyphicon glyphicon-remove"></span></button>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">6</font></td>
+														<td><font color="#000">罗红霉素</font></td>
+														<td><font color="#000">山东齐都药业有限公司</font></td>
+														<td><font color="#000">50g/盒</font></td>
+														<td><font color="#000">10盒</font></td>
+														<td><font color="#000">1天3次</font></td>
+														<td><font color="#000">晚</font></td>
+														<td>
+															<button class="btn btn-success ok"><span class="glyphicon glyphicon-ok"></span></button>
+															<button class="btn btn-danger remove"><span class="glyphicon glyphicon-remove"></span></button>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style="margin-left:-20px;" class="col-md-12 pd0">
+						<div class="col-md-12 text-right pd0 fmt20">
+							<nav aria-label="Page navigation">
+								<ul class="pagination">
+									<li>
+										<a href="#" aria-label="Previous">
+											<span aria-hidden="true">&laquo;</span>
+										</a>
+									</li>
+									<li><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">5</a></li>
+									<li><a href="#">6</a></li>
+									<li>
+										<a href="#" aria-label="Next">
+											<span aria-hidden="true">&raquo;</span>
+										</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+					<div style="text-align: right;" mt20">
+						<a href="yygl.html" target="ckjkda">
+							<button class="btn btn-success">返回</button>
+						</a>
+					</div>					
+				</div>				
+			</div>
+		</div>
+	</body>
+</html>

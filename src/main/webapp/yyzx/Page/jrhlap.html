@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../About/css/bootstrap.min.css">
+		<link href="../About/css/myCss.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/main.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/base.css" type="text/css" rel="stylesheet">
+		<!--按钮样式表-->
+		<link href="../About/css/btn.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/css.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/index.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/search.css" type="text/css" rel="stylesheet">
+		<script src="../About/js/jquery.min.js"></script>
+		<script src="../About/js/bootstrap.min.js"></script>
+		<script src="../About/js/jQuery.rTabs.js"></script>
+		<title>今日护理安排</title>
+		<script type="text/javascript">
+		//等待dom元素加载完毕。点击切换tab标签
+		$(function(){
+			$("#tab4").rTabs({
+				bind : 'click'
+			});
+			
+			$(".add_hlnr").click(function(){
+				//$("#hlnr").append("<input type='text' />");
+				$("#hlnr").append("<tr><td><input style='width:100%;border:0;' placeholder='请输入内容'/></td></tr>");
+			})
+
+		})
+		
+		var i = 0;
+		$(function(){
+			$('.ok').click(function(){
+				/*var content = $(this).parent().prevAll().eq(3).text();
+				var quantity = $(this).parent().prevAll().eq(1).text();
+				$("#used").append("<tr><td>"+i+"</td><td>"+content+"</td><td>2017-12-30 08:30:00</td><td>"+quantity+"</td><td><button class='btn btn-primary'>修改</button>&nbsp;<button class='btn btn-danger'>删除</button></td><tr>");*/
+				//$(this).css("background-color","gray"); 
+				$(this).parentsUntil("tbody").css("background-color","gray");
+				//$('button').attr('disabled',"true");
+			});
+			
+			$('.remove').click(function(){
+				$(this).parentsUntil("tbody").remove();
+			});
+		})
+		</script>
+	</head>
+	<body>
+		<div class="hljl_add page">
+			<div style="height:800px;" class="col-md-12 pd0 CPJBXX_RightContentBody mt20">
+				<div class="col-md-3 pd0 fmt5">
+					<div class="input-group inputWidth_search" >
+						<input type="text" class="form-control" placeholder="护理项目">
+						<span class="input-group-addon"><a href="javascript:alert('查询护理项目')">查询</a></span>								
+					</div>
+				</div>
+				<div class="col-md-12 pd0 fmt10">
+					<hr class="commonHRCss"/>
+				</div>						
+				<div class="col-md-12 pd0">
+					<div class="tab" id="tab4">
+						<div class="tab-nav j-tab-nav">
+							<a href="javascript:void(0);" class="current">&nbsp;&nbsp;夏王玲 1-101</a>
+							<a href="javascript:void(0);">&nbsp;&nbsp;王丽雅 1-102</a>
+						</div>
+						<div class="tab-con">
+							<div class="j-tab-con">
+								<div class="tab-con-item" style="display:block;">
+									<div class="col-md-12 pd10">
+										<div class="col-md-12 pd0">
+											<table class="table">
+												<thead>
+													<tr>
+														<th>
+															<center>
+																<font color="#000">序号</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">护理项目</font>
+															</center>
+														</th>
+														<!--<th>
+															<center>
+																<font color="#000">执行频次</font>
+															</center>
+														</th>-->
+														<th>
+															<center>
+																<font color="#000">执行时间</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">护理内容</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">操作</font>
+															</center>
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td><font color="#000">1</font></td>
+														<td><font color="#000">吸氧</font></td>
+														<!--<td><font color="#000">1天2次</font></td>-->
+														<td><font color="#000">2017-12-20 08:30</font></td>
+														<td><font color="#000"><input /></font></td>
+														<td>
+															<button class="btn btn-success ok"><span class="glyphicon glyphicon-ok"></span></button>
+															<button class="btn btn-danger remove"><span class="glyphicon glyphicon-remove"></span></button>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">2</font></td>
+														<td><font color="#000">测量血压</font></td>
+														<td><font color="#000">2017-12-20 08:40</font></td>
+														<td><font color="#000"><input /></font></td>
+														<td>
+															<button class="btn btn-success ok"><span class="glyphicon glyphicon-ok"></span></button>
+															<button class="btn btn-danger remove"><span class="glyphicon glyphicon-remove"></span></button>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">3</font></td>
+														<td><font color="#000">协助服药</font></td>
+														<td><font color="#000">2017-12-20 08:50</font></td>
+														<td><font color="#000"><input /></font></td>
+														<td>
+															<button class="btn btn-success ok"><span class="glyphicon glyphicon-ok"></span></button>
+															<button class="btn btn-danger remove"><span class="glyphicon glyphicon-remove"></span></button>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">4</font></td>
+														<td><font color="#000">穿衣</font></td>
+														<td><font color="#000">2017-12-20 09:00</font></td>
+														<td><font color="#000"><input /></font></td>
+														<td>
+															<button class="btn btn-success ok"><span class="glyphicon glyphicon-ok"></span></button>
+															<button class="btn btn-danger remove"><span class="glyphicon glyphicon-remove"></span></button>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">5</font></td>
+														<td><font color="#000">协助服药</font></td>
+														<td><font color="#000">2017-12-20 11:30</font></td>
+														<td><font color="#000"><input /></font></td>
+														<td>
+															<button class="btn btn-success ok"><span class="glyphicon glyphicon-ok"></span></button>
+															<button class="btn btn-danger remove"><span class="glyphicon glyphicon-remove"></span></button>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">6</font></td>
+														<td><font color="#000">吸氧</font></td>
+														<td><font color="#000">2017-12-20 18:30</font></td>
+														<td><font color="#000"><input /></font></td>
+														<td>
+															<button class="btn btn-success ok"><span class="glyphicon glyphicon-ok"></span></button>
+															<button class="btn btn-danger remove"><span class="glyphicon glyphicon-remove"></span></button>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">7</font></td>
+														<td><font color="#000">测量血压</font></td>
+														<td><font color="#000">2017-12-20 18:40</font></td>
+														<td><font color="#000"><input /></font></td>
+														<td>
+															<button class="btn btn-success ok"><span class="glyphicon glyphicon-ok"></span></button>
+															<button class="btn btn-danger remove"><span class="glyphicon glyphicon-remove"></span></button>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">8</font></td>
+														<td><font color="#000">协助服药</font></td>
+														<td><font color="#000">2017-12-20 18:50</font></td>
+														<td><font color="#000"><input /></font></td>
+														<td>
+															<button class="btn btn-success ok"><span class="glyphicon glyphicon-ok"></span></button>
+															<button class="btn btn-danger remove"><span class="glyphicon glyphicon-remove"></span></button>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+								<div class="tab-con-item">
+									<div class="col-md-12 pd10">
+										<div class="col-md-12 pd0">
+											<table class="table">
+												<thead>
+													<tr>
+														<th>
+															<center>
+																<font color="#000">序号</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">护理项目</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">执行频次</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">执行时间</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">护理内容</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">操作</font>
+															</center>
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td><font color="#000">1</font></td>
+														<td><font color="#000">吸氧</font></td>
+														<td><font color="#000">1天2次</font></td>
+														<td><font color="#000">2017-12-20 08:30</font></td>
+														<td><font color="#000"><input /></font></td>
+														<td>
+															<button class="btn btn-success ok"><span class="glyphicon glyphicon-ok"></span></button>
+															<button class="btn btn-danger remove"><span class="glyphicon glyphicon-remove"></span></button>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">2</font></td>
+														<td><font color="#000">测量血压</font></td>
+														<td><font color="#000">1天2次</font></td>
+														<td><font color="#000">2017-12-20 08:40</font></td>
+														<td><font color="#000"><input /></font></td>
+														<td>
+															<button class="btn btn-success ok"><span class="glyphicon glyphicon-ok"></span></button>
+															<button class="btn btn-danger remove"><span class="glyphicon glyphicon-remove"></span></button>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">3</font></td>
+														<td><font color="#000">协助服药</font></td>
+														<td><font color="#000">1天3次</font></td>
+														<td><font color="#000">2017-12-20 08:50</font></td>
+														<td><font color="#000"><input /></font></td>
+														<td>
+															<button class="btn btn-success ok"><span class="glyphicon glyphicon-ok"></span></button>
+															<button class="btn btn-danger remove"><span class="glyphicon glyphicon-remove"></span></button>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">4</font></td>
+														<td><font color="#000">穿衣</font></td>
+														<td><font color="#000">1天1次</font></td>
+														<td><font color="#000">2017-12-20 09:00</font></td>
+														<td><font color="#000"><input /></font></td>
+														<td>
+															<button class="btn btn-success ok"><span class="glyphicon glyphicon-ok"></span></button>
+															<button class="btn btn-danger remove"><span class="glyphicon glyphicon-remove"></span></button>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">5</font></td>
+														<td><font color="#000">协助服药</font></td>
+														<td><font color="#000">1天3次</font></td>
+														<td><font color="#000">2017-12-20 11:30</font></td>
+														<td><font color="#000"><input /></font></td>
+														<td>
+															<button class="btn btn-success ok"><span class="glyphicon glyphicon-ok"></span></button>
+															<button class="btn btn-danger remove"><span class="glyphicon glyphicon-remove"></span></button>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">6</font></td>
+														<td><font color="#000">测量血压</font></td>
+														<td><font color="#000">1天2次</font></td>
+														<td><font color="#000">2017-12-20 18:40</font></td>
+														<td><font color="#000"><input /></font></td>
+														<td>
+															<button class="btn btn-success ok"><span class="glyphicon glyphicon-ok"></span></button>
+															<button class="btn btn-danger remove"><span class="glyphicon glyphicon-remove"></span></button>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">7</font></td>
+														<td><font color="#000">协助服药</font></td>
+														<td><font color="#000">1天3次</font></td>
+														<td><font color="#000">2017-12-20 18:50</font></td>
+														<td><font color="#000"><input /></font></td>
+														<td>
+															<button class="btn btn-success ok"><span class="glyphicon glyphicon-ok"></span></button>
+															<button class="btn btn-danger remove"><span class="glyphicon glyphicon-remove"></span></button>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style="margin-left:-20px;" class="col-md-12 pd0">
+						<div class="col-md-12 text-right pd0 fmt20">
+							<nav aria-label="Page navigation">
+								<ul class="pagination">
+									<li>
+										<a href="#" aria-label="Previous">
+											<span aria-hidden="true">&laquo;</span>
+										</a>
+									</li>
+									<li><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">5</a></li>
+									<li><a href="#">6</a></li>
+									<li>
+										<a href="#" aria-label="Next">
+											<span aria-hidden="true">&raquo;</span>
+										</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+					<div style="text-align: right;" mt20">
+						<a href="hljl.html" target="ckjkda">
+							<button class="btn btn-success">返回</button>
+						</a>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</body>
+</html>

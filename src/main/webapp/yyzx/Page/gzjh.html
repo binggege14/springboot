@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../About/css/bootstrap.min.css">
+		<link href="../About/css/myCss.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/main.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/base.css" type="text/css" rel="stylesheet">
+		<!--按钮样式表-->
+		<link href="../About/css/btn.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/css.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/index.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/search.css" type="text/css" rel="stylesheet">
+		<script src="../About/js/jquery.min.js"></script>
+		<script src="../About/js/bootstrap.min.js"></script>
+		<!-- 日历 -->
+		<script src="../About/codebase/dhtmlxscheduler.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="../About/codebase/dhtmlxscheduler.css" type="text/css" charset="utf-8">
+		<script src="../About/codebase/locale/locale_cn.js" type="text/javascript" charset="utf-8"></script>
+		<title>工作计划</title>
+		<script type="text/javascript">
+		
+		$(function(){
+			$(".dhx_cal_tab.dhx_cal_tab_last").click();
+		
+			scheduler.config.multi_day = true;
+			scheduler.config.xml_date="%Y-%m-%d %H:%i";
+			//scheduler.init('scheduler_here',new Date(2017,11,18),"week");
+			scheduler.init('scheduler_here',new Date(),"week");
+			//scheduler.load("../About/samples/01_initialization_loading/data/events.xml");
+							
+			var events = [
+			{id:1, text:"Meeting",   start_date:"2018-05-05 14:00",end_date:"2018-05-05 17:00"},
+			{id:2, text:"Conference",start_date:"2018-05-06 12:00",end_date:"2018-05-06 19:00"},
+			{id:3, text:"Interview", start_date:"2018-05-07 09:00",end_date:"2018-05-07 10:00"}
+			];	 
+			scheduler.parse(events, "json");
+		})
+		</script>
+	</head>
+	<body>
+		<div class="hlnr page">
+			<div class="col-md-12 pd20 fmt10">				
+				<div class="col-md-12 pd0">
+					<ul class="nav nav-tabs" role="tablist">					
+						<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">工作计划</a></li>	
+						<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">工作安排</a></li>
+					</ul>
+					<div class="tab-content" style="height:95%;">
+						<div role="tabpanel" class="tab-pane active" id="home" style="height:100%;">
+							<div id="scheduler_here" class="dhx_cal_container" style='width:100%; height:100%;'>
+								<div class="dhx_cal_navline">
+									<div class="dhx_cal_prev_button">&nbsp;</div>
+									<div class="dhx_cal_next_button">&nbsp;</div>
+									<div class="dhx_cal_today_button"></div>
+									<div class="dhx_cal_date"></div>
+									<div class="dhx_cal_tab" name="day_tab" style="right:204px;"></div>
+									<div class="dhx_cal_tab" name="week_tab" style="right:140px;"></div>
+									<div class="dhx_cal_tab" name="month_tab" style="right:76px;"></div>
+								</div>
+								<div class="dhx_cal_header">
+								</div>
+								<div class="dhx_cal_data">
+								</div>
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="profile">
+							<div class="row">
+								<div class="col-md-12">
+									<h3 class="text-center"><a href="#" class="text-danger">2018年1月活动安排</a></h3>
+								</div>
+							</div>
+							<div class="table-responsive">
+								<table class="table table-bordered">
+									<thead>
+										<tr class="danger">
+											<th width="70">日期</th>
+											<th width="70">星期</th>
+											<th width="70">时间段</th>
+											<th width="180">地点</th>
+											<th>活动状态</th>
+											<th>活动人数</th>
+											<th>操作人</th>
+											<th>操作时间</th>
+											<th>活动内容</th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- 1.2 -->
+										<tr>
+											<td rowspan="2">1月2日</td>
+											<td rowspan="2">周二</td>
+											<td>上午 9:30~10:30</td>
+											<td>活动中心二楼201棋牌室</td>
+											<td>已发布</td>
+											<td>30</td>
+											<td>王</td>
+											<td>2018/1/2</td>
+											<td>
+												<ul>
+													<li><a href="huodong_detail.html" target="_blank">斗地主</a></li>
+												</ul>
+											</td>
+										</tr>
+										<tr>
+											<td>下午 14:00~15:00</td>
+											<td>活动中心二楼202画室</td>
+											<td>已发布</td>
+											<td>30</td>
+											<td>王</td>
+											<td>2018/1/2</td>
+											<td>
+												<ul>
+													<li><a href="huodong_detail.html" target="_blank">水墨画</a></li>
+												</ul>
+											</td>
+										</tr>
+										<!-- 1.4 -->
+										<tr>
+											<td rowspan="2">1月4日</td>
+											<td rowspan="2">周四</td>
+											<td>上午 9:30~10:30</td>
+											<td>活动中心二楼201棋牌室</td>
+											<td>已发布</td>
+											<td>30</td>
+											<td>王</td>
+											<td>2018/1/2</td>
+											<td>
+												<ul>
+													<li><a href="huodong_detail.html" target="_blank">斗地主</a></li>
+												</ul>
+											</td>
+										</tr>
+										<tr>
+											<td>下午 14:00~15:00</td>
+											<td>活动中心二楼202画室</td>
+											<td>已发布</td>
+											<td>30</td>
+											<td>王</td>
+											<td>2018/1/2</td>
+											<td>
+												<ul>
+													<li><a href="huodong_detail.html" target="_blank">水墨画</a></li>
+												</ul>
+											</td>
+										</tr>
+										<!-- 1.6 -->
+										<tr>
+											<td>1月6日</td>
+											<td>周六</td>
+											<td></td>
+											<td>
+											</td>
+											<td>
+											</td>
+										</tr>
+										<!-- 1.9 -->
+										<tr>
+											<td rowspan="2">1月9日</td>
+											<td rowspan="2">周二</td>
+											<td>上午 9:30~10:30</td>
+											<td>活动中心二楼201棋牌室</td>
+											<td>已发布</td>
+											<td>30</td>
+											<td>王</td>
+											<td>2018/1/2</td>
+											<td>
+												<ul>
+													<li><a href="huodong_detail.html" target="_blank">斗地主</a></li>
+												</ul>
+											</td>
+										</tr>
+										<tr>
+											<td>下午 14:00~15:00</td>
+											<td>活动中心二楼202画室</td>
+											<td>已发布</td>
+											<td>30</td>
+											<td>王</td>
+											<td>2018/1/2</td>
+											<td>
+												<ul>
+													<li><a href="huodong_detail.html" target="_blank">水墨画</a></li>
+												</ul>
+											</td>
+										</tr>
+										<!-- 1.11 -->
+										<tr>
+											<td rowspan="2">1月11日</td>
+											<td rowspan="2">周四</td>
+											<td>上午 9:30~10:30</td>
+											<td>活动中心二楼201棋牌室</td>
+											<td>已发布</td>
+											<td>30</td>
+											<td>王</td>
+											<td>2018/1/2</td>
+											<td>
+												<ul>
+													<li><a href="huodong_detail.html" target="_blank">斗地主</a></li>
+												</ul>
+											</td>
+										</tr>
+										<tr>
+											<td>下午 14:00~15:00</td>
+											<td>活动中心二楼202画室</td>
+											<td>已发布</td>
+											<td>30</td>
+											<td>王</td>
+											<td>2018/1/2</td>
+											<td>
+												<ul>
+													<li><a href="huodong_detail.html" target="_blank">水墨画</a></li>
+												</ul>
+											</td>
+										</tr>
+										<!-- 1.13 -->
+										<tr>
+											<td>1月13日</td>
+											<td>周六</td>
+											<td></td>
+											<td>
+											</td>
+											<td>
+											</td>
+											<td>
+											</td>
+										</tr>
+
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

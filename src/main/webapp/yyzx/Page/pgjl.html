@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../About/css/bootstrap.min.css">
+		<link href="../About/css/myCss.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/main.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/base.css" type="text/css" rel="stylesheet">
+		<!--按钮样式表-->
+		<link href="../About/css/btn.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/css.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/index.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/search.css" type="text/css" rel="stylesheet">
+		<script src="../About/js/jquery.min.js"></script>
+		<script src="../About/js/bootstrap.min.js"></script>
+		<title>评估记录</title>
+		<script type="text/javascript">
+		$(function(){
+
+		})
+		</script>
+	</head>
+	<body>
+		<div class="hlfxpg page">
+			<div class="col-md-12 pd20 RightContentBody fmt10">
+				<div class="col-md-3 pd0 fmt5">
+					<div class="input-group inputWidth_search" >
+						<input type="text" class="form-control" placeholder="请输入【客户姓名】">
+						<span class="input-group-addon"><a href="javascript:alert('查询风险评估')">查询</a></span>								
+					</div>
+				</div>
+				<div class="col-md-9 pd0 fmt5">
+					<button class="btn btn-primary" data-toggle="modal" data-target=".myModal1"><span class="glyphicon glyphicon-plus"></span>&nbsp;开始评估</button> 
+				</div>			
+				<div class="modal fade myModal1">
+					<div class="modal-dialog">
+						<div class="modal-content" style="width:100%;">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<span class="glyphicon glyphicon-pencil"></span>&nbsp;【选择模板】
+							</div>
+							<div class="modal-body clearfix" style="height: auto;">
+								<div class="col-md-12 pd0">
+									<div class="col-md-1 pd0 mt10"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;请选择评估模板：</span>
+												<select class="form-control" >
+													<option>护理评估模板</option>
+													<option>健康评估模板</option>
+													<option>活动评估模板</option>
+													<option>膳食评估模板</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0 mt10"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;评估有效期：</span>
+												<input class="form-control" placeholder="3个月"/>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+							</div>
+							<div class="modal-footer mt20">
+								<!--<a href="pgnr.html" target="ckjkda">
+									<button class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>&nbsp;确定</button>
+								</a>-->
+								<a href="hlfxpg2.html" target="ckjkda">
+									<button class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>&nbsp;确定</button>
+								</a>
+								<button type="button" class="btn btn-default" data-dismiss="modal">
+									取消
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12 pd0 fmt10">
+					<hr class="commonHRCss"/>
+				</div>
+				<div class="col-md-12 pd0">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th></th>
+								<th>序号</th>
+								<th>客户姓名</th>
+								<th>性别</th>
+								<th>年龄</th>
+								<th>评估模板</th>
+								<th>评估类型</th>
+								<th>评估原因</th>
+								<th>评估时间</th>
+								<th>有效期</th>
+								<th>评估人</th>
+								<th>最新评估结论</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><input type="checkbox"></td>
+								<td>1</td>
+								<td>夏王玲</td>
+								<td>女</td>
+								<td>63</td>
+								<td>护理评估模板</td>
+								<td>护理评估</td>
+								<td>近期身体不佳</td>
+								<td>2017-12-20</td>
+								<td>3个月</td>
+								<td>张主任</td>
+								<td>有轻微中风迹象，注意按时吃药，及时测量血压</td>
+								<!--<td>
+									<a href="lspgjl.html" target="ckjkda">
+										<button class="btn btn-success">查看</button>
+									</a>
+								</td>-->
+								<td>
+									<a href="hlpgjg_ck2.html" target="ckjkda">
+										<button class="btn btn-success">详情</button>
+									</a>
+									<a href="hlpgjl2.html" target="ckjkda">
+										<button class="btn btn-success">历史评估记录</button>
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox"></td>
+								<td>2</td>
+								<td>王丽雅</td>
+								<td>女</td>
+								<td>65</td>
+								<td>护理评估模板</td>
+								<td>护理评估</td>
+								<td>定期评估</td>
+								<td>2017-12-20</td>
+								<td>3个月</td>
+								<td>张主任</td>
+								<td></td>
+								<td>
+									<a href="hlpgjg_ck.html" target="ckjkda">
+										<button class="btn btn-success">详情</button>
+									</a>
+									<a href="hlpgjl.html" target="ckjkda">
+										<button class="btn btn-success">历史评估记录</button>
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox"></td>
+								<td>3</td>
+								<td>贾文</td>
+								<td>男</td>
+								<td>66</td>
+								<td>护理评估模板</td>
+								<td>护理评估</td>
+								<td>评估的原因在此编辑</td>
+								<td>2017-12-20</td>
+								<td>3个月</td>
+								<td>张主任</td>
+								<td></td>
+								<td>
+									<a href="hlpgjg_ck.html" target="ckjkda">
+										<button class="btn btn-success">详情</button>
+									</a>
+									<a href="hlpgjl.html" target="ckjkda">
+										<button class="btn btn-success">历史评估记录</button>
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox"></td>
+								<td>4</td>
+								<td>周安</td>
+								<td>男</td>
+								<td>68</td>
+								<td>护理评估模板</td>
+								<td>护理评估</td>
+								<td>评估的原因在此编辑</td>
+								<td>2017-12-20</td>
+								<td>3个月</td>
+								<td>张主任</td>
+								<td></td>
+								<td>
+									<a href="hlpgjg_ck.html" target="ckjkda">
+										<button class="btn btn-success">详情</button>
+									</a>
+									<a href="hlpgjl.html" target="ckjkda">
+										<button class="btn btn-success">历史评估记录</button>
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox"></td>
+								<td>5</td>
+								<td>万淑兰</td>
+								<td>女</td>
+								<td>72</td>
+								<td>护理评估模板</td>
+								<td>护理评估</td>
+								<td>评估的原因在此编辑</td>
+								<td>2017-12-20</td>
+								<td>3个月</td>
+								<td>张主任</td>
+								<td></td>
+								<td>
+									<a href="hlpgjg_ck.html" target="ckjkda">
+										<button class="btn btn-success">详情</button>
+									</a>
+									<a href="hlpgjl.html" target="ckjkda">
+										<button class="btn btn-success">历史评估记录</button>
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox"></td>
+								<td>6</td>
+								<td>樊迪</td>
+								<td>女</td>
+								<td>71</td>
+								<td>护理评估模板</td>
+								<td>护理评估</td>
+								<td>评估的原因在此编辑</td>
+								<td>2017-12-20</td>
+								<td>3个月</td>
+								<td>张主任</td>
+								<td></td>
+								<td>
+									<a href="hlpgjg_ck.html" target="ckjkda">
+										<button class="btn btn-success">详情</button>
+									</a>
+									<a href="hlpgjl.html" target="ckjkda">
+										<button class="btn btn-success">历史评估记录</button>
+									</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-md-12 pd0">
+					<div class="col-md-12 text-right pd0 fmt20">
+						<nav aria-label="Page navigation">
+							<ul class="pagination">
+								<li>
+									<a href="#" aria-label="Previous">
+										<span aria-hidden="true">&laquo;</span>
+									</a>
+								</li>
+								<li><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+								<li><a href="#">6</a></li>
+								<li>
+									<a href="#" aria-label="Next">
+										<span aria-hidden="true">&raquo;</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

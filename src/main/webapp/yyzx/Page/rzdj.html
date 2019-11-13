@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../About/css/bootstrap.min.css">
+		<link href="../About/css/myCss.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/main.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/base.css" type="text/css" rel="stylesheet">
+		<!--按钮样式表-->
+		<link href="../About/css/btn.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/css.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/index.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/search.css" type="text/css" rel="stylesheet">
+		<script src="../About/js/jquery.min.js"></script>
+		<script src="../About/js/bootstrap.min.js"></script>
+		<title>入住登记</title>
+		<script type="text/javascript">
+		$(function(){
+
+		})
+		</script>
+	</head>
+	<body>
+		<div class="hlnr page">
+			<div class="col-md-12 pd20 RightContentBody fmt10">
+				<div class="col-md-3 pd0 fmt5">
+					<div class="input-group inputWidth_search" >
+						<input type="text" class="form-control" placeholder="客户姓名">
+						<span class="input-group-addon"><a href="javascript:alert('查询')">查询</a></span>								
+					</div>
+				</div>
+				<div class="col-md-9 pd0 fmt5">
+					<button class="btn btn-primary" data-toggle="modal" data-target=".myModal1"><span class="glyphicon glyphicon-plus"></span>&nbsp;登记</button> 
+				</div>			
+				<div class="modal fade myModal1">
+					<div class="modal-dialog">
+						<div class="modal-content" style="width:100%;">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<span class="glyphicon glyphicon-pencil"></span>&nbsp;【入住登记】
+							</div>
+							<div class="modal-body clearfix" style="height: auto;">
+								<div class="col-md-12 pd0">
+									<div class="col-md-1 pd0 mt10"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;客户姓名：</span>
+												<input type="text" class="form-control" placeholder="请输入【客户姓名】信息">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;年龄：</span>
+												<input type="text" class="form-control" placeholder="请输入【年龄】信息">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;性别：</span>
+												<select class="form-control" >
+													<option>男</option>
+													<option>女</option>
+													<option>其他</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;身份证号：</span>
+												<input type="text" class="form-control" placeholder="请输入【身份证号】信息">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;房间号：</span>
+												<input type="text" class="form-control" placeholder="请输入【房间号】信息">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;所属楼房：</span>
+												<input type="text" class="form-control" placeholder="请输入【所属楼房】信息">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;档案号：</span>
+												<input type="text" class="form-control" placeholder="请输入【档案号】信息">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;老人类型：</span>
+												<select class="form-control" >
+													<option>活力老人</option>
+													<option>自理老人</option>
+													<option>护理老人</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;入住时间：</span>
+												<input type="date" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;合同到期时间：</span>
+												<input type="date" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;联系电话：</span>
+												<input type="text" class="form-control" placeholder="请输入【联系电话】信息">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<!--<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;家属：</span>
+												<input type="text" class="form-control" placeholder="请输入【家属】信息">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;陪住人：</span>
+												<input type="text" class="form-control" placeholder="请输入【陪住人】信息">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;评估医生：</span>
+												<select class="form-control">
+													<option>请选择</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;负责医生：</span>
+												<select class="form-control">
+													<option>请选择</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;护工：</span>
+												<select class="form-control">
+													<option>请选择</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;健康管家：</span>
+												<select class="form-control">
+													<option>请选择</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>-->							
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;备注：</span>
+												<input type="text" class="form-control" aria-describedby="basic-addon1">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+							</div>
+							<div class="modal-footer mt20">
+								<button type="button" class="btn btn-primary" data-dismiss="modal">
+									确定
+								</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">
+									取消
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12 pd0 fmt10">
+					<hr class="commonHRCss"/>
+				</div>
+				<div class="col-md-12 pd0">
+					<ul id="myTab" class="nav nav-pills">
+						<li class="active"><a href="#hllr" data-toggle="tab">活力老人</a></li>
+						<li><a href="#zllr" data-toggle="tab">自理老人</a></li>
+						<li><a href="#hllr" data-toggle="tab">护理老人</a></li>
+					</ul>
+					<div id="myTabContent" class="tab-content">
+						<div class="tab-pane fade in active" id="hllr">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>序号</th>
+										<th>客户姓名</th>
+										<th>性别</th>
+										<th>年龄</th>
+										<th>身份证号</th>
+										<th>房间号</th>
+										<th>所属楼房</th>
+										<th>档案号</th>
+										<th>入住时间</th>
+										<th>合同到期时间</th>
+										<th>联系电话</th>
+										<th>家属</th>
+										<th>陪住人</th>
+										<th>评估医生</th>
+										<th>负责医生</th>
+										<th>护工</th>
+										<th>健康管家</th>
+										<th>备注</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>李艳</td>
+										<td>女</td>
+										<td>63</td>
+										<td>230433195509231016</td>
+										<td>1003</td>
+										<td>幸福花园13#</td>								
+										<td>KHDA20171212001</td>
+										<td>2016-12-12</td>
+										<td>2017-12-12</td>
+										<td>15815815815</td>
+										<td><a href="#" target="ckjkda">--</a></td>
+										<td><a href="#" target="ckjkda">--</a></td>
+										<td>--</td>
+										<td>--</td>
+										<td>--</td>
+										<td>--</td>
+										<td></td>
+										<td>
+											<button class="btn btn-primary" data-toggle="modal" data-target=".myModal1">修改</button>
+											<button class="btn btn-danger">删除</button>
+										</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>赵子琪</td>
+										<td>女</td>
+										<td>66</td>
+										<td>320110195205231013</td>
+										<td>202</td>
+										<td>幸福花园19#</td>								
+										<td>KHDA20171212002</td>
+										<td>2017-01-01</td>
+										<td>2018-01-01</td>
+										<td>15915815816</td>
+										<td><a href="#" target="ckjkda">徐建坤</a></td>
+										<td><a href="#" target="ckjkda">唐敏</a></td>
+										<td>徐伟</td>
+										<td>林杰</td>
+										<td>陈龙</td>
+										<td>唐磊</td>
+										<td></td>
+										<td>
+											<button class="btn btn-primary" data-toggle="modal" data-target=".myModal1">修改</button>
+											<button class="btn btn-danger">删除</button>
+										</td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td>甄慈松</td>
+										<td>男</td>
+										<td>73</td>
+										<td>321431194509232026</td>
+										<td>301</td>
+										<td>幸福花园18#</td>								
+										<td>KHDA20171212003</td>
+										<td>2017-12-20</td>
+										<td>2019-12-20</td>
+										<td>15715815717</td>
+										<td><a href="#" target="ckjkda">贾似道</a></td>
+										<td><a href="#" target="ckjkda">朱佳</a></td>
+										<td>徐伟</td>
+										<td>林杰</td>
+										<td>陈龙</td>
+										<td>唐磊</td>
+										<td></td>
+										<td>
+											<button class="btn btn-primary" data-toggle="modal" data-target=".myModal1">修改</button>
+											<button class="btn btn-danger">删除</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="tab-pane" id="zllr">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>序号</th>
+										<th>客户姓名</th>
+										<th>性别</th>
+										<th>年龄</th>
+										<th>身份证号</th>
+										<th>房间号</th>
+										<th>所属楼房</th>
+										<th>档案号</th>
+										<th>入住时间</th>
+										<th>合同到期时间</th>
+										<th>联系电话</th>
+										<th>家属</th>
+										<th>陪住人</th>
+										<th>评估医生</th>
+										<th>负责医生</th>
+										<th>护工</th>
+										<th>健康管家</th>
+										<th>备注</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>夏王玲</td>
+										<td>女</td>
+										<td>63</td>
+										<td>320111195509231016</td>
+										<td>201</td>
+										<td>幸福花园19#</td>								
+										<td>KHDA20171212001</td>
+										<td>2016-12-12</td>
+										<td>2017-12-12</td>
+										<td>15815815815</td>
+										<td><a href="#" target="ckjkda">李柏</a></td>
+										<td><a href="#" target="ckjkda">胡丽</a></td>
+										<td>徐伟</td>
+										<td>林杰</td>
+										<td>陈龙</td>
+										<td>唐磊</td>
+										<td></td>
+										<td>
+											<button class="btn btn-primary" data-toggle="modal" data-target=".myModal1">修改</button>
+											<button class="btn btn-danger">删除</button>
+										</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>王丽雅</td>
+										<td>女</td>
+										<td>66</td>
+										<td>320110195205231013</td>
+										<td>202</td>
+										<td>幸福花园19#</td>								
+										<td>KHDA20171212002</td>
+										<td>2017-01-01</td>
+										<td>2018-01-01</td>
+										<td>15915815816</td>
+										<td><a href="#" target="ckjkda">徐建坤</a></td>
+										<td><a href="#" target="ckjkda">唐敏</a></td>
+										<td>徐伟</td>
+										<td>林杰</td>
+										<td>陈龙</td>
+										<td>唐磊</td>
+										<td></td>
+										<td>
+											<button class="btn btn-primary" data-toggle="modal" data-target=".myModal1">修改</button>
+											<button class="btn btn-danger">删除</button>
+										</td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td>贾文</td>
+										<td>男</td>
+										<td>73</td>
+										<td>320121194509232026</td>
+										<td>301</td>
+										<td>幸福花园18#</td>								
+										<td>KHDA20171212003</td>
+										<td>2017-12-20</td>
+										<td>2019-12-20</td>
+										<td>15715815717</td>
+										<td><a href="#" target="ckjkda">贾似道</a></td>
+										<td><a href="#" target="ckjkda">朱佳</a></td>
+										<td>徐伟</td>
+										<td>林杰</td>
+										<td>陈龙</td>
+										<td>唐磊</td>
+										<td></td>
+										<td>
+											<button class="btn btn-primary" data-toggle="modal" data-target=".myModal1">修改</button>
+											<button class="btn btn-danger">删除</button>
+										</td>
+									</tr>
+									<!--<tr>
+										<td>4</td>
+										<td>周安</td>
+										<td>男</td>
+										<td>63</td>
+										<td>320111196509231016</td>
+										<td>305</td>
+										<td>幸福花园19#</td>								
+										<td>KHDA20171212001</td>
+										<td>2017-12-12</td>
+										<td>2017-12-12</td>
+										<td>15815815815</td>
+										<td><a href="#" target="ckjkda">徐建坤</a></td>
+										<td><a href="#" target="ckjkda">胡丽</a></td>
+										<td>徐伟</td>
+										<td>林杰</td>
+										<td>陈龙</td>
+										<td>唐磊</td>
+										<td></td>
+										<td>
+											<button class="btn btn-primary" data-toggle="modal" data-target=".myModal1">修改</button>
+											<button class="btn btn-danger">删除</button>
+										</td>
+									</tr>
+									<tr>
+										<td>5</td>
+										<td>万淑兰</td>
+										<td>女</td>
+										<td>63</td>
+										<td>320111196509231016</td>
+										<td>305</td>
+										<td>幸福花园19#</td>								
+										<td>KHDA20171212001</td>
+										<td>2017-12-12</td>
+										<td>2017-12-12</td>
+										<td>15815815815</td>
+										<td><a href="#" target="ckjkda">徐建坤</a></td>
+										<td><a href="#" target="ckjkda">胡丽</a></td>
+										<td>徐伟</td>
+										<td>林杰</td>
+										<td>陈龙</td>
+										<td>唐磊</td>
+										<td></td>
+										<td>
+											<button class="btn btn-primary" data-toggle="modal" data-target=".myModal1">修改</button>
+											<button class="btn btn-danger">删除</button>
+										</td>
+									</tr>
+									<tr>
+										<td>6</td>
+										<td>樊迪</td>
+										<td>女</td>
+										<td>63</td>
+										<td>320111196509231016</td>
+										<td>305</td>
+										<td>幸福花园19#</td>								
+										<td>KHDA20171212001</td>
+										<td>2017-12-12</td>
+										<td>2017-12-12</td>
+										<td>15815815815</td>
+										<td><a href="#" target="ckjkda">徐建坤</a></td>
+										<td><a href="#" target="ckjkda">胡丽</a></td>
+										<td>徐伟</td>
+										<td>林杰</td>
+										<td>陈龙</td>
+										<td>唐磊</td>
+										<td></td>
+										<td>
+											<button class="btn btn-primary" data-toggle="modal" data-target=".myModal1">修改</button>
+											<button class="btn btn-danger">删除</button>
+										</td>
+									</tr>-->
+								</tbody>
+							</table>
+						</div>
+						<div class="tab-pane" id="hllr">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>序号</th>
+										<th>客户姓名</th>
+										<th>性别</th>
+										<th>年龄</th>
+										<th>身份证号</th>
+										<th>房间号</th>
+										<th>所属楼房</th>
+										<th>档案号</th>
+										<th>入住时间</th>
+										<th>合同到期时间</th>
+										<th>联系电话</th>
+										<th>家属</th>
+										<th>陪住人</th>
+										<th>评估医生</th>
+										<th>负责医生</th>
+										<th>护工</th>
+										<th>健康管家</th>
+										<th>备注</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody><tr>
+										<td>4</td>
+										<td>周安</td>
+										<td>男</td>
+										<td>63</td>
+										<td>320111196509231016</td>
+										<td>305</td>
+										<td>幸福花园19#</td>								
+										<td>KHDA20171212001</td>
+										<td>2017-12-12</td>
+										<td>2017-12-12</td>
+										<td>15815815815</td>
+										<td><a href="#" target="ckjkda">徐建坤</a></td>
+										<td><a href="#" target="ckjkda">胡丽</a></td>
+										<td>徐伟</td>
+										<td>林杰</td>
+										<td>陈龙</td>
+										<td>唐磊</td>
+										<td></td>
+										<td>
+											<button class="btn btn-primary" data-toggle="modal" data-target=".myModal1">修改</button>
+											<button class="btn btn-danger">删除</button>
+										</td>
+									</tr>
+									<tr>
+										<td>5</td>
+										<td>万淑兰</td>
+										<td>女</td>
+										<td>63</td>
+										<td>320111196509231016</td>
+										<td>305</td>
+										<td>幸福花园19#</td>								
+										<td>KHDA20171212001</td>
+										<td>2017-12-12</td>
+										<td>2017-12-12</td>
+										<td>15815815815</td>
+										<td><a href="#" target="ckjkda">徐建坤</a></td>
+										<td><a href="#" target="ckjkda">胡丽</a></td>
+										<td>徐伟</td>
+										<td>林杰</td>
+										<td>陈龙</td>
+										<td>唐磊</td>
+										<td></td>
+										<td>
+											<button class="btn btn-primary" data-toggle="modal" data-target=".myModal1">修改</button>
+											<button class="btn btn-danger">删除</button>
+										</td>
+									</tr>
+									<tr>
+										<td>6</td>
+										<td>樊迪</td>
+										<td>女</td>
+										<td>63</td>
+										<td>320111196509231016</td>
+										<td>305</td>
+										<td>幸福花园19#</td>								
+										<td>KHDA20171212001</td>
+										<td>2017-12-12</td>
+										<td>2017-12-12</td>
+										<td>15815815815</td>
+										<td><a href="#" target="ckjkda">徐建坤</a></td>
+										<td><a href="#" target="ckjkda">胡丽</a></td>
+										<td>徐伟</td>
+										<td>林杰</td>
+										<td>陈龙</td>
+										<td>唐磊</td>
+										<td></td>
+										<td>
+											<button class="btn btn-primary" data-toggle="modal" data-target=".myModal1">修改</button>
+											<button class="btn btn-danger">删除</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					
+				</div>
+				<div class="col-md-12 pd0">
+					<div class="col-md-12 text-right pd0 fmt20">
+						<nav aria-label="Page navigation">
+							<ul class="pagination">
+								<li>
+									<a href="#" aria-label="Previous">
+										<span aria-hidden="true">&laquo;</span>
+									</a>
+								</li>
+								<li><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+								<li><a href="#">6</a></li>
+								<li>
+									<a href="#" aria-label="Next">
+										<span aria-hidden="true">&raquo;</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

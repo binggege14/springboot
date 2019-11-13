@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible"
+	content="IE=11;IE=10;IE=9; IE=8; IE=7; IE=EDGE">
+
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+
+<link href="../About/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+<script src="../External/jquery.min.js"></script>
+<script src="../About/js/bootstrap.min.js"></script>
+<script src="../External/tabutils.js"></script>
+<script src="../External/underscore.min.js"></script>
+
+<title>胡步通-评估详情</title>
+
+<style type="text/css">
+::-ms-clear, ::-ms-reveal {
+	display: none;
+}
+
+.op_text_a {
+	font-size: 12px;
+	color: #000;
+	vertical-align: middle;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+.dialog_ttile_td {
+	width: 65px;height: 28px;text-align: right;
+}
+.dialog_info_td {
+	width: 180px;height: 28px;text-align: left;
+}
+
+#info_table td{
+     border-top: 1px solid #95b8e7;
+     font-size: 14px;
+}
+
+.td1{
+	width:10%;
+	height: 32px;
+	line-height: 32px;
+	background: #ecf4ff;
+	border-right: 1px solid #95b8e7;
+	text-align: right;
+}
+.td2{
+	width:23%;
+	height: 32px;
+	line-height: 32px;
+	border-right: 1px solid #95b8e7;
+	background: #fff
+}
+.td3{
+	width:10%;
+	height: 80px;
+	line-height: 80px;
+	background: #ecf4ff;
+	border-right: 1px solid #95b8e7;
+	text-align: right;
+}
+
+.content_span {
+	font-size: 14px;
+	margin-left: 10px;
+}
+
+.mybadge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 5px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #716a6a;
+    border-radius: 10px;
+}
+</style>
+<script type="text/javascript">
+	
+	var record = {"amount":40,"endTime":"2018-03-28 09:32:23","id":122,"isOutPlan":0,"npjId":14,"nurseUid":2122,"nurseUserName":"黄文革","obiId":7,"operateDate":"2018-03-28 09:32:41","operateOrgId":8,"operateUid":651,"price":40,"projectDto":{"content":"","id":14,"name":"协助服药","nptId":7,"operateDate":"2016-09-20 14:13:20","operateOrgId":8,"operateUid":651,"orgId":8,"price":40,"remark":"","seqNO":"HLXM000005","status":1,"typeDto":{"id":7,"name":"康复保健护理","operateDate":"2016-09-20 14:10:09","operateOrgId":8,"operateUid":651,"orgId":8,"remark":"无","status":1},"unitType":"CS"},"quantity":1,"remark":"","startTime":"2018-03-28 09:32:23"};
+	var info = {"belief":"islam","birthday":-1271232000000,"company":"","country":"ZG","familyAddress":"","headPhotoURL":"/resources/upload/1501636978859.jpg","healthInsuranceNO":"342425199008185506","height":0,"id":7,"idNO":"342425199008185506","idType":"SFZ","literacy":"3","lunarBirthday":-1273478400000,"maritalStatus":"1","medicare":"1","name":"夏望林","nation":"2","nativePlace":"","nickname":"小林","oldieType":"WBH","operateDate":"2017-08-02 09:23:00","operateOrgId":8,"operateUid":651,"orgId":8,"phoneNum":"13788891222","politicsStatus":"independentdemocrats","professional":"","residentAddr":"","seqNO":"LR000006","sex":1,"spouseObiId":0,"total":0,"uid":2052};
+	
+	$(function(){
+		//fillData();
+		
+		initBtns();
+	})
+	
+	function fillData() {
+	
+		$('#price').html(moneyFmt(record.price));
+		$('#amount').html(moneyFmt(record.amount));
+		$('#quantity').html(record.quantity);
+		
+		$("#oldie_name").html(info.name);
+		$("#oldie_seqNo").html(info.seqNO);
+		
+		if(record.isOutPlan) {
+			$("#isOutPlanStr").html("护理配置外项目");
+		} else {
+			$("#isOutPlanStr").html("护理配置内项目");
+		}
+		
+		if (record.projectDto) {
+			$("#projectName").html(record.projectDto.name);
+			if (record.projectDto.typeDto) {
+				$("#typeName").html(record.projectDto.typeDto.name);
+			}
+		}
+		
+		$("#startTime").html(record.startTime);
+		$("#endTime").html(record.endTime);
+		
+		$("#remark").html(record.remark ? record.remark : '');
+		
+		$("#nurseUserName").html(record.nurseUserName);
+	}
+	
+	function moneyFmt(val) {
+		return biao.money(val, 2, "0.00");
+	}
+
+	function initBtns() {
+		$("#closeTabBtn").click(function() {
+			closeTab();
+		});
+	}
+	
+	function closeTab() {
+		var title=info.name + "护理记录详情";
+		if(parent.$("#indextabs").tabs("exists",title)) {//  if 是用来查询
+			parent.$("#indextabs").tabs("close",title);
+		}
+	}
+
+</script>
+
+</head>
+
+<body style="font-family: Arial, 微软雅黑;">
+
+	<div >
+		<table id="info_table" style="border-collapse:collapse; width:96%;margin-left: 2%;margin-top: 30px; border: 1px solid #95b8e7;" >
+			<tr>
+				<td class="td1">客户:&emsp;</td>
+				<td class="td2">&emsp;胡步通</td>
+				<td class="td1">评估医生:&emsp;</td>
+				<td class="td2">&emsp;欧阳锋</span></td>
+			</tr>
+			<tr>
+				<td class="td1">1.1进食:&emsp;</td>
+				<td class="td2">&emsp;需要别人协助，如切碎、搅拌等或只能使用汤匙进食。（3分）</td>
+				<td class="td1">1.2个人卫生:&emsp;</td>
+				<td class="td2">&emsp;需要部分协助或只能完成部分活动。（3分）</span></td>
+			</tr>
+			<tr>
+				<td class="td1">1.3洗澡:&emsp;</td>
+				<td class="td2">&emsp;需要部分协助。（3分）</td>
+				<td class="td1">1.4穿脱衣服:&emsp;</td>
+				<td class="td2">&emsp;在别人的帮助下，能完成一半以上的动作。（3分）</td>
+			</tr>
+			<tr>
+				<td class="td1">1.5如厕及大小便:&emsp;</td>
+				<td class="td2">&emsp;基本上能自行如厕和使用便盆，偶尔失禁（每周不超过一次）。（1分）</td>
+				<td class="td1">1.6移动:&emsp;</td>
+				<td class="td2">&emsp;需要轻扶或口头指导等轻微协助。（1分）</span></td>
+			</tr>
+			<tr>
+				<td class="td1">2.1使用电话:&emsp;</td>
+				<td class="td2">&emsp;仅能拨熟悉的电话号码。（1分）</td>
+				<td class="td1">2.2外出购物:&emsp;</td>
+				<td class="td2">&emsp;每次外出购物都需要人陪。（2分）</span></td>
+			</tr>
+			<tr>
+				<td class="td1">2.3烹饪:&emsp;</td>
+				<td class="td2">&emsp;能将已做好的饭菜加热。（2分）</span></td>
+				<td class="td1">2.4料理家务:&emsp;</td>
+				<td class="td2">&emsp;做简单的家务，但达不到可接受的整洁度。（2分）</span></td>
+			</tr>
+			<tr>
+				<td class="td1">2.5洗衣服:&emsp;</td>
+				<td class="td2">&emsp;只能自己清洗小物件。（1分）</td>
+				<td class="td1">2.6外出:&emsp;</td>
+				<td class="td2">&emsp;能独立乘出租车外出，但不便乘公交车外出。（1分）</td>
+			</tr>
+			<tr>
+				<td class="td1">2.7服用药物:&emsp;</td>
+				<td class="td2">&emsp;需要提醒或少许协助。（1分）</td>
+				<td class="td1">2.8处理财务:&emsp;</td>
+				<td class="td2">&emsp;只能处理日常生活用品的购买。（1分）</td>
+			</tr>
+			<tr>
+				<td class="td1">总&emsp;&emsp;分:&emsp;</td>
+				<td class="td2">&emsp;25分</td>
+				<td class="td1">护理级别:&emsp;</td>
+				<td class="td2">&emsp;<span class="mybadge">一级</span></td>
+			</tr>			
+			<tr>
+				<td class="td1">风险评估:&emsp;</td>
+				<td class="td2" style="height: 80px;">
+					<textarea style="margin-top:10px ;width: 100%; height: 100%;">&emsp;有轻微中风迹象，注意按时吃药，及时测量血压。</textarea>
+				</td>
+				<td class="td1">医嘱:&emsp;</td>
+				<td class="td2" style="height: 80px;">
+					<textarea style="margin-top:10px ;width: 100%; height: 100%;">&emsp;康泰：口服，一天3次，一次3粒；罗红霉素分散片：口服，一天1次，一次1粒。</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td class="td1">活动能力:&emsp;</td>
+				<td class="td2" style="height: 80px;">
+					<textarea style="margin-top:10px ;width: 100%; height: 100%;">&emsp;不能长时间行走，出门需专人看护。</textarea>
+				</td>
+				<td class="td1">膳食提醒:&emsp;</td>
+				<td class="td2" style="height: 80px;">
+					<textarea style="margin-top:10px ;width: 100%; height: 100%;">适宜低盐、低脂的菜品。</textarea>
+				</td>
+			</tr>
+			<tr>				
+				<td class="td1">护理项目:&emsp;</td>
+				<td class="td2" style="height: 80px;" colspan="3">
+					<div class="col-md-12" style="height:100%">
+						<div class="col-md-12" style="height:100%">
+							<div class="col-md-6" style="margin-left: -30px;border-right: 1px solid #e5e5e5;height: 100%;">
+								护理配置内项目：
+								<span class="mybadge">协助服药</span>
+								<span class="mybadge">穿衣</span>
+								<span class="mybadge">翻身</span>
+							</div>
+							<div class="col-md-6">
+								护理配置外项目：
+								<span class="mybadge">针灸</span>
+							</div>						
+						</div>
+					</div>					
+				</td>
+			</tr>
+		</table>
+	</div>	
+	<div style="border: 0px; margin-left: 0px; height: 60px;">
+		<div style="text-align: center; margin-top: 40px;">
+			<a href="pgjl.html" target="ckjkda">
+				<button class="btn btn-danger"><span class="glyphicon glyphicon-ok"></span>&nbsp;关闭</button>
+			</a>
+		</div>
+	</div>
+</body>
+</html>

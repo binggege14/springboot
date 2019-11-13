@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../About/css/bootstrap.min.css">
+		<link href="../About/css/myCss.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/main.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/base.css" type="text/css" rel="stylesheet">
+		<!--按钮样式表-->
+		<link href="../About/css/btn.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/css.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/index.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/search.css" type="text/css" rel="stylesheet">
+		<script src="../About/js/jquery.min.js"></script>
+		<script src="../About/js/bootstrap.min.js"></script>
+		<title>护理评估记录2</title>
+		<script type="text/javascript">
+		$(function(){
+			$(".back_hljb").click(function(){
+				//$(".share").hide();
+				//$(".hljb").show();
+				
+				//$("#share").css('display','none'); 
+				//$("#hljb").css('display','block'); 
+				
+				//$("#share").style.display = 'none';
+			});		
+
+			function shanchu(){
+			
+			}
+			
+			// 开始风险评估
+			$(".open_hlfxpg").click(function(){
+				//$(".page").hide();				
+				//$(this).parents().hide();				
+				//$(this).parents().not(".ckjkda").hide();
+			});
+		})
+		</script>
+	</head>
+	<body>
+		<div>
+			<!--<div style="padding-left: 15px;">
+				<button class="btn btn-primary" data-toggle="modal" data-target=".myModal1"><span class="glyphicon glyphicon-plus"></span>&nbsp;开始评估</button>
+			</div>
+			<div class="modal fade myModal1">
+				<div class="modal-dialog">
+					<div class="modal-content" style="width:100%;">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<span class="glyphicon glyphicon-pencil"></span>&nbsp;【选择模板】
+						</div>
+						<div class="modal-body clearfix" style="height: auto;">
+							<div class="col-md-12 pd0">
+								<div class="col-md-1 pd0 mt10"></div>
+								<div class="col-md-10 pd0">
+									<div class="col-md-12 pd0">
+										<div class="input-group inputWidth">
+											<span class="input-group-addon titleWidth">&nbsp;&nbsp;请选择评估模板：</span>
+											<select class="form-control" >
+												<option>护理评估模板</option>
+												<option>健康评估模板</option>
+												<option>活动评估模板</option>
+												<option>膳食评估模板</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-1 pd0"></div>
+							</div>
+						</div>
+						<div class="modal-footer mt20">
+							<a href="hlfxpg2.html" target="ckjkda">
+								<button class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>&nbsp;确定</button>
+							</a>
+							<button type="button" class="btn btn-default" data-dismiss="modal">
+								取消
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>-->
+			<table class="table" id="tb1" style="margin-top: 10px;margin-left: 10px;">
+				<tr>
+					<tr>
+						<th>序号</th>
+						<th>客户姓名</th>
+						<th>性别</th>
+						<th>年龄</th>
+						<th>评估类型</th>
+						<th>评估原因</th>
+						<th>评估时间</th>
+						<th>评估有效期</th>
+						<th>评估人</th>
+						<th>评估结论</th>
+						<th>护理等级</th>
+						<th>风险评估</th>
+						<th>操作</th>
+					</tr>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>夏王玲</td>
+					<td>女</td>
+					<td>63</td>
+					<td>护理评估</td>
+					<td>定期评估</td>
+					<td>2017-12-20</td>
+					<td>6个月</td>
+					<td>王明亮</td>
+					<td>半自理</td>
+					<td>三级</td>
+					<td>有轻微中风迹象，注意按时吃药，及时测量血压</td>
+					<td>
+						<a href="hlpgjg_ck2.html" target="ckjkda">
+							<button class="btn btn-success">详情</button>
+						</a>
+						<button class="btn btn-danger" onclick="shanchu()">删除</button>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>夏王玲</td>
+					<td>女</td>
+					<td>63</td>
+					<td>护理评估</td>
+					<td>定期评估</td>
+					<td>2017-06-20</td>
+					<td>6个月</td>
+					<td>王明亮</td>
+					<td>半自理</td>
+					<td>三级</td>
+					<td></td>
+					<td>
+						<a href="hlpgjg_ck2.html" target="ckjkda">
+							<button class="btn btn-success">详情</button>
+						</a>
+						<button class="btn btn-danger" onclick="shanchu()">删除</button>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>夏王玲</td>
+					<td>女</td>
+					<td>63</td>
+					<td>护理评估</td>
+					<td>定期评估</td>
+					<td>2016-12-20</td>
+					<td>6个月</td>
+					<td>王明亮</td>
+					<td>半自理</td>
+					<td>三级</td>
+					<td></td>
+					<td>
+						<a href="hlpgjg_ck2.html" target="ckjkda">
+							<button class="btn btn-success">详情</button>
+						</a> 
+						<button class="btn btn-danger" onclick="shanchu()">删除</button>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>夏王玲</td>
+					<td>女</td>
+					<td>63</td>
+					<td>护理评估</td>
+					<td>定期评估</td>
+					<td>2016-06-20</td>
+					<td>6个月</td>
+					<td>王明亮</td>
+					<td>半自理</td>
+					<td>三级</td>
+					<td></td>
+					<td>
+						<a href="hlpgjg_ck2.html" target="ckjkda">
+							<button class="btn btn-success">详情</button>
+						</a> 
+						<button class="btn btn-danger" onclick="shanchu()">删除</button>
+					</td>
+				</tr>	
+			</table>
+			<div class="col-md-12 pd0">
+				<div class="col-md-12 text-right pd0 fmt20">
+					<nav aria-label="Page navigation">
+						<ul class="pagination">
+							<li>
+								<a href="#" aria-label="Previous">
+									<span aria-hidden="true">&laquo;</span>
+								</a>
+							</li>
+							<li><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li><a href="#">6</a></li>
+							<li>
+								<a href="#" aria-label="Next">
+									<span aria-hidden="true">&raquo;</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<div style="text-align: right;" mt20">
+				<a href="pgjl.html" target="ckjkda">
+					<button class="btn btn-success">返回</button>
+				</a>
+			</div>
+		</div>
+	</body>
+</html>

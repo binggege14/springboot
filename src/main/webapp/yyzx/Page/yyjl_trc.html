@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../About/css/bootstrap.min.css">
+		<link href="../About/css/myCss.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/main.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/base.css" type="text/css" rel="stylesheet">
+		<!--按钮样式表-->
+		<link href="../About/css/btn.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/css.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/index.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/search.css" type="text/css" rel="stylesheet">
+		<script src="../About/js/jquery.min.js"></script>
+		<script src="../About/js/bootstrap.min.js"></script>
+		<title>田汝川-用药记录</title>
+		<script type="text/javascript">
+		$(function(){
+			$('.alertChart').click(function(){
+				//alert( $(this).children('td').eq(1).text());
+				$(".name").text($(this).children('td').eq(2).text());
+			});
+		})
+		
+		$(function(){
+			$(".open_modal").bind("click", function(){
+				$('#modal').modal('toggle');
+			});
+			$(".open_yyqk").bind("click", function(){
+				$('#yyqk').modal('toggle');
+			});
+		})
+		
+		</script>
+	</head>
+	<body>
+		<div class="hlfxpg page">
+			<div class="col-md-12 pd20 RightContentBody fmt10">
+				<div class="col-md-12 pd0 fmt10">
+					<hr class="commonHRCss"/>
+				</div>								
+				<div class="col-md-12 pd0">
+					<div class="col-md-12 pd0" style="margin-left:5px; border: 1px solid; border-color: #d4c5c5;">
+						<div style="height: 50px;background-color: #3CA2E0;" class="col-md-12 pd0">
+							<div class="col-md-12 mt10 pd0 GZTXX_Content_Table_Head_Font">
+								<div class="col-md-1 text-center pd0 mt2">
+									<span class="glyphicon glyphicon-user"></span>
+								</div>
+								<div class="col-md-11 pd0">
+									田汝川-用药记录
+								</div>
+							</div>
+						</div>
+						<table class="table table-hover"">
+							<thead>
+								<tr>
+									<th>序号</th>
+									<th>客户姓名</th>
+									<th>药物名称</th>
+									<th>用药原因</th>
+									<th>用法</th>
+									<th>用量</th>
+									<th>用药时段</th>
+									<th>用药时间</th>
+									<th>护理人员</th>
+									<th>备注</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td class="name">田汝川</td>
+									<td>康泰</td>
+									<td>痔疮</td>
+									<td>口服</td>
+									<td>1日2次，1次1粒</td>
+									<td>早上</td>
+									<td>2018-04-17 07:40</td>
+									<td>王明亮</td>
+									<td>长期用药</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td class="name">田汝川</td>
+									<td>罗红霉素分散片</td>
+									<td>消炎</td>
+									<td>口服</td>
+									<td>1日3次，1次3粒</td>
+									<td>早上</td>
+									<td>2018-04-17 07:40</td>								
+									<td>王明亮</td>
+									<td>临时用药</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td class="name">田汝川</td>
+									<td>康泰</td>
+									<td>痔疮</td>
+									<td>口服</td>
+									<td>1日2次，1次1粒</td>
+									<td>晚上</td>
+									<td>2018-04-16 19:10</td>
+									<td>李大山</td>
+									<td>长期用药</td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td class="name">田汝川</td>
+									<td>罗红霉素分散片</td>
+									<td>消炎</td>
+									<td>口服</td>
+									<td>1日3次，1次3粒</td>
+									<td>晚上</td>
+									<td>2018-04-16 19:00</td>								
+									<td>李大山</td>
+									<td>临时用药</td>
+								</tr>	
+								<tr>
+									<td>5</td>
+									<td class="name">田汝川</td>
+									<td>罗红霉素分散片</td>
+									<td>消炎</td>
+									<td>口服</td>
+									<td>1日3次，1次3粒</td>
+									<td>中午</td>
+									<td>2018-04-16 12:10</td>								
+									<td>李大山</td>
+									<td>临时用药</td>
+								</tr>
+								<tr>
+									<td>6</td>
+									<td class="name">田汝川</td>
+									<td>康泰</td>
+									<td>痔疮</td>
+									<td>口服</td>
+									<td>1日2次，1次1粒</td>
+									<td>晚上</td>
+									<td>2018-04-16 08:00</td>
+									<td>李大山</td>
+									<td>长期用药</td>
+								</tr>
+								<tr>
+									<td>7</td>
+									<td class="name">田汝川</td>
+									<td>罗红霉素分散片</td>
+									<td>消炎</td>
+									<td>口服</td>
+									<td>1日3次，1次3粒</td>
+									<td>早上</td>
+									<td>2018-04-16 07:50</td>								
+									<td>李大山</td>
+									<td>临时用药</td>
+								</tr>								
+							</tbody>
+						</table>
+						<div class="col-md-12 pd0">
+							<div class="col-md-12 text-right pd0 fmt20">
+								<nav aria-label="Page navigation">
+									<ul class="pagination">
+										<li>
+											<a href="#" aria-label="Previous">
+												<span aria-hidden="true">&laquo;</span>
+											</a>
+										</li>
+										<li><a href="#">1</a></li>
+										<li><a href="#">2</a></li>
+										<li><a href="#">3</a></li>
+										<li><a href="#">4</a></li>
+										<li><a href="#">5</a></li>
+										<li><a href="#">6</a></li>
+										<li>
+											<a href="#" aria-label="Next">
+												<span aria-hidden="true">&raquo;</span>
+											</a>
+										</li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>		
+		<!-- 模态框 -->
+		<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myHeadLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width:100%;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<span class="glyphicon glyphicon-list"></span>&nbsp;【客户】用药档案
+					</div>
+					<div class="modal-body clearfix" style="height: auto;">						
+						<div class="col-md-12" style="border:1px solid #ddd;">
+							<div class="col-md-11">
+								<table class="table mt5"cellpadding="0" cellspacing="0" >
+									<tr align="left" height="30px">
+										<td colspan="8" style="border-top:0;"><b>用药信息</b></td>
+									</tr>
+									<tr align="left" style="background-color: lightgray;"  height="30px">
+										<td>药物名称</td>
+										<td>用法</td>
+										<td>用量</td>
+										<td>功能主治</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>康泰</td>
+										<td>口服</td>
+										<td>一天三次，一次3粒</td>
+										<td>痔疮</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>罗红霉素分散片</td>
+										<td>口服</td>
+										<td>一天1次，一次1粒</td>
+										<td>消炎</td>
+									</tr>
+								</table>
+							</div>
+							<!--<div class="col-md-1 mt40">
+								<button type="button" class="btn-xs btn-primary"><span class="glyphicon glyphicon-plus"></span></button>
+							</div>-->
+						</div>
+						<div class="col-md-12" style="border:1px solid #ddd;">
+							<div class="col-md-11">
+								<table class="table mt5"cellpadding="0" cellspacing="0">
+									<tr align="left" height="30px">
+										<td colspan="8" style="border-top:0;"><b>用药记录</b></td>
+									</tr>
+									<tr align="left" style="background-color: lightgray;"  height="30px">
+										<td>客户姓名</td>
+										<td>药物名称</td>
+										<td>用药时段</td>
+										<td>备注</td>
+										<td>操作</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>夏王玲</td>
+										<td>康泰</td>
+										<td>早上</td>
+										<td></td>
+										<td>
+											<span class="glyphicon glyphicon-edit"></span>
+											<span class="glyphicon glyphicon-remove"></span>
+										</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>夏王玲</td>
+										<td>康泰</td>
+										<td>中午</td>
+										<td></td>
+										<td>
+											<span class="glyphicon glyphicon-edit"></span>
+											<span class="glyphicon glyphicon-remove"></span>
+										</td>
+									</tr>
+								</table>
+							</div>
+							<div class="col-md-1 mt40">
+								<button type="button" class="btn-xs btn-primary open_yyqk"><span class="glyphicon glyphicon-plus"></span></button>
+							</div>
+						</div>					
+					</div>
+					<div class="modal-footer mt20">
+						<button type="button" class="btn btn-danger" data-dismiss="modal">
+							关闭
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--添加用药情况信息-->
+		<div class="modal fade" id="yyqk" tabindex="-1" role="dialog" aria-labelledby="myHeadLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width:100%;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<span class="glyphicon glyphicon-pencil"></span>&nbsp;【添加用药记录】
+					</div>
+					<div class="modal-body clearfix" style="height: auto;">
+						<div class="col-md-12 pd0">
+							<div class="col-md-1 pd0 mt10"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;客户名称：</span>
+										<input type="text" class="form-control" value="夏王玲" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;药物名称：</span>
+										<select class="form-control">
+											<option>康泰</option>
+											<option>罗红霉素分散片</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;用法：</span>
+										<input type="text" class="form-control" placeholder="请输入【用法】信息" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;用量：</span>
+										<input type="text" class="form-control" placeholder="请输入【用量】信息" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;用药时段：</span>
+										<select class="form-control">
+											<option>早上</option>
+											<option>中午</option>
+											<option>晚上</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;备注：</span>
+										<input type="text" class="form-control" placeholder="请输入【备注】信息" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+					</div>
+					<div class="modal-footer mt20">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">
+							确定
+						</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							取消
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

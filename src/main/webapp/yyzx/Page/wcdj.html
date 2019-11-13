@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../About/css/bootstrap.min.css">
+		<link href="../About/css/myCss.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/main.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/base.css" type="text/css" rel="stylesheet">
+		<!--按钮样式表-->
+		<link href="../About/css/btn.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/css.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/index.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/search.css" type="text/css" rel="stylesheet">
+		<script src="../About/js/jquery.min.js"></script>
+		<script src="../About/js/bootstrap.min.js"></script>
+		<title>外出登记</title>
+		<script type="text/javascript">
+		$(function(){
+
+		})
+		</script>
+	</head>
+	<body>
+		<div class="hlnr page">
+			<div class="col-md-12 pd20 RightContentBody fmt10">
+				<div class="col-md-3 pd0 fmt5">
+					<div class="input-group inputWidth_search" >
+						<input type="text" class="form-control" placeholder="客户姓名">
+						<span class="input-group-addon"><a href="javascript:alert('查询')">查询</a></span>								
+					</div>
+				</div>
+				<div class="col-md-9 pd0 fmt5">
+					<button class="btn btn-primary" data-toggle="modal" data-target=".myModal1"><span class="glyphicon glyphicon-plus"></span>&nbsp;登记</button>
+					<button class="btn btn-success" data-toggle="modal" data-target=".myModal2"><span class="glyphicon glyphicon-plus"></span>&nbsp;审批</button>
+				</div>			
+				<div class="modal fade myModal1">
+					<div class="modal-dialog">
+						<div class="modal-content" style="width:100%;">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<span class="glyphicon glyphicon-pencil"></span>&nbsp;【外出登记】
+							</div>
+							<div class="modal-body clearfix" style="height: auto;">
+								<div class="col-md-12 pd0">
+									<div class="col-md-1 pd0 mt10"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;客户：</span>
+												<select class="form-control" >
+													<option>请选择</option>
+													<option>夏王玲</option>
+													<option>王丽雅</option>
+													<option>贾文</option>
+													<option>周安</option>
+													<option>万淑兰</option>
+													<option>樊迪</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>							
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;外出事由：</span>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;外出时间：</span>
+												<input type="date" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;预计回院时间：</span>
+												<input type="date" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;陪同人：</span>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;与老人关系：</span>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;陪同人电话：</span>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;备注：</span>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+							</div>
+							<div class="modal-footer mt20">
+								<button type="button" class="btn btn-primary" data-dismiss="modal">
+									确定
+								</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">
+									取消
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="modal fade myModal2">
+					<div class="modal-dialog">
+						<div class="modal-content" style="width:100%;">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<span class="glyphicon glyphicon-pencil"></span>&nbsp;【审批】
+							</div>
+							<div class="modal-body clearfix" style="height: auto;">
+								<div class="col-md-12 pd0">
+									<div class="col-md-1 pd0 mt10"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;审批状态：</span>
+												<select class="form-control" >
+													<option>通过</option>
+													<option>不通过</option>
+													<option>撤销</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+							</div>
+							<div class="modal-footer mt20">
+								<button type="button" class="btn btn-primary" data-dismiss="modal">
+									确定
+								</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">
+									取消
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>								
+				<div class="col-md-12 pd0 fmt10">
+					<hr class="commonHRCss"/>
+				</div>
+				<div class="col-md-12 pd0">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th></th>
+								<th>序号</th>
+								<th>客户姓名</th>
+								<th>性别</th>
+								<th>年龄</th>
+								<th>档案号</th>
+								<th>外出事由</th>
+								<th>外出时间</th>
+								<th>预计回院时间</th>
+								<th>实际回院时间</th>								
+								<th>陪同人</th>
+								<th>与老人关系</th>
+								<th>陪同人电话</th>
+								<th>审批状态</th>
+								<th>审批人</th>
+								<th>审批时间</th>
+								<th>备注</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><input type="checkbox" /></td>
+								<td>1</td>
+								<td>夏王玲</td>
+								<td>女</td>
+								<td>63</td>
+								<td>KHDA20171212001</td>
+								<td>岛内逛逛</td>
+								<td>2018-04-04</td>
+								<td>2018-04-04</td>
+								<td>-</td>
+								<td>史蒂夫</td>																
+								<td>护工</td>
+								<td>13813813813</td>
+								<td>范甘迪</td>
+								<td>已审批</td>
+								<td>2018-04-04</td>
+								<td></td>
+								<td>
+									<button class="btn btn-primary">修改</button>
+									<button class="btn btn-danger">删除</button>
+									<button class="btn btn-warning" data-toggle="modal" data-target=".myModal3">登记回院时间</button>
+									<button class="btn btn-success" data-toggle="modal" data-target=".myModal4">查看</button>
+								</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" /></td>
+								<td>2</td>
+								<td>王丽雅</td>
+								<td>女</td>
+								<td>63</td>
+								<td>KHDA20171212001</td>
+								<td>岛内逛逛</td>
+								<td>2018-04-04</td>
+								<td>2018-04-04</td>
+								<td>-</td>
+								<td>史蒂夫</td>																
+								<td>护工</td>
+								<td>13813813813</td>
+								<td>范甘迪</td>
+								<td>已审批</td>
+								<td>2018-04-04</td>
+								<td></td>
+								<td>
+									<button class="btn btn-primary">修改</button>
+									<button class="btn btn-danger">删除</button>
+									<button class="btn btn-warning" data-toggle="modal" data-target=".myModal3">登记回院时间</button>
+									<button class="btn btn-success" data-toggle="modal" data-target=".myModal4">查看</button>
+								</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" /></td>
+								<td>3</td>
+								<td>贾文</td>
+								<td>男</td>
+								<td>63</td>
+								<td>KHDA20171212001</td>
+								<td>岛内逛逛</td>
+								<td>2018-04-04</td>
+								<td>2018-04-04</td>
+								<td>-</td>
+								<td>史蒂夫</td>																
+								<td>护工</td>
+								<td>13813813813</td>
+								<td>范甘迪</td>
+								<td>已审批</td>
+								<td>2018-04-04</td>
+								<td></td>
+								<td>
+									<button class="btn btn-primary">修改</button>
+									<button class="btn btn-danger">删除</button>
+									<button class="btn btn-warning" data-toggle="modal" data-target=".myModal3">登记回院时间</button>
+									<button class="btn btn-success" data-toggle="modal" data-target=".myModal4">查看</button>
+								</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" /></td>
+								<td>4</td>
+								<td>周安</td>
+								<td>男</td>
+								<td>63</td>
+								<td>KHDA20171212001</td>
+								<td>岛内逛逛</td>
+								<td>2018-04-04</td>
+								<td>2018-04-04</td>
+								<td>-</td>
+								<td>史蒂夫</td>																
+								<td>护工</td>
+								<td>13813813813</td>
+								<td>范甘迪</td>
+								<td>已审批</td>
+								<td>2018-04-04</td>
+								<td></td>
+								<td>
+									<button class="btn btn-primary">修改</button>
+									<button class="btn btn-danger">删除</button>
+									<button class="btn btn-warning" data-toggle="modal" data-target=".myModal3">登记回院时间</button>
+									<button class="btn btn-success" data-toggle="modal" data-target=".myModal4">查看</button>
+								</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" /></td>
+								<td>5</td>
+								<td>万淑兰</td>
+								<td>女</td>
+								<td>63</td>
+								<td>KHDA20171212001</td>
+								<td>岛内逛逛</td>
+								<td>2018-04-04</td>
+								<td>2018-04-04</td>
+								<td>-</td>
+								<td>史蒂夫</td>																
+								<td>护工</td>
+								<td>13813813813</td>
+								<td>范甘迪</td>
+								<td>已审批</td>
+								<td>2018-04-04</td>
+								<td></td>
+								<td>
+									<button class="btn btn-primary">修改</button>
+									<button class="btn btn-danger">删除</button>
+									<button class="btn btn-warning" data-toggle="modal" data-target=".myModal3">登记回院时间</button>
+									<button class="btn btn-success" data-toggle="modal" data-target=".myModal4">查看</button>
+								</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" /></td>
+								<td>6</td>
+								<td>樊迪</td>
+								<td>女</td>
+								<td>63</td>
+								<td>KHDA20171212001</td>
+								<td>岛内逛逛</td>
+								<td>2018-04-04</td>
+								<td>2018-04-04</td>
+								<td>-</td>
+								<td>史蒂夫</td>																
+								<td>护工</td>
+								<td>13813813813</td>
+								<td>范甘迪</td>
+								<td>已审批</td>
+								<td>2018-04-04</td>
+								<td></td>
+								<td>
+									<button class="btn btn-primary">修改</button>
+									<button class="btn btn-danger">删除</button>
+									<button class="btn btn-warning" data-toggle="modal" data-target=".myModal3">登记回院时间</button>
+									<button class="btn btn-success" data-toggle="modal" data-target=".myModal4">查看</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-md-12 pd0">
+					<div class="col-md-12 text-right pd0 fmt20">
+						<nav aria-label="Page navigation">
+							<ul class="pagination">
+								<li>
+									<a href="#" aria-label="Previous">
+										<span aria-hidden="true">&laquo;</span>
+									</a>
+								</li>
+								<li><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+								<li><a href="#">6</a></li>
+								<li>
+									<a href="#" aria-label="Next">
+										<span aria-hidden="true">&raquo;</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--模态框-->
+		<div class="modal fade myModal3">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width:100%;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<span class="glyphicon glyphicon-pencil"></span>&nbsp;【登记回院时间】
+					</div>
+					<div class="modal-body clearfix" style="height: auto;">
+						<div class="col-md-12 pd0">
+							<div class="col-md-1 pd0 mt10"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;时间回院时间：</span>
+										<input type="date" class="form-control"/>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+					</div>
+					<div class="modal-footer mt20">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">
+							确定
+						</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							取消
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="modal fade myModal4">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width:100%;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<span class="glyphicon glyphicon-pencil"></span>&nbsp;【查看】
+					</div>
+					<div class="modal-body clearfix" style="height: auto;">
+						<div class="col-md-12 pd0">
+							<div class="col-md-1 pd0 mt10"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;客户：</span>
+										<input class="form-control" value="夏王玲" readonly="readonly" style="background-color: white;"/>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>							
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;外出事由：</span>
+										<input class="form-control" value="岛内逛逛" disabled="disabled" style="background-color: white;"/>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;外出时间：</span>
+										<input class="form-control" value="2018-04-04" readonly="readonly" style="background-color: white;"/>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;预计回院时间：</span>
+										<input class="form-control" value="2018-04-04" readonly="readonly" style="background-color: white;"/>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;实际回院时间：</span>
+										<input class="form-control" readonly="readonly" style="background-color: white;"/>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;陪同人：</span>
+										<input class="form-control" value="史蒂夫" readonly="readonly" style="background-color: white;"/>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;与老人关系：</span>
+										<input class="form-control" value="护工" readonly="readonly" style="background-color: white;"/>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;陪同人电话：</span>
+										<input class="form-control" value="13913913913" readonly="readonly" style="background-color: white;"/>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;备注：</span>
+										<input class="form-control" readonly="readonly" style="background-color: white;"/>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+					</div>
+					<div class="modal-footer mt20">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">
+							确定
+						</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							取消
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>

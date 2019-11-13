@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible"
+	content="IE=11;IE=10;IE=9; IE=8; IE=7; IE=EDGE">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+	
+<!-- <link href="../External/easyui.css" type="text/css" rel="stylesheet">
+<link href="../External/icon.css" type="text/css" rel="stylesheet">
+<link href="../External/demo.css" type="text/css" rel="stylesheet">
+<link href="../External/IconExtension.css" type="text/css" rel="stylesheet"> -->
+<link href="../About/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+<script src="../External/jquery.min.js"></script>
+<script src="../About/js/bootstrap.min.js"></script>
+<!-- <script src="../External/jquery.easyui.min.js"></script>
+<script src="../External/easyui-lang-zh_CN.js"></script>
+<script src="../External/sys.js"></script>
+<script src="../External/netutils.js"></script> -->
+<script src="../External/tabutils.js"></script>
+<script src="../External/underscore.min.js"></script>
+
+<title>护理评估</title>
+
+<style type="text/css">
+	#content {
+		width: 98%;
+		margin-left: 1%;
+		margin-top: 5px;
+	}
+
+	.title_div {
+		width: 100%;height: 30px; background-color: #f1f9fe;
+		line-height: 30px;
+	}
+	.title_div1 {
+		width: 100%;height: 30px;
+		line-height: 30px;
+	}
+	
+	.title_span {
+		font-size: 24px; color: #202020;margin-left: 15px;
+		font-weight: bold;	font-family: "宋体";	
+	}
+	
+	.intro_span {
+		font-size: 14px; color: #1f1f1f;font-weight: normal;
+	}
+	
+	.info_table {
+		width: 98%;
+		margin-left: 1%;
+		border-collapse: collapse;
+			border: 1px solid #95b8e7;
+	}
+	
+	.info_table1 {
+			margin-top: 20px;
+				padding-bottom: 5px;
+	}
+	
+	.info_table tr {
+	}
+	.info_table td {
+	
+		font-size: 14px;
+		padding-top:10px;
+		padding-bottom: 10px;
+	}
+	.question_span {
+		font-size: 16px;
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+	.body_type_span {
+		font-size: 16px; font-weight: bold;font-family: "微软雅黑";	
+		margin-left: 5px;color: #000000;
+		margin-right: 5px;
+	}
+	.radio_span {
+		font-size: 16px;
+		margin-right: 10px;
+	}
+	input[type="radio"]{
+		margin: 5px;
+	}
+</style>
+
+<script type="text/javascript">
+	var baseUrl = '/cms-web';
+	
+	var errorMsg = '';
+	
+	var oriSurveys = [
+	{"answerOptionScores":"0@3@5","answerOptions":"在合理时间内，独立使用餐具将食物送入口中、咀嚼、吞咽。（0分）@需要别人协助，如切碎、搅拌等或只能使用汤匙进食。（3分）@自己取食困难，完全需要别人帮助或耗费时间过长。（5分）","id":1,"lstId":1,"oatId":1,"operateDate":1459912419000,"operateOrgId":8,"operateUid":944,"questionName":"1.1进食","seqNO":"1","skillsType":0,"status":1},
+	{"answerOptionScores":"0@3@7","answerOptions":"能独立完成洗头、洗脸、洗手、刷牙、梳头、剃须等个人卫生活动。（0分）@需要部分协助或只能完成部分活动。（3分）@完全需要帮助。（7分）","id":2,"lstId":1,"oatId":1,"operateDate":1459912419000,"operateOrgId":8,"operateUid":944,"questionName":"1.2个人卫生","seqNO":"2","skillsType":0,"status":1},
+	{"answerOptionScores":"0@3@7","answerOptions":"能够独立洗澡。（0分）@需要部分协助。（3分）@完全需要协助。（7分）","id":3,"lstId":1,"oatId":1,"operateDate":1459912419000,"operateOrgId":8,"operateUid":944,"questionName":"1.3洗澡","seqNO":"3","skillsType":0,"status":1},
+	{"answerOptionScores":"0@3@5","answerOptions":"能独立完成穿脱衣服鞋袜。（0分）@在别人的帮助下，能完成一半以上的动作。（3分）@完全需要帮助。（5分）","id":4,"lstId":1,"oatId":1,"operateDate":1459912419000,"operateOrgId":8,"operateUid":944,"questionName":"1.4穿脱衣服","seqNO":"4","skillsType":0,"status":1},
+	{"answerOptionScores":"0@1@3@5@10","answerOptions":"能独立完成如厕，大小便能自我控制。（0分）@基本上能自行如厕和使用便盆，偶尔失禁（每周不超过一次）。（1分）@大小便能自我控制，需要别人协助才能如厕或使用便盆。（3分）@经常失禁，需要别人协助才能如厕或使用便盆。（5分）@完全失禁，完全需要别人协助。（10分）","id":5,"lstId":1,"oatId":1,"operateDate":1459912419000,"operateOrgId":8,"operateUid":944,"questionName":"1.5如厕及大小便","seqNO":"5","skillsType":0,"status":1},
+	{"answerOptionScores":"0@1@5@10","answerOptions":"能独立完成站立、床椅转移、行走（50米以上）、上下楼梯等。（0分）@需要轻扶或口头指导等轻微协助。（1分）@需要用力协助才能站立、转移、行走、不能上下楼梯。（5分）@卧床不起，完全需要帮助才能移动（10分）。","id":6,"lstId":1,"oatId":1,"operateDate":1459912419000,"operateOrgId":8,"operateUid":944,"questionName":"1.6移动","seqNO":"6","skillsType":0,"status":1},
+	{"answerOptionScores":"0@1@2@3","answerOptions":"独立使用电话，包括查电话、拨号等。（0分）@仅能拨熟悉的电话号码。（1分）@仅会接电话，不会拨电话。（2分）@完全不会使用电话，或不适用。（3分）","id":7,"lstId":1,"oatId":1,"operateDate":1459912419000,"operateOrgId":8,"operateUid":944,"questionName":"2.1使用电话","seqNO":"7","skillsType":1,"status":1},
+	{"answerOptionScores":"0@1@2@3","answerOptions":"独立完成所有购物需求。（0分）@独立购买日常生活用品。（1分）@每次外出购物都需要人陪。（2分）@完全不会外出购物。（3分）","id":8,"lstId":1,"oatId":1,"operateDate":1459912419000,"operateOrgId":8,"operateUid":944,"questionName":"2.2外出购物","seqNO":"8","skillsType":1,"status":1},
+	{"answerOptionScores":"0@1@2@3","answerOptions":"能独立计划、烹煮和摆设一顿适当的饭菜。（0分）@如果提供材料，能独立烹饪。（1分）@能将已做好的饭菜加热。（2分）@完全需要别人帮助。（3分）","id":9,"lstId":1,"oatId":1,"operateDate":1459912419000,"operateOrgId":8,"operateUid":944,"questionName":"2.3烹饪","seqNO":"9","skillsType":1,"status":1},
+	{"answerOptionScores":"0@1@2@3","answerOptions":"能做较繁重的家务或偶尔需要协助，如搬动家具、擦地板、擦窗户等。（0分）@只能做较简单的家务，如洗碗、叠被等。（1分）@做简单的家务，但达不到可接受的整洁度。（2分）@完全需要别人帮助。（3分）","id":10,"lstId":1,"oatId":1,"operateDate":1459912419000,"operateOrgId":8,"operateUid":944,"questionName":"2.4料理家务","seqNO":"10","skillsType":1,"status":1},
+	{"answerOptionScores":"0@1@2","answerOptions":"能自己清洗所有衣服。（0分）@只能自己清洗小物件。（1分）@完全不能自己清洗衣物。（2分）","id":11,"lstId":1,"oatId":1,"operateDate":1459912419000,"operateOrgId":8,"operateUid":944,"questionName":"2.5系衣服","seqNO":"11","skillsType":1,"status":1},
+	{"answerOptionScores":"0@1@2@3","answerOptions":"能独立搭乘公交车、出租车或骑车外出。（0分）@能独立乘出租车外出，但不便乘公交车外出。（1分）@外出需要别人陪同协助。（2分）@完全不能外出。（3分）","id":12,"lstId":1,"oatId":1,"operateDate":1459912419000,"operateOrgId":8,"operateUid":944,"questionName":"2.6外出","seqNO":"12","skillsType":1,"status":1},
+	{"answerOptionScores":"0@1@2@3","answerOptions":"能按照医嘱在正确的时间正确服用药物。（0分）@需要提醒或少许协助。（1分）@如果别人事先准备好药物，能自行服用。（2分）@不能自己服用药物。（3分）","id":13,"lstId":1,"oatId":1,"operateDate":1459912419000,"operateOrgId":8,"operateUid":944,"questionName":"2.7服用药物","seqNO":"13","skillsType":1,"status":1},
+	{"answerOptionScores":"0@1@2","answerOptions":"能独立处理财务。（0分）@只能处理日常生活用品的购买。（1分）@完全不能处理财务。（2分）","id":14,"lstId":1,"oatId":1,"operateDate":1459912419000,"operateOrgId":8,"operateUid":944,"questionName":"2.8处理财务","seqNO":"14","skillsType":1,"status":1}];
+	var surveys = _.sortBy(oriSurveys, function(s) {
+		return s.lifeskillType;
+	});
+	
+	var types = ["身体自理能力","日常生活能力"];
+	var types1 = ["一、身体自理能力","二、日常生活能力"];
+	
+	var tabutils = tabutils(parent);
+
+	$(function() {
+
+		$("#submit").click(function() {
+			/*if (_.isString(errorMsg) && errorMsg != '') {
+				$.messager.alert("警告", errorMsg, "warning");
+				return;
+			}
+			check(surveys);*/
+		});
+		
+		$("#close").click(function() {
+			/*var tabs = parent.$('#indextabs');
+			if (tabs) {
+				var tab = tabs.tabs('getSelected');
+				var index = tabs.tabs('getTabIndex',tab);
+				tabs.tabs("close", index);
+			}*/
+		});
+		initData();
+		
+		function initData() {
+			var html = '';
+			_.each(types1, function(t, i) {
+				var q = _.filter(surveys, function(s) {
+					return s.skillsType== i;
+				});
+				
+				html += createTable(t, q);
+			})
+			$("#table_content").html(html);
+		}
+		
+		function createTable(t, q) {
+			var html = '<table class="info_table1">'
+			+ '<tr style="">'
+			+ '<td colspan="2"><span class="body_type_span">'+t+'</span></td>'
+			+ '</tr><table class="info_table">';
+			_.each(q, function(v, i) {
+				html += createRow(v, i)
+			})
+			html += '<table class="info_table"></table>';
+			return html;
+		}
+		
+		function createRow(v, i) {
+			var bc =' style="background-color: #E0ECFF;font-size: 16px;height:31px; font-weight: bold;font-family:微软雅黑;" ';
+			var html='<tr'+bc+'>'
+			+'<td width="80%"><span class="question_span">'+v.questionName+'</span></td>'
+			html += '</tr>';
+			
+			var options = v.answerOptions.split('@');
+			var values = v.answerOptionScores.split('@');
+			_.each(options, function(o, j) {
+				html += '<tr>';
+				html += '<td width="80%"><input type="radio" name="'+v.id+'" value="'+values[j]+'"><span class="radio_span">'+o+'</span>';
+			});
+
+			html += '</td></tr>';
+			
+			return html;
+		}
+		
+		function testCode(s) {
+			var datas = [];
+			
+			_.each(s, function(v, i) {
+				var data={lssId: v.id};
+				data.score = Math.floor(Math.random()*5) + 1;
+				datas.push(data);
+			});
+			
+			return datas;
+		}
+		
+		function createDatas(s) {
+			var c = _.find(s, function(v) {
+				return isNoChecked(v);
+			})
+			
+			if (c != undefined) {
+				return undefined;
+			}
+
+			var datas = [];
+			
+			_.each(s, function(v, i) {
+				var data={lssId: v.id};
+				data.score = $('input[name="'+v.id+'"]:checked').val();
+				datas.push(data);
+			});
+			
+			return datas;
+		}
+		
+		function check(s) {
+			//var datas = testCode(s);
+			var datas = createDatas(s);
+			if (datas == undefined) {
+				return;
+			}
+			
+			var url = $("#ctx").val() + "/admin/lifeskillssurvey/oldillassessment/cmp/submit";
+			var data = {
+					obiId : $("#mid").val(),
+					jsonStr : JSON.stringify(datas)
+			}
+			$.messager.progress();
+			netutils.json({url : url, data: data, suc:function(data) {
+				var ret = data.results;
+				$("#submit").unbind('click');
+				var title = $("#realName").val() + "中医体质评估";
+				console.log(title);
+				tabutils.refreshByClick(title, "#search");
+				tabutils.refreshByClick("老人入住评估", "#membersearch");
+				$.messager.progress('close');
+				 
+				var url = "/cms-web" + "/admin/lifeskillssurvey/oldillassessment/cmp/detail?id="+ret.id+"&obiId="+ret.obiId;
+				var title ="客户"+$("#realName").val() + "的入住评估信息";
+				tabutils.refreshByClick('评估记录', "#liferecordsearch");
+
+				closeSelfAndOpen(url, title);
+				
+			}, hint: function(msg) {
+				$.messager.progress('close');
+				$.messager.alert("警告", msg, "warning");
+			}});
+		}
+		
+		function isNoChecked(v) {
+			var a = $('input[name="'+v.id+'"]:checked').val();
+			
+			if (a==null) {
+				$('input[name="'+v.id+'"]')[0].focus();
+				return true;
+			}
+			
+			return false;
+		}
+		
+		function closeSelfAndOpen(url, name) {
+			var tabs = parent.$('#indextabs');
+			if (tabs) {
+				var tab = tabs.tabs('getSelected');
+				var index = tabs.tabs('getTabIndex',tab);
+				tabutils.add(url, name);
+				tabs.tabs("close", index);
+			}
+		}
+		function closeSelf() {
+			var tabs = parent.$('#indextabs');
+			if (tabs) {
+				var tab = tabs.tabs('getSelected');
+				var index = tabs.tabs('getTabIndex',tab);
+				tabs.tabs("close", index);
+			}
+		}
+		
+	})
+</script>
+</head>
+
+<body style="font-family: Arial, 微软雅黑;margin: 0px; padding: 0px;">
+	
+	<div id="content" >
+	<!-- 
+		<div class="title_div">
+			<span class="title_span">
+				中医体质评估
+			</span>
+		</div>
+		<div style="width: 100%; height: 2px; background-color: #c9e5fa;"></div>
+		
+		<div style="margin-top: 15px;margin-bottom: 15px;margin-left: 15px; margin-right: 15px;line-height: 20px;">
+			<span class="intro_span">
+				本评估依据《中医体质分类判定标准》实现，可以判断我国成年人的中医体质类型。
+			</span> <br/>
+			<span class="intro_span">
+				被测者根据近一年的体检和感觉，在每个问题后选择该题的程度得分。
+			</span> <br/>
+			<span class="intro_span">
+				1. 没有：自觉无此问题或症状
+			</span> <br/>
+			<span class="intro_span">
+				2. 很少：自觉有此问题或症状，但发生的不频繁，程度较轻，持续时间较短
+			</span> <br/>
+			<span class="intro_span">
+				3. 有时：自觉常有此问题或症状，频度和严重度均大于“轻度”
+			</span> <br/>
+			<span class="intro_span">
+				4. 经常：自觉多数时间均有此问题或症状，其频度和严重性对自己的学习或生活已产生一定的影响
+			</span> <br/>
+			<span class="intro_span">
+				5. 总是：自觉绝大部分时间都有此问题或症状，自感频度和强度已十分严重
+			</span> <br/>
+		</div>
+		-->
+		<div class="title_div1" style="text-align: center;margin-top: 20px;">
+			<span class="title_span" style="font-weight: normal;text-align: center;" >
+				客户护理评估
+			</span>
+		</div>
+		
+		<div id="table_content" style="width:100%;">
+		
+		</div>
+	<div style="width: 100%; height: 100px;text-align: center;">
+		<div style="margin:0 auto;padding-top: 35px;">
+			<a href="hlpgjg.html" target="ckjkda">
+				<button class="btn btn-success"><span class="glyphicon glyphicon-ok"></span>&nbsp;提交</button>
+			</a>
+			<a href="hlfxpg_home.html" target="ckjkda">
+				<button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;取消</button>
+			</a>
+		</div>
+	</div>
+	</div>
+	<input type="hidden" id="ctx" value="/cms-web">
+	<input type="hidden" id="mid" value="12">
+	<input type="hidden" id="realName" value="周安琪">
+</body>
+</html>

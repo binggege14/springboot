@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../About/css/bootstrap.min.css">
+		<link href="../About/css/myCss.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/main.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/base.css" type="text/css" rel="stylesheet">
+		<!--按钮样式表-->
+		<link href="../About/css/btn.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/css.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/index.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/search.css" type="text/css" rel="stylesheet">
+		<script src="../About/js/jquery.min.js"></script>
+		<script src="../About/js/bootstrap.min.js"></script>
+		<title>交接班管理</title>
+		<style type="text/css">
+			a { color:#213f71; font-size:9pt; text-decoration:none; }
+			a:hover { color:#0066cc; }
+			.blk_18 { overflow:hidden; zoom:1; font-size:9pt; border:1px solid #e3e3e3; background:#eee; width:692px; margin-top:8px; }
+			.blk_18 .pcont { width:638px; float:left; overflow:hidden; padding-left:5px; }
+			.blk_18 .ScrCont { width:32766px; zoom:1; margin-left:-5px; }
+			.blk_18 #List1_1, .blk_18 #List2_1 { float:left; }
+			.blk_18 .LeftBotton, .blk_18 .RightBotton { 
+				width:15px; 
+				height:74px; 
+				float:left; 
+				background:url('../About/images/ax.gif') no-repeat; 
+			}
+			.blk_18 .LeftBotton { background-position: 0 0; margin:8px 5px 0; }
+			.blk_18 .RightBotton { background-position: 0 -100px; margin:8px 1px 10px 5px; }
+			.blk_18 .LeftBotton:hover { background-position: -20px 0; }
+			.blk_18 .RightBotton:hover { background-position: -20px -100px; }
+			.blk_18 .pl img { display:block; cursor:pointer; border:none; margin:6px auto 1px auto; }
+			.blk_18 .pl { width:105px; border:1px solid #f3f3f3; float:left; float:left; text-align:center; line-height:24px; }
+			.blk_18 a.pl:hover { border:1px solid #5dacec; color:#5dacec; background:#fff; }
+		</style>
+		<script type="text/javascript">
+			$(function(){
+				$('.pl').click(function(){
+					//alert( $(this).children('td').eq(1).text());
+					//alert( $(this).text());
+					$(".name").text($(this).text());
+				});
+				
+				$(".tabbb").click(function(){
+					var temp = $(this).html();
+					$("#xiala").html(temp+"<span class='caret'></span>");
+				})
+			})
+		
+			$(function(){
+				picrun_ini();
+			})
+			
+			var Speed_1 = 10; //速度(毫秒)
+			var Space_1 = 20; //每次移动(px)
+			var PageWidth_1 = 107 * 6; //翻页宽度
+			var interval_1 = 5000; //翻页间隔时间
+			var fill_1 = 0; //整体移位
+			var MoveLock_1 = false;
+			var MoveTimeObj_1;
+			var MoveWay_1="right";
+			var Comp_1 = 0;
+			var AutoPlayObj_1=null;
+			
+			var Speed_2 = 10; //速度(毫秒)
+			var Space_2 = 20; //每次移动(px)
+			var PageWidth_2 = 107 * 6; //翻页宽度
+			var interval_2 = 5000; //翻页间隔时间
+			var fill_2 = 0; //整体移位
+			var MoveLock_2 = false;
+			var MoveTimeObj_2;
+			var MoveWay_2="right";
+			var Comp_2 = 0;
+			var AutoPlayObj_2=null;
+			
+			var Speed_3 = 10; //速度(毫秒)
+			var Space_3 = 20; //每次移动(px)
+			var PageWidth_3 = 107 * 6; //翻页宽度
+			var interval_3 = 5000; //翻页间隔时间
+			var fill_3 = 0; //整体移位
+			var MoveLock_3 = false;
+			var MoveTimeObj_3;
+			var MoveWay_3="right";
+			var Comp_3 = 0;
+			var AutoPlayObj_3=null;
+			
+			function GetObj(objName){
+				if(document.getElementById){
+					return eval('document.getElementById("'+objName+'")')
+				}else{
+					return eval('document.all.'+objName)
+				}
+			}
+			/*function GetObj(clazzName){
+				return eval('document.getElementsByClassName("'+clazzName+'")')
+			}*/
+			function AutoPlay_1(){
+				clearInterval(AutoPlayObj_1);
+				AutoPlayObj_1=setInterval('ISL_GoDown_1();ISL_StopDown_1();',interval_1)
+			}
+			function ISL_GoUp_1(){
+				if(MoveLock_1)
+					return;
+				clearInterval(AutoPlayObj_1);
+				MoveLock_1=true;
+				MoveWay_1="left";
+				MoveTimeObj_1=setInterval('ISL_ScrUp_1();',Speed_1);
+			}
+			function ISL_StopUp_1(){
+				if(MoveWay_1 == "right")
+					{return};
+				clearInterval(MoveTimeObj_1);
+				if((GetObj('ISL_Cont_1').scrollLeft-fill_1)%PageWidth_1!=0){	
+					Comp_1=fill_1-(GetObj('ISL_Cont_1').scrollLeft%PageWidth_1);
+					CompScr_1()
+				}
+				else{
+					MoveLock_1=false
+				}
+				AutoPlay_1()
+			}
+			function ISL_ScrUp_1(){
+				if(GetObj('ISL_Cont_1').scrollLeft<=0){
+					GetObj('ISL_Cont_1').scrollLeft=GetObj('ISL_Cont_1').scrollLeft+GetObj('List1_1').offsetWidth
+				}
+				GetObj('ISL_Cont_1').scrollLeft-=Space_1
+			}
+			function ISL_GoDown_1(){
+				clearInterval(MoveTimeObj_1);
+				if(MoveLock_1)
+					return;
+				clearInterval(AutoPlayObj_1);
+				MoveLock_1=true;
+				MoveWay_1="right";
+				ISL_ScrDown_1();
+				MoveTimeObj_1=setInterval('ISL_ScrDown_1()',Speed_1)
+			}
+			function ISL_StopDown_1(){
+				if(MoveWay_1 == "left")
+					{return};
+				clearInterval(MoveTimeObj_1);
+				if(GetObj('ISL_Cont_1').scrollLeft%PageWidth_1-(fill_1>=0?fill_1:fill_1+1)!=0){
+					Comp_1=PageWidth_1-GetObj('ISL_Cont_1').scrollLeft%PageWidth_1+fill_1;CompScr_1()
+				}else{
+					MoveLock_1=false
+				}
+				AutoPlay_1()
+			}
+			function ISL_ScrDown_1(){
+				if(GetObj('ISL_Cont_1').scrollLeft>=GetObj('List1_1').scrollWidth){
+					GetObj('ISL_Cont_1').scrollLeft=GetObj('ISL_Cont_1').scrollLeft-GetObj('List1_1').scrollWidth
+				}
+				GetObj('ISL_Cont_1').scrollLeft+=Space_1
+			}
+			function CompScr_1(){
+				if(Comp_1==0){
+					MoveLock_1=false;
+					return
+				}
+				var num,TempSpeed=Speed_1,TempSpace=Space_1;
+				if(Math.abs(Comp_1)<PageWidth_1/2){
+					TempSpace=Math.round(Math.abs(Comp_1/Space_1));
+					if(TempSpace<1){
+						TempSpace=1
+					}
+				}
+				if(Comp_1<0){
+					if(Comp_1<-TempSpace){
+						Comp_1+=TempSpace;
+						num=TempSpace
+					}else{
+						num=-Comp_1;
+						Comp_1=0
+					}
+					GetObj('ISL_Cont_1').scrollLeft-=num;
+					setTimeout('CompScr_1()',TempSpeed)
+				}else{
+					if(Comp_1>TempSpace){
+						Comp_1-=TempSpace;
+						num=TempSpace
+					}else{
+						num=Comp_1;
+						Comp_1=0
+					}
+					GetObj('ISL_Cont_1').scrollLeft+=num;
+					setTimeout('CompScr_1()',TempSpeed)
+				}
+			}
+			
+			function picrun_ini(){
+				GetObj("List2_1").innerHTML=GetObj("List1_1").innerHTML;
+				GetObj('ISL_Cont_1').scrollLeft=fill_1>=0?fill_1:GetObj('List1_1').scrollWidth-Math.abs(fill_1);
+				GetObj("ISL_Cont_1").onmouseover=function(){clearInterval(AutoPlayObj_1)}
+				GetObj("ISL_Cont_1").onmouseout=function(){AutoPlay_1()}
+				AutoPlay_1();
+				
+				GetObj("List2_2").innerHTML=GetObj("List1_2").innerHTML;
+				GetObj('ISL_Cont_2').scrollLeft=fill_2>=0?fill_2:GetObj('List1_2').scrollWidth-Math.abs(fill_2);
+				GetObj("ISL_Cont_2").onmouseover=function(){clearInterval(AutoPlayObj_2)}
+				GetObj("ISL_Cont_2").onmouseout=function(){AutoPlay_2()}
+				AutoPlay_2();
+				
+				GetObj("List2_3").innerHTML=GetObj("List1_3").innerHTML;
+				GetObj('ISL_Cont_3').scrollLeft=fill_3>=0?fill_3:GetObj('List1_3').scrollWidth-Math.abs(fill_3);
+				GetObj("ISL_Cont_3").onmouseover=function(){clearInterval(AutoPlayObj_3)}
+				GetObj("ISL_Cont_3").onmouseout=function(){AutoPlay_3()}
+				AutoPlay_3();
+			}
+			
+			function AutoPlay_2(){
+				clearInterval(AutoPlayObj_2);
+				AutoPlayObj_2=setInterval('ISL_GoDown_2();ISL_StopDown_2();',interval_2)
+			}
+			function ISL_GoUp_2(){
+				if(MoveLock_2)
+					return;
+				clearInterval(AutoPlayObj_2);
+				MoveLock_2=true;
+				MoveWay_2="left";
+				MoveTimeObj_2=setInterval('ISL_ScrUp_2();',Speed_2);
+			}
+			function ISL_StopUp_2(){
+				if(MoveWay_2 == "right")
+					{return};
+				clearInterval(MoveTimeObj_2);
+				if((GetObj('ISL_Cont_2').scrollLeft-fill_2)%PageWidth_2!=0){	
+					Comp_2=fill_2-(GetObj('ISL_Cont_2').scrollLeft%PageWidth_2);
+					CompScr_2()
+				}
+				else{
+					MoveLock_2=false
+				}
+				AutoPlay_2()
+			}
+			function ISL_ScrUp_2(){
+				if(GetObj('ISL_Cont_2').scrollLeft<=0){
+					GetObj('ISL_Cont_2').scrollLeft=GetObj('ISL_Cont_2').scrollLeft+GetObj('List1_2').offsetWidth
+				}
+				GetObj('ISL_Cont_2').scrollLeft-=Space_2
+			}
+			function ISL_GoDown_2(){
+				clearInterval(MoveTimeObj_2);
+				if(MoveLock_2)
+					return;
+				clearInterval(AutoPlayObj_2);
+				MoveLock_2=true;
+				MoveWay_2="right";
+				ISL_ScrDown_2();
+				MoveTimeObj_2=setInterval('ISL_ScrDown_2()',Speed_2)
+			}
+			function ISL_StopDown_2(){
+				if(MoveWay_2 == "left")
+					{return};
+				clearInterval(MoveTimeObj_2);
+				if(GetObj('ISL_Cont_2').scrollLeft%PageWidth_2-(fill_2>=0?fill_2:fill_2+1)!=0){
+					Comp_2=PageWidth_2-GetObj('ISL_Cont_2').scrollLeft%PageWidth_2+fill_2;CompScr_2()
+				}else{
+					MoveLock_2=false
+				}
+				AutoPlay_2()
+			}
+			function ISL_ScrDown_2(){
+				if(GetObj('ISL_Cont_2').scrollLeft>=GetObj('List1_2').scrollWidth){
+					GetObj('ISL_Cont_2').scrollLeft=GetObj('ISL_Cont_2').scrollLeft-GetObj('List1_2').scrollWidth
+				}
+				GetObj('ISL_Cont_2').scrollLeft+=Space_2
+			}
+			function CompScr_2(){
+				if(Comp_2==0){
+					MoveLock_2=false;
+					return
+				}
+				var num,TempSpeed=Speed_2,TempSpace=Space_2;
+				if(Math.abs(Comp_2)<PageWidth_2/2){
+					TempSpace=Math.round(Math.abs(Comp_2/Space_2));
+					if(TempSpace<1){
+						TempSpace=1
+					}
+				}
+				if(Comp_2<0){
+					if(Comp_2<-TempSpace){
+						Comp_2+=TempSpace;
+						num=TempSpace
+					}else{
+						num=-Comp_2;
+						Comp_2=0
+					}
+					GetObj('ISL_Cont_2').scrollLeft-=num;
+					setTimeout('CompScr_2()',TempSpeed)
+				}else{
+					if(Comp_2>TempSpace){
+						Comp_2-=TempSpace;
+						num=TempSpace
+					}else{
+						num=Comp_2;
+						Comp_2=0
+					}
+					GetObj('ISL_Cont_2').scrollLeft+=num;
+					setTimeout('CompScr_2()',TempSpeed)
+				}
+			}
+			
+			function AutoPlay_3(){
+				clearInterval(AutoPlayObj_3);
+				AutoPlayObj_3=setInterval('ISL_GoDown_3();ISL_StopDown_3();',interval_3)
+			}
+			function ISL_GoUp_3(){
+				if(MoveLock_3)
+					return;
+				clearInterval(AutoPlayObj_3);
+				MoveLock_3=true;
+				MoveWay_3="left";
+				MoveTimeObj_3=setInterval('ISL_ScrUp_3();',Speed_3);
+			}
+			function ISL_StopUp_3(){
+				if(MoveWay_3 == "right")
+					{return};
+				clearInterval(MoveTimeObj_3);
+				if((GetObj('ISL_Cont_3').scrollLeft-fill_3)%PageWidth_3!=0){	
+					Comp_3=fill_3-(GetObj('ISL_Cont_3').scrollLeft%PageWidth_3);
+					CompScr_3()
+				}
+				else{
+					MoveLock_3=false
+				}
+				AutoPlay_3()
+			}
+			function ISL_ScrUp_3(){
+				if(GetObj('ISL_Cont_3').scrollLeft<=0){
+					GetObj('ISL_Cont_3').scrollLeft=GetObj('ISL_Cont_3').scrollLeft+GetObj('List1_3').offsetWidth
+				}
+				GetObj('ISL_Cont_3').scrollLeft-=Space_3
+			}
+			function ISL_GoDown_3(){
+				clearInterval(MoveTimeObj_3);
+				if(MoveLock_3)
+					return;
+				clearInterval(AutoPlayObj_3);
+				MoveLock_3=true;
+				MoveWay_3="right";
+				ISL_ScrDown_3();
+				MoveTimeObj_3=setInterval('ISL_ScrDown_3()',Speed_3)
+			}
+			function ISL_StopDown_3(){
+				if(MoveWay_3 == "left")
+					{return};
+				clearInterval(MoveTimeObj_3);
+				if(GetObj('ISL_Cont_3').scrollLeft%PageWidth_3-(fill_3>=0?fill_3:fill_3+1)!=0){
+					Comp_3=PageWidth_3-GetObj('ISL_Cont_3').scrollLeft%PageWidth_3+fill_3;CompScr_3()
+				}else{
+					MoveLock_3=false
+				}
+				AutoPlay_3()
+			}
+			function ISL_ScrDown_3(){
+				if(GetObj('ISL_Cont_3').scrollLeft>=GetObj('List1_3').scrollWidth){
+					GetObj('ISL_Cont_3').scrollLeft=GetObj('ISL_Cont_3').scrollLeft-GetObj('List1_3').scrollWidth
+				}
+				GetObj('ISL_Cont_3').scrollLeft+=Space_3
+			}
+			function CompScr_3(){
+				if(Comp_3==0){
+					MoveLock_3=false;
+					return
+				}
+				var num,TempSpeed=Speed_3,TempSpace=Space_3;
+				if(Math.abs(Comp_3)<PageWidth_3/2){
+					TempSpace=Math.round(Math.abs(Comp_3/Space_3));
+					if(TempSpace<1){
+						TempSpace=1
+					}
+				}
+				if(Comp_3<0){
+					if(Comp_3<-TempSpace){
+						Comp_3+=TempSpace;
+						num=TempSpace
+					}else{
+						num=-Comp_3;
+						Comp_3=0
+					}
+					GetObj('ISL_Cont_3').scrollLeft-=num;
+					setTimeout('CompScr_3()',TempSpeed)
+				}else{
+					if(Comp_3>TempSpace){
+						Comp_3-=TempSpace;
+						num=TempSpace
+					}else{
+						num=Comp_3;
+						Comp_3=0
+					}
+					GetObj('ISL_Cont_3').scrollLeft+=num;
+					setTimeout('CompScr_3()',TempSpeed)
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="hlnr page">
+			<div class="col-md-12 pd20 RightContentBody fmt10">
+				<div class="col-md-3 pd0 fmt5">
+					<div class="input-group inputWidth_search" >
+						<div class="input-group-btn">
+							<button id="xiala" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+								可选条件<span class='caret'></span>
+							</button>						
+							<ul class="dropdown-menu">
+								<li><a href="#" class="tabbb">交班人</a></li>
+								<li><a href="#" class="tabbb">接班人</a></li>
+								<li><a href="#" class="tabbb">交班事项</a></li>
+								<li><a href="#" class="tabbb">注意事项</a></li>
+								<li><a href="#" class="tabbb">状态</a></li>
+							</ul>
+						</div>
+						<input type="text" class="form-control">
+						<span class="input-group-addon"><a href="javascript:alert('查询！')">查询</a></span>
+					</div>
+				</div>				
+				<div class="col-md-9 pd0 fmt5">
+					<button class="btn btn-primary" data-toggle="modal" data-target=".myModal1"><span class="glyphicon glyphicon-plus"></span>&nbsp;添加</button> 
+				</div>				
+				<div class="col-md-12 pd0 fmt10">
+					<hr class="commonHRCss"/>
+				</div>
+				<div class="col-md-12 pd0">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>序号</th>
+								<th>值班人</th>
+								<th>交班时间</th>
+								<th>交班事项</th>
+								<th>注意事项</th>
+								<th>接班人</th>
+								<th>接班时间</th>
+								<th>状态</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>王玲</td>
+								<td>2018-04-01 05:50:00</td>
+								<td>
+									请留意注意事项，其他一切正常。
+									<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--王玲[HS201801][值班组长] 2018-04-01 18:59；
+								</td>
+								<td>
+									天气湿热，302床开始生褥疮，注意多翻身并擦拭身体。
+									<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--护工3[HG2018003] 2018-04-01 17:58;
+								</td>
+								<td>--</td>
+								<td>--</td>
+								<td>未交接</td>
+								<td>
+									<button class="btn btn-primary" data-toggle="modal" data-target=".myModal2">修改</button>
+									<button class="btn btn-danger">删除</button>
+									<button class="btn btn-warning" data-toggle="modal" data-target=".myModal5">交班</button>
+									<button class="btn btn-success" data-toggle="modal" data-target=".myModal3">详情</button>
+									<button class="btn btn-warning" data-toggle="modal" data-target=".myModal4">接班</button>
+								</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>万淑兰</td>
+								<td>2018-04-02 05:50:00</td>
+								<td>一切正常</td>
+								<td>105床新入院老人，请继续关注</td>
+								<td>樊迪</td>
+								<td>2018-04-02 06:00:00</td>
+								<td>已交接</td>
+								<td>
+									<button class="btn btn-success" data-toggle="modal" data-target=".myModal3">详情</button>
+								</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>贾文</td>
+								<td>2018-04-03 05:50:00</td>
+								<td>一切正常，某某物品需补充</td>
+								<td>--</td>
+								<td>周安</td>
+								<td>2018-04-03 06:00:00</td>
+								<td>已交接</td>
+								<td>
+									<button class="btn btn-success" data-toggle="modal" data-target=".myModal3">详情</button>
+								</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>王玲</td>
+								<td>2018-04-04 05:50:00</td>
+								<td>一切正常</td>
+								<td>105床新入院老人，请继续关注</td>
+								<td>王丽</td>
+								<td>2018-04-04 06:00:00</td>
+								<td>已交接</td>
+								<td>
+									<button class="btn btn-success" data-toggle="modal" data-target=".myModal3">详情</button>
+								</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>贾文</td>
+								<td>2018-04-05 05:50:00</td>
+								<td>一切正常，某某物品需补充</td>
+								<td>--</td>
+								<td>周安</td>
+								<td>2018-04-05 06:00:00</td>
+								<td>已交接</td>
+								<td>
+									<button class="btn btn-success" data-toggle="modal" data-target=".myModal3">详情</button>
+								</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>万淑兰</td>
+								<td>2018-04-02 05:50:00</td>
+								<td>一切正常</td>
+								<td>105床新入院老人，请继续关注</td>
+								<td>樊迪</td>
+								<td>2018-04-02 06:00:00</td>
+								<td>已交接</td>
+								<td>
+									<button class="btn btn-success" data-toggle="modal" data-target=".myModal3">详情</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-md-12 pd0">
+					<div class="col-md-12 text-right pd0 fmt20">
+						<nav aria-label="Page navigation">
+							<ul class="pagination">
+								<li>
+									<a href="#" aria-label="Previous">
+										<span aria-hidden="true">&laquo;</span>
+									</a>
+								</li>
+								<li><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+								<li><a href="#">6</a></li>
+								<li>
+									<a href="#" aria-label="Next">
+										<span aria-hidden="true">&raquo;</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>				
+			</div>
+		</div>
+		<!-- 模态框start -->
+		<!-- 添加 -->
+		<div class="modal fade myModal1">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width:100%;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<span class="glyphicon glyphicon-pencil"></span>&nbsp;【添加】
+					</div>
+					<div class="modal-body clearfix" style="height: auto;">
+						<div class="col-md-12 pd0">
+							<div class="col-md-1 pd0 mt10"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;交班时间：</span>
+										<input type="datetime-local" class="form-control">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;交班事项：</span>
+										<textarea rows="4" class="form-control" placeholder="请输入【交班事项】信息"></textarea>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<!--<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;注意事项：</span>
+										<textarea rows="4" class="form-control" placeholder="请输入【注意事项】信息"></textarea>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>-->
+					</div>
+					<div class="modal-footer mt20">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">
+							确定
+						</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							取消
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 修改 -->
+		<div class="modal fade myModal2">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width:100%;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<span class="glyphicon glyphicon-pencil"></span>&nbsp;【修改】
+					</div>
+					<div class="modal-body clearfix" style="height: auto;">
+						<div class="col-md-12 pd0">
+							<div class="col-md-1 pd0 mt10"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;交班时间：</span>
+										<input class="form-control" value="2018-04-01 05:50:00">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;交班事项：</span>
+										<textarea rows="4" class="form-control">请留意注意事项，其他一切正常。
+王玲[HS201801][值班组长] 2018-04-01 18:59；
+										</textarea>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<!--<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;注意事项：</span>
+										<textarea rows="4" class="form-control"></textarea>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>-->
+					</div>
+					<div class="modal-footer mt20">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">
+							确定
+						</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							取消
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 详情 -->
+		<div class="modal fade myModal3">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width:121%;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<span class="glyphicon glyphicon-pencil"></span>&nbsp;【详情】
+					</div>					
+					<div class="modal-body clearfix" style="height: auto;">
+						<div class="col-md-12 pd0">
+							<div class="col-md-12 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;交班人：</span>
+										<input class="form-control" value="王玲">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-12 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;交班时间：</span>
+										<input class="form-control" value="2018-04-01 05:50:00">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-12 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;交班事项：</span>
+										<!--<textarea rows="4" class="form-control">101-120床一切正常。
+					护工1[HG2018001] 2018-04-01 17:55;
+201-220床一切正常。
+					护工2[HG2018002] 2018-04-01 17:54;
+										</textarea>-->
+										<textarea rows="4" class="form-control">请留意注意事项，其他一切正常。
+					王玲[HS201801][值班组长] 2018-04-01 18:59；
+										</textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-12 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;注意事项：</span>										
+										<textarea rows="4" class="form-control">天气湿热，302床开始生褥疮，注意多翻身并擦拭身体。
+					护工3[HG2018003] 2018-04-01 17:58;
+										</textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="input-group inputWidth_search" >
+								<input type="text" class="form-control" placeholder="夏王玲">						
+								<span class="input-group-addon"><a href="javascript:alert('查询')">查询</a></span>								
+							</div>
+						</div>
+						<div class="col-md-12 pd0 mt10"></div>					
+						<!-- picrotate_left start  -->
+						<div class="blk_18"> 
+							<a class="LeftBotton" onmousedown="ISL_GoUp_3()" onmouseup="ISL_StopUp_3()" onmouseout="ISL_StopUp_3()" href="javascript:void(0);" target="_self"></a>
+							<div class="pcont" id="ISL_Cont_3">
+								<div class="ScrCont">
+									<div id="List1_3">
+										<!-- piclist begin -->
+										<a class="pl" href="#"><img src="..\About\images\wall_s1.jpg" width="96" height="72"/>夏王玲</a>
+										<a class="pl"href="#"> <img src="..\About\images\wall_s2.jpg" width="96" height="72"/>王丽雅</a> 
+										<a class="pl" href="#"><img src="..\About\images\wall_s3.jpg" width="96" height="72"/>贾文</a> 
+										<a class="pl" href="#"><img src="..\About\images\wall_s4.jpg" width="96" height="72"/>周安</a> 
+										<a class="pl" href="#"><img src="..\About\images\wall_s5.jpg" width="96" height="72"/>万淑兰</a> 
+										<a class="pl" href="#"><img src="..\About\images\wall_s6.jpg" width="96" height="72"/>樊迪</a> 
+										<a class="pl" href="#"><img src="..\About\images\wall_s7.jpg" width="96" height="72"/>客户7</a> 
+										<a class="pl" href="#" ><img src="..\About\images\wall_s8.jpg" width="96" height="72"/>客户8</a> 
+										<a class="pl" href="#" ><img src="..\About\images\wall_s9.jpg" width="96" height="72"/>客户9</a>
+										<!-- piclist end -->
+									</div>
+									<div id="List2_3"></div>
+								</div>
+							</div>
+							<a class="RightBotton" onmousedown="ISL_GoDown_3()" onmouseup="ISL_StopDown_3()" onmouseout="ISL_StopDown_3()" href="javascript:void(0);" target="_self"></a> 
+						</div>	
+						<div class="col-md-12" style="border:1px solid #ddd;">
+							<div class="col-md-11">
+								<table class="table mt5"cellpadding="0" cellspacing="0" >
+									<tr align="left" height="30px">
+										<td colspan="8" style="border-top:0;"><b>护理记录：</b></td>
+									</tr>
+									<tr align="left" style="background-color: #eee;"  height="30px">
+										<td>序号</td>
+										<td>客户名称</td>
+										<td>护理项目</td>
+										<td>护理时间</td>
+										<td>护理人员</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>1</td>
+										<td class="name">夏王玲</td>
+										<td>协助服药</td>
+										<td>2018-04-01 07:30</td>
+										<td>王明亮</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>2</td>
+										<td class="name">夏王玲</td>
+										<td>床上洗头</td>
+										<td>2018-04-01 08:30</td>
+										<td>王明亮</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+						<div class="col-md-12" style="border:1px solid #ddd;">
+							<div class="col-md-11">
+								<table class="table mt5"cellpadding="0" cellspacing="0">
+									<tr align="left" height="30px">
+										<td colspan="8" style="border-top:0;"><b>用药记录：</b></td>
+									</tr>
+									<tr align="left" style="background-color: #eee;"  height="30px">
+										<td>序号</td>
+										<td>客户姓名</td>
+										<td>药物名称</td>
+										<td>用药时段</td>
+										<td>护理人员</td>				
+									</tr>
+									<tr align="left"  height="30px">
+										<td>1</td>
+										<td class="name">夏王玲</td>
+										<td>康泰</td>
+										<td>早上</td>
+										<td>王明亮</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>2</td>
+										<td class="name">夏王玲</td>
+										<td>罗红霉素分散片</td>
+										<td>早上</td>
+										<td>王明亮</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>3</td>
+										<td class="name">夏王玲</td>
+										<td>康泰</td>
+										<td>中午</td>
+										<td>王明亮</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>4</td>
+										<td class="name">夏王玲</td>
+										<td>罗红霉素分散片</td>
+										<td>中午</td>
+										<td>王明亮</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>5</td>
+										<td class="name">夏王玲</td>
+										<td>康泰</td>
+										<td>晚上</td>
+										<td>王明亮</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>6</td>
+										<td class="name">夏王玲</td>
+										<td>罗红霉素分散片</td>
+										<td>晚上</td>
+										<td>王明亮</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+						<div class="col-md-12" style="border:1px solid #ddd;">
+							<div class="col-md-11">
+								<table class="table mt5"cellpadding="0" cellspacing="0">
+									<tr align="left" height="30px">
+										<td colspan="8" style="border-top:0;"><b>药品清单：</b></td>
+									</tr>
+									<tr align="left" style="background-color: #eee;"  height="30px">
+										<td>药物名称</td>
+										<td>数量</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>康泰</td>
+										<td><input value="6粒" /></td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>罗红霉素分散片</td>
+										<td><input value="3片" /></td>
+									</tr>
+								</table>
+							</div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-12 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;接班人：</span>
+										<input class="form-control" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-12 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;接班时间：</span>
+										<input type="datetime-local" class="form-control">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-12 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;状态：</span>
+										<input class="form-control" value="未交接"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>				
+					<div class="modal-footer mt20">
+						<button type="button" class="btn btn-danger" data-dismiss="modal">
+							关闭
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 接班 -->
+		<div class="modal fade myModal4">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width:121%;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<span class="glyphicon glyphicon-pencil"></span>&nbsp;【接班】
+					</div>					
+					<div class="modal-body clearfix" style="height: auto;">
+						<div class="col-md-12 pd0">
+							<div class="col-md-11 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;交班人：</span>
+										<input class="form-control" value="王玲">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-11 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;交班时间：</span>
+										<input class="form-control" value="2018-04-01 05:50:00">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-11 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;交班事项：</span>
+										<textarea rows="4" class="form-control">请留意注意事项，其他一切正常。
+					王玲[HS201801][值班组长] 2018-04-01 18:59；
+										</textarea>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 mt40">
+								<button type="button" class="btn-xs btn-danger"><span class="glyphicon glyphicon-ok"></span></button>
+							</div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-11 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;注意事项：</span>
+										<textarea rows="4" class="form-control">天气湿热，302床开始生褥疮，注意多翻身并擦拭身体。
+					护工3[HG2018003] 2018-04-01 17:58;
+										</textarea>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 mt40">
+								<button type="button" class="btn-xs btn-danger"><span class="glyphicon glyphicon-ok"></span></button>
+							</div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="input-group inputWidth_search" >
+								<input type="text" class="form-control" placeholder="夏王玲">						
+								<span class="input-group-addon"><a href="javascript:alert('查询')">查询</a></span>								
+							</div>
+						</div>
+						<div class="col-md-12 pd0 mt10"></div>					
+						<!-- picrotate_left start  -->
+						<div class="blk_18"> 
+							<a class="LeftBotton" onmousedown="ISL_GoUp_1()" onmouseup="ISL_StopUp_1()" onmouseout="ISL_StopUp_1()" href="javascript:void(0);" target="_self"></a>
+							<div class="pcont" id="ISL_Cont_1">
+								<div class="ScrCont">
+									<div id="List1_1">
+										<!-- piclist begin -->
+										<!--<a class="pl" href="#"><img src="..\About\images\wall_s1.jpg" width="96" height="72"/>夏王玲</a>
+										<a class="pl"href="#"> <img src="..\About\images\wall_s2.jpg" width="96" height="72"/>王丽雅</a> 
+										<a class="pl" href="#"><img src="..\About\images\wall_s3.jpg" width="96" height="72"/>贾文</a> 
+										<a class="pl" href="#"><img src="..\About\images\wall_s4.jpg" width="96" height="72"/>周安</a> 
+										<a class="pl" href="#"><img src="..\About\images\wall_s5.jpg" width="96" height="72"/>万淑兰</a> 
+										<a class="pl" href="#"><img src="..\About\images\wall_s6.jpg" width="96" height="72"/>樊迪</a> 
+										<a class="pl" href="#"><img src="..\About\images\wall_s7.jpg" width="96" height="72"/>客户7</a> 
+										<a class="pl" href="#" ><img src="..\About\images\wall_s8.jpg" width="96" height="72"/>客户8</a> 
+										<a class="pl" href="#" ><img src="..\About\images\wall_s9.jpg" width="96" height="72"/>客户9</a>-->
+										<a class="pl" href="#"><img src="..\About\images\mei1.jpg" width="96" height="72"/>夏王玲</a>
+										<a class="pl"href="#"> <img src="..\About\images\mei2.jpg" width="96" height="72"/>王丽雅</a> 
+										<a class="pl" href="#"><img src="..\About\images\mei3.jpg" width="96" height="72"/>贾文</a> 
+										<a class="pl" href="#"><img src="..\About\images\mei4.jpg" width="96" height="72"/>周安</a> 
+										<a class="pl" href="#"><img src="..\About\images\mei5.jpg" width="96" height="72"/>万淑兰</a> 
+										<a class="pl" href="#"><img src="..\About\images\mei6.jpg" width="96" height="72"/>樊迪</a> 
+										<a class="pl" href="#"><img src="..\About\images\mei7.jpg" width="96" height="72"/>客户7</a> 
+										<a class="pl" href="#" ><img src="..\About\images\mei8.jpg" width="96" height="72"/>客户8</a> 
+										<a class="pl" href="#" ><img src="..\About\images\mei9.jpg" width="96" height="72"/>客户9</a>
+										<!-- piclist end -->
+									</div>
+									<div id="List2_1"></div>
+								</div>
+							</div>
+							<a class="RightBotton" onmousedown="ISL_GoDown_1()" onmouseup="ISL_StopDown_1()" onmouseout="ISL_StopDown_1()" href="javascript:void(0);" target="_self"></a> 
+						</div>	
+						<div class="col-md-12" style="border:1px solid #ddd;">
+							<div class="col-md-11">
+								<table class="table mt5"cellpadding="0" cellspacing="0" >
+									<tr align="left" height="30px">
+										<td colspan="8" style="border-top:0;"><b>护理记录：</b></td>
+									</tr>
+									<tr align="left" style="background-color: #eee;"  height="30px">
+										<td>序号</td>
+										<td>客户名称</td>
+										<td>护理项目</td>
+										<td>护理时间</td>
+										<td>护理人员</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>1</td>
+										<td class="name">夏王玲</td>
+										<td>协助服药</td>
+										<td>2018-04-01 07:30</td>
+										<td>王明亮</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>2</td>
+										<td class="name">夏王玲</td>
+										<td>床上洗头</td>
+										<td>2018-04-01 08:30</td>
+										<td>王明亮</td>
+									</tr>
+								</table>
+							</div>
+							<div class="col-md-1 mt40">
+								<button type="button" class="btn-xs btn-danger"><span class="glyphicon glyphicon-ok"></span></button>
+							</div>
+						</div>
+						<div class="col-md-12" style="border:1px solid #ddd;">
+							<div class="col-md-11">
+								<table class="table mt5"cellpadding="0" cellspacing="0">
+									<tr align="left" height="30px">
+										<td colspan="8" style="border-top:0;"><b>用药记录：</b></td>
+									</tr>
+									<tr align="left" style="background-color: #eee;"  height="30px">
+										<td>序号</td>
+										<td>客户姓名</td>
+										<td>药物名称</td>
+										<td>用药时段</td>
+										<td>护理人员</td>				
+									</tr>
+									<tr align="left"  height="30px">
+										<td>1</td>
+										<td class="name">夏王玲</td>
+										<td>康泰</td>
+										<td>早上</td>
+										<td>王明亮</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>2</td>
+										<td class="name">夏王玲</td>
+										<td>罗红霉素分散片</td>
+										<td>早上</td>
+										<td>王明亮</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>3</td>
+										<td class="name">夏王玲</td>
+										<td>康泰</td>
+										<td>中午</td>
+										<td>王明亮</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>4</td>
+										<td class="name">夏王玲</td>
+										<td>罗红霉素分散片</td>
+										<td>中午</td>
+										<td>王明亮</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>5</td>
+										<td class="name">夏王玲</td>
+										<td>康泰</td>
+										<td>晚上</td>
+										<td>王明亮</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>6</td>
+										<td class="name">夏王玲</td>
+										<td>罗红霉素分散片</td>
+										<td>晚上</td>
+										<td>王明亮</td>
+									</tr>
+								</table>
+							</div>
+							<div class="col-md-1 mt40">
+								<button type="button" class="btn-xs btn-danger"><span class="glyphicon glyphicon-ok"></span></button>
+							</div>
+						</div>
+						<div class="col-md-12" style="border:1px solid #ddd;">
+							<div class="col-md-11">
+								<table class="table mt5"cellpadding="0" cellspacing="0">
+									<tr align="left" height="30px">
+										<td colspan="8" style="border-top:0;"><b>药品清单：</b></td>
+									</tr>
+									<tr align="left" style="background-color: #eee;"  height="30px">
+										<td>药物名称</td>
+										<td>数量</td>
+										<td>核实数量</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>康泰</td>
+										<td>6粒</td>
+										<td><input /></td>
+										<!--<td><button type="button" class="btn-xs btn-danger"><span class="glyphicon glyphicon-ok"></span></button></td>-->
+									</tr>
+									<tr align="left"  height="30px">
+										<td>罗红霉素分散片</td>
+										<td>3片</td>
+										<td><input /></td>
+										<!--<td><button type="button" class="btn-xs btn-danger"><span class="glyphicon glyphicon-ok"></span></button></td>-->
+									</tr>
+								</table>
+							</div>
+							<div class="col-md-1 mt40">
+								<button type="button" class="btn-xs btn-danger"><span class="glyphicon glyphicon-ok"></span></button>
+							</div>
+						</div>
+					</div>				
+					<div class="modal-footer mt20">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">
+							一键确认
+						</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							取消
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 交班 -->
+		<div class="modal fade myModal5">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width:121%;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<span class="glyphicon glyphicon-pencil"></span>&nbsp;【交班】
+					</div>					
+					<div class="modal-body clearfix" style="height: auto;">
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-11 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;注意事项：</span>
+										<textarea rows="4" class="form-control">天气湿热，302床开始生褥疮，注意多翻身并擦拭身体。
+					护工3[HG2018003] 2018-04-01 17:58;
+										</textarea>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 mt40">
+								<button type="button" class="btn-xs btn-primary" data-toggle="modal" data-target=".myModalx"><span class="glyphicon glyphicon-plus"></span></button>
+							</div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="input-group inputWidth_search" >
+								<input type="text" class="form-control" placeholder="夏王玲">						
+								<span class="input-group-addon"><a href="javascript:alert('查询')">查询</a></span>								
+							</div>
+						</div>
+						<div class="col-md-12 pd0 mt10"></div>					
+						<!-- picrotate_left start  -->
+						<div class="blk_18"> 
+							<a class="LeftBotton" onmousedown="ISL_GoUp_2()" onmouseup="ISL_StopUp_2()" onmouseout="ISL_StopUp_2()" href="javascript:void(0);" target="_self"></a>
+							<div class="pcont" id="ISL_Cont_2">
+								<div class="ScrCont">
+									<div id="List1_2">
+										<!-- piclist begin -->
+										<!--<a class="pl" href="#" onclick="alert('hehe');"><img src="..\About\images\wall_s1.jpg" width="96" height="72"/>夏王玲</a>-->
+										<a class="pl" href="#"><img src="..\About\images\mei1.jpg" width="96" height="72"/>夏王玲</a>
+										<a class="pl"href="#"> <img src="..\About\images\mei2.jpg" width="96" height="72"/>王丽雅</a> 
+										<a class="pl" href="#"><img src="..\About\images\mei3.jpg" width="96" height="72"/>贾文</a> 
+										<a class="pl" href="#"><img src="..\About\images\mei4.jpg" width="96" height="72"/>周安</a> 
+										<a class="pl" href="#"><img src="..\About\images\mei5.jpg" width="96" height="72"/>万淑兰</a> 
+										<a class="pl" href="#"><img src="..\About\images\mei6.jpg" width="96" height="72"/>樊迪</a> 
+										<a class="pl" href="#"><img src="..\About\images\mei7.jpg" width="96" height="72"/>客户7</a> 
+										<a class="pl" href="#"><img src="..\About\images\mei8.jpg" width="96" height="72"/>客户8</a> 
+										<a class="pl" href="#"><img src="..\About\images\mei9.jpg" width="96" height="72"/>客户9</a>
+										<!-- piclist end -->
+									</div>
+									<div id="List2_2"></div>
+								</div>
+							</div>
+							<a class="RightBotton" onmousedown="ISL_GoDown_2()" onmouseup="ISL_StopDown_2()" onmouseout="ISL_StopDown_2()" href="javascript:void(0);" target="_self"></a> 
+						</div>	
+						<div class="col-md-12" style="border:1px solid #ddd;">
+							<div class="col-md-11">
+								<table class="table mt5"cellpadding="0" cellspacing="0" >
+									<tr align="left" height="30px">
+										<td colspan="8" style="border-top:0;"><b>护理记录：</b></td>
+									</tr>
+									<tr align="left" style="background-color: #eee;"  height="30px">
+										<td>序号</td>
+										<td>客户名称</td>
+										<td>护理项目</td>
+										<td>护理时间</td>
+										<td>护理人员</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>1</td>
+										<td class="name">夏王玲</td>
+										<td>协助服药</td>
+										<td>2018-04-01 07:30</td>
+										<td>王明亮</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>2</td>
+										<td class="name">夏王玲</td>
+										<td>床上洗头</td>
+										<td>2018-04-01 08:30</td>
+										<td>王明亮</td>
+									</tr>
+								</table>
+							</div>
+							<div class="col-md-1 mt40">
+								<button type="button" class="btn-xs btn-primary"><span class="glyphicon glyphicon-refresh"></span></button>
+							</div>
+						</div>
+						<div class="col-md-12" style="border:1px solid #ddd;">
+							<div class="col-md-11">
+								<table class="table mt5"cellpadding="0" cellspacing="0">
+									<tr align="left" height="30px">
+										<td colspan="8" style="border-top:0;"><b>用药记录：</b></td>
+									</tr>
+									<tr align="left" style="background-color: #eee;"  height="30px">
+										<td>序号</td>
+										<td>客户姓名</td>
+										<td>药物名称</td>
+										<td>用药时段</td>
+										<td>护理人员</td>				
+									</tr>
+									<tr align="left"  height="30px">
+										<td>1</td>
+										<td class="name">夏王玲</td>
+										<td>康泰</td>
+										<td>早上</td>
+										<td>王明亮</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>2</td>
+										<td class="name">夏王玲</td>
+										<td>罗红霉素分散片</td>
+										<td>早上</td>
+										<td>王明亮</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>3</td>
+										<td class="name">夏王玲</td>
+										<td>康泰</td>
+										<td>中午</td>
+										<td>王明亮</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>4</td>
+										<td class="name">夏王玲</td>
+										<td>罗红霉素分散片</td>
+										<td>中午</td>
+										<td>王明亮</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>5</td>
+										<td class="name">夏王玲</td>
+										<td>康泰</td>
+										<td>晚上</td>
+										<td>王明亮</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>6</td>
+										<td class="name">夏王玲</td>
+										<td>罗红霉素分散片</td>
+										<td>晚上</td>
+										<td>王明亮</td>
+									</tr>
+								</table>
+							</div>
+							<div class="col-md-1 mt40">
+								<button type="button" class="btn-xs btn-primary"><span class="glyphicon glyphicon-refresh"></span></button>
+							</div>
+						</div>
+						<div class="col-md-12" style="border:1px solid #ddd;">
+							<div class="col-md-11">
+								<table class="table mt5"cellpadding="0" cellspacing="0">
+									<tr align="left" height="30px">
+										<td colspan="8" style="border-top:0;"><b>药品清单：</b></td>
+									</tr>
+									<tr align="left" style="background-color: #eee;"  height="30px">
+										<td>药物名称</td>
+										<td>数量</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>康泰</td>
+										<td><input value="6粒" /></td>
+										<!--<td><button type="button" class="btn-xs btn-primary"><span class="glyphicon glyphicon-ok"></span></button></td>-->
+									</tr>
+									<tr align="left"  height="30px">
+										<td>罗红霉素分散片</td>
+										<td><input value="3片" /></td>
+										<!--<td><button type="button" class="btn-xs btn-primary"><span class="glyphicon glyphicon-ok"></span></button></td>-->
+									</tr>
+								</table>
+							</div>
+							<div class="col-md-1 mt40">
+								<button type="button" class="btn-xs btn-primary"><span class="glyphicon glyphicon-ok"></span></button>
+							</div>
+						</div>
+					</div>				
+					<div class="modal-footer mt20">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">
+							确定
+						</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							取消
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 工作人员填写交班事项和注意事项 -->
+		<div class="modal fade myModalx">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width:121%;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<span class="glyphicon glyphicon-pencil"></span>&nbsp;【添加事项】
+					</div>
+					<div class="modal-body clearfix" style="height: auto;">
+						<div class="col-md-12 pd0">
+							<div class="col-md-1 pd0 mt10"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;内容：</span>
+										<textarea rows="4" class="form-control" placeholder="请输入【内容】信息"></textarea>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+					</div>
+					<div class="modal-footer mt20">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">
+							确定
+						</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							取消
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 模态框end -->
+	</body>
+</html>

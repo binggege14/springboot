@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../About/css/bootstrap.min.css">
+		<link href="../About/css/myCss.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/main.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/base.css" type="text/css" rel="stylesheet">
+		<!--按钮样式表-->
+		<link href="../About/css/btn.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/css.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/index.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/search.css" type="text/css" rel="stylesheet">
+		<script src="../About/js/jquery.min.js"></script>
+		<script src="../About/js/bootstrap.min.js"></script>
+		<script src="../About/js/jQuery.rTabs.js"></script>
+		<title>添加护理服务</title>
+		<script type="text/javascript">
+		//等待dom元素加载完毕。点击切换tab标签
+		$(function(){
+			$("#tab4").rTabs({
+				bind : 'click'
+			});
+		})
+		
+		var i = 0;
+		$(function(){
+			$('.toUse').click(function(){
+				//alert( $(this).children('td').eq(1).text());
+				//$(".name").text($(this).children('td').eq(2).text());
+				//alert($(this).parentsUntil('tr').text());
+				//alert($(this).parent().prevAll()[1].text());
+				i++;
+				//var content = $(this).parent().prevAll().eq(3).text();
+				//var quantity = $(this).parent().prevAll().eq(1).text();
+				//$("#used").append("<tr><td>"+i+"</td><td>"+content+"</td><td>2017-12-30 08:30:00</td><td>"+quantity+"</td><td></td><td><button class='btn btn-primary'>修改</button>&nbsp;<button class='btn btn-danger'>删除</button></td><tr>");
+				var content = $(this).parent().prevAll().eq(5).text();
+				var quantity = $(this).parent().prevAll().eq(1).text();
+				if(quantity == undefined || quantity == "" || quantity == null)
+					quantity = 1;
+				//$("#used").append("<tr><td>"+i+"</td><td>"+content+"</td><td><input value='1' /></td><td><input /></td><tr>");
+				$("#used").append("<tr><td>"+i+"</td><td>"+content+"</td><td><input value='"+quantity+"' /></td><td></td><td><input /></td><tr>");
+			});
+		})
+		</script>
+	</head>
+	<body>
+		<div class="hljl_add page">
+			<div style="height:800px;" class="col-md-12 pd0 CPJBXX_RightContentBody mt20">
+				<div class="col-md-3 pd0 fmt5">
+					<div class="input-group inputWidth_search" >
+						<input type="text" class="form-control" placeholder="护理项目">
+						<span class="input-group-addon"><a href="javascript:alert('查询护理项目')">查询</a></span>								
+					</div>
+				</div>
+				<div class="col-md-12 pd0 fmt10">
+					<hr class="commonHRCss"/>
+				</div>						
+				<div class="col-md-12 pd0">
+					<div class="tab" id="tab4">
+						<div class="tab-nav j-tab-nav">
+							<a href="javascript:void(0);" class="current">
+								<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;护理配置内项目
+							</a>
+							<a href="javascript:void(0);">
+								<span class="glyphicon glyphicon-briefcase"></span>&nbsp;&nbsp;增值服务项目
+							</a>
+						</div>
+						<div class="tab-con" style="border-left: 1px solid; border-right: 1px solid; border-color: #d4c5c5;">
+							<div class="j-tab-con">
+								<div class="tab-con-item" style="display:block;">
+									<div class="col-md-12 pd10">
+										<div class="col-md-12 pd0">
+											<table class="table">
+												<thead>
+													<tr>
+														<th>
+															<center>
+																<font color="#000">序号</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">护理项目</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">执行周期</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">执行次数</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">是否评估推荐项目</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">本期推荐购买次数</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">备注</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">操作</font>
+															</center>
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td><font color="#000">1</font></td>
+														<td><font color="#000">吸氧</font></td>
+														<td><font color="#000">每天</font></td>
+														<td><font color="#000">1</font></td>
+														<td><font color="#000">是</font></td>
+														<td><font color="#000">90</font></td>
+														<td><font color="#000"></font></td>
+														<td><button class="btn btn-success toUse">添加</button></td>
+													</tr>
+													<tr>
+														<td><font color="#000">2</font></td>
+														<td><font color="#000">测量血压</font></td>
+														<td><font color="#000">每天</font></td>
+														<td><font color="#000">2</font></td>
+														<td><font color="#000">是</font></td>
+														<td><font color="#000">90</font></td>
+														<td><font color="#000"></font></td>
+														<td><button class="btn btn-success toUse">添加</button></td>
+													</tr>
+													<tr>
+														<td><font color="#000">3</font></td>
+														<td><font color="#000">协助服药</font></td>
+														<td><font color="#000">每天</font></td>
+														<td><font color="#000">3</font></td>
+														<td><font color="#000">是</font></td>
+														<td><font color="#000">270</font></td>
+														<td><font color="#000"></font></td>
+														<td><button class="btn btn-success toUse">添加</button></td>
+													</tr>
+													<tr>
+														<td><font color="#000">4</font></td>
+														<td><font color="#000">穿衣</font></td>
+														<td><font color="#000"></font></td>
+														<td><font color="#000"></font></td>
+														<td><font color="#000">否</font></td>
+														<td><font color="#000"></font></td>
+														<td><font color="#000"></font></td>
+														<td><button class="btn btn-success toUse">添加</button></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+								<div class="tab-con-item">
+									<div class="col-md-12 pd10">
+										<div class="col-md-12 pd0">
+											<table class="table">
+												<thead>
+													<tr>
+														<th>
+															<center>
+																<font color="#000">序号</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">护理项目</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">执行周期</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">执行次数</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">是否评估推荐项目</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">本期推荐购买次数</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">备注</font>
+															</center>
+														</th>
+														<th>
+															<center>
+																<font color="#000">操作</font>
+															</center>
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td><font color="#000">1</font></td>
+														<td><font color="#000">床上洗头</font></td>
+														<td><font color="#000">每周</font></td>
+														<td><font color="#000">2</font></td>
+														<td><font color="#000">是</font></td>
+														<td><font color="#000">24</font></td>
+														<td><font color="#000"></font></td>
+														<td><button class="btn btn-success toUse">添加</button></td>
+													</tr>
+													<tr>
+														<td><font color="#000">2</font></td>
+														<td><font color="#000">健身</font></td>
+														<td><font color="#000"></font></td>
+														<td><font color="#000"></font></td>
+														<td><font color="#000">否</font></td>
+														<td><font color="#000"></font></td>
+														<td><font color="#000"></font></td>
+														<td><button class="btn btn-success toUse">添加</button></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style="margin-left:-20px;margin-top:-180px;" class="col-md-12 pd0">
+						<div class="col-md-12 text-right pd0 fmt20">
+							<nav aria-label="Page navigation">
+								<ul class="pagination">
+									<li>
+										<a href="#" aria-label="Previous">
+											<span aria-hidden="true">&laquo;</span>
+										</a>
+									</li>
+									<li><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">5</a></li>
+									<li><a href="#">6</a></li>
+									<li>
+										<a href="#" aria-label="Next">
+											<span aria-hidden="true">&raquo;</span>
+										</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					</div>					
+				</div>
+				
+				<!--<div class="col-md-12 pd0 fmt10">
+					<hr class="commonHRCss"/>
+				</div>-->
+				<div style="margin-top:-120px;border: 1px solid; border-color: #d4c5c5;" class="col-md-12 pd0">
+					<div style="height: 30px;background-color: #1d83ec;" class="col-md-12 pd0">
+						<div class="col-md-12 pd0 GZTXX_Content_Table_Head_Font">
+							<div class="col-md-1 text-center pd0 mt2">
+								<span class="glyphicon glyphicon-list"></span>
+							</div>
+							<div class="col-md-11 pd0">
+								已选护理项目
+							</div>
+						</div>
+					</div>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>序号</th>
+								<th>护理项目</th>
+								<th>购买数量</th>
+								<th>上期剩余数量</th>
+								<th>备注</th>
+							</tr>
+						</thead>
+						<tbody id="used"></tbody>
+					</table>
+				</div>
+				
+				<div class="col-md-6 pd0 fmt5" style="text-align:right;margin-top: 20px;">
+					<button class="btn btn-success" onclick="alert('保存成功');"><span class="glyphicon glyphicon-ok"></span>&nbsp;保存</button> 
+				</div>
+				<div class="col-md-6 pd0 fmt5" style="margin-top: 20px;">
+					<a href="fwgz.html" target="ckjkda"><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;取消</button></a>
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>

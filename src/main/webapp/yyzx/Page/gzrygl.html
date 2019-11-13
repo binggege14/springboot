@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../About/css/bootstrap.min.css">
+		<link href="../About/css/myCss.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/main.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/base.css" type="text/css" rel="stylesheet">
+		<!--按钮样式表-->
+		<link href="../About/css/btn.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/css.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/index.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/search.css" type="text/css" rel="stylesheet">
+		<script src="../About/js/jquery.min.js"></script>
+		<script src="../About/js/bootstrap.min.js"></script>
+		<title>工作人员管理</title>
+		<script type="text/javascript">
+		$(function(){
+
+		})
+		</script>
+	</head>
+	<body>
+		<div class="hlnr page">
+			<div class="col-md-12 pd20 RightContentBody fmt10">
+				<div class="col-md-3 pd0 fmt5">
+					<div class="input-group inputWidth_search" >
+						<input type="text" class="form-control" placeholder="客户姓名">
+						<span class="input-group-addon"><a href="javascript:alert('查询')">查询</a></span>								
+					</div>
+				</div>
+				<div class="col-md-9 pd0 fmt5">
+					<button class="btn btn-primary" data-toggle="modal" data-target=".myModal1"><span class="glyphicon glyphicon-plus"></span>&nbsp;添加</button>
+				</div>			
+				<div class="modal fade myModal1">
+					<div class="modal-dialog">
+						<div class="modal-content" style="width:100%;">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<span class="glyphicon glyphicon-pencil"></span>&nbsp;【退住信息】
+							</div>
+							<div class="modal-body clearfix" style="height: auto;">
+								<div class="col-md-12 pd0">
+									<div class="col-md-1 pd0 mt10"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;姓名：</span>
+												<input class="form-control" />
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>							
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;性别：</span>
+												<select class="form-control" >
+													<option>男</option>
+													<option>女</option>
+													<option>其他</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;年龄：</span>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;员工类别：</span>
+												<select class="form-control" >
+													<option>医生</option>
+													<option>健康管家</option>
+													<option>护士</option>
+													<option>护工</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;入职时间：</span>
+												<input type="date" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;职务：</span>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;职称：</span>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;人员状态：</span>
+												<select class="form-control" >
+													<option>离职</option>
+													<option>在职</option>
+													<option>其他</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;简介：</span>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+								<div class="col-md-12 pd0 mt10">
+									<div class="col-md-1 pd0"></div>
+									<div class="col-md-10 pd0">
+										<div class="col-md-12 pd0">
+											<div class="input-group inputWidth">
+												<span class="input-group-addon titleWidth">&nbsp;&nbsp;备注：</span>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 pd0"></div>
+								</div>
+							</div>
+							<div class="modal-footer mt20">
+								<button type="button" class="btn btn-primary" data-dismiss="modal">
+									确定
+								</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">
+									取消
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+															
+				<div class="col-md-12 pd0 fmt10">
+					<hr class="commonHRCss"/>
+				</div>
+				<div class="col-md-12 pd0">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>序号</th>
+								<th>姓名</th>
+								<th>性别</th>
+								<th>年龄</th>
+								<th>员工号</th>
+								<th>员工类别</th>
+								<th>入职时间</th>
+								<th>操作人</th>
+								<th>操作时间</th>
+								<th>职务</th>
+								<th>职称</th>
+								<th>人员状态</th>
+								<th>简介</th>
+								<th>备注</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>夏王玲</td>
+								<td>女</td>
+								<td>43</td>
+								<td>HG20170401001</td>
+								<td>护工</td>
+								<td>2017-04-01</td>
+								<td>系统管理员</td>																
+								<td>2018-05-02</td>
+								<td></td>
+								<td></td>
+								<td>离职</td>
+								<td></td>
+								<td></td>
+								<td>
+									<button class="btn btn-primary" data-toggle="modal" data-target=".myModal1">修改</button>
+									<button class="btn btn-danger">删除</button>
+								</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>王丽雅</td>
+								<td>女</td>
+								<td>56</td>
+								<td>YS20171212001</td>
+								<td>医生</td>
+								<td>2017-12-12</td>
+								<td>系统管理员</td>																
+								<td>2018-05-02</td>
+								<td></td>
+								<td></td>
+								<td>在职</td>
+								<td></td>
+								<td></td>
+								<td>
+									<button class="btn btn-primary" data-toggle="modal" data-target=".myModal1">修改</button>
+									<button class="btn btn-danger">删除</button>
+								</td>
+							</tr>	
+							<tr>
+								<td>3</td>
+								<td>王丽</td>
+								<td>女</td>
+								<td>46</td>
+								<td>GJ20171212001</td>
+								<td>健康管家</td>
+								<td>2017-12-12</td>
+								<td>系统管理员</td>																
+								<td>2018-05-02</td>
+								<td></td>
+								<td></td>
+								<td>在职</td>
+								<td></td>
+								<td></td>
+								<td>
+									<button class="btn btn-primary" data-toggle="modal" data-target=".myModal1">修改</button>
+									<button class="btn btn-danger">删除</button>
+								</td>
+							</tr>							
+						</tbody>
+					</table>
+				</div>
+				<div class="col-md-12 pd0">
+					<div class="col-md-12 text-right pd0 fmt20">
+						<nav aria-label="Page navigation">
+							<ul class="pagination">
+								<li>
+									<a href="#" aria-label="Previous">
+										<span aria-hidden="true">&laquo;</span>
+									</a>
+								</li>
+								<li><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+								<li><a href="#">6</a></li>
+								<li>
+									<a href="#" aria-label="Next">
+										<span aria-hidden="true">&raquo;</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

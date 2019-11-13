@@ -1,0 +1,2424 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link href="../About/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/myCss.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/main.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/base.css" type="text/css" rel="stylesheet">
+		<!--按钮样式表-->
+		<link href="../About/css/btn.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/css.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/index.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/search.css" type="text/css" rel="stylesheet">
+
+		<script src="../About/js/jquery.min.js"></script>
+		<script src="../About/js/easing.js"></script>
+		<script src="../About/js/bootstrap.min.js"></script>
+		<script src="../About/js/jQuery.rTabs.js"></script>	
+		<!-- 日历 -->
+		<script src="../About/codebase/dhtmlxscheduler.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="../About/codebase/dhtmlxscheduler.css" type="text/css" charset="utf-8">
+		<script src="../About/codebase/locale/locale_cn.js" type="text/javascript" charset="utf-8"></script>
+		<title>健康档案信息</title>
+		<style>
+			/* 健康档案 */
+			.width_tab{
+				width:80%;
+			}.width_tabl{
+				width:100px;
+			}
+			/* 基本信息 */
+			.width_jbxx{
+				width:150px;
+			}
+			/* 添加体检信息 */
+			.width_tjtjxx_l{
+				text-align: right;
+			}
+			.width_tjtjxx_r{
+				width:100px;
+			}
+			/* 健康指导 */
+			.textType_jkzd{
+				text-align: center;
+			}.imgType_jkzd{
+				width:100%;
+			}
+			.mt205{
+				margin-top: 205px;
+			}
+			.contentType_jkzd{
+				width:410px;color:mediumvioletred;
+				font-size:15px;
+			}
+			.totalType_jkzd{
+				color:blueviolet;
+				font-size:20px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="myTab" class="nav nav-pills">
+			<li class="active"><a href="#home" data-toggle="tab">基本信息</a></li>
+			<li><a href="#jkda" data-toggle="tab">健康档案</a></li>
+			<li><a href="#jkzd" data-toggle="tab">健康指导</a></li>
+			<li><a href="#jktj" data-toggle="tab">健康体检</a></li>
+			<li><a href="#hlda" data-toggle="tab">护理档案</a></li>
+			<li><a href="#yyda" data-toggle="tab">用药档案</a></li>
+			<li><a href="#bjda" data-toggle="tab">保健档案</a></li>
+			<li><a href="#jsgth" data-toggle="tab">家属沟通会</a></li>
+		</ul>
+		<div id="myTabContent" class="tab-content">
+			<div class="tab-pane fade in active" id="home">	
+				<table class="table">
+					<tr >
+						<td rowspan="4" colspan="2" style="text-align: center;"><img src="../About/images/tou.png"/></td>
+						<td><strong>姓名:</strong></td>
+						<td class="name">黄颖</td>
+						<td><strong>性别:</strong></td>
+						<td class="sex">女</td>
+					</tr >
+					<tr align="left">
+						<td><strong>年龄:</strong></td>
+						<td>83</td>
+						<td><strong>出生日期:</strong></td>
+						<td>1933年2月1日</td>
+					</tr>
+					<tr align="left">
+						<td><strong>身高:</strong></td>
+						<td>164cm</td>
+						<td><strong>婚姻状况:</strong></td>
+						<td>丧偶</td>
+					</tr>
+					<tr align="left">
+						<td><strong>体重:</strong></td>
+						<td>70kg</td>
+						<td><strong>血型:</strong></td>
+						<td>O型</td>
+					</tr>
+					<tr align="left">
+						<td class="width_jbxx"><strong>慢性病:</strong></td>
+						<td>糖尿病</td>
+						<td><strong>家族史:</strong></td>
+						<td>精神病</td>
+						<td><strong>血压-舒张压:</strong></td>
+						<td>145.0mmHg</td>
+					</tr>
+					<tr align="left">
+						<td class="width_jbxx"><strong>血压-收缩压:</strong></td>
+						<td>66.0mmHg</td>
+						<td><strong>心率:</strong></td>
+						<td></td>
+						<td><strong>血糖-空腹血糖</strong></td>
+						<td></td>
+					</tr>
+					<tr align="left">
+						<td><strong>血脂-总胆固醇:</strong></td>
+						<td></td>
+						<td><strong>血脂-甘油三酯:</strong></td>
+						<td></td>
+						<td><strong>谷丙转氨酶:</strong></td>
+						<td></td>
+					</tr>
+					<tr align="left">
+						<td><strong>最后一次体检日期:</strong></td>
+						<td>2018年1月1日</td>
+						<td><strong>最后一次评估日期:</strong></td>
+						<td>2018年1月2日</td>
+						<td><strong>评估医生:</strong></td>
+						<td>李凯</td>
+					</tr>
+				</table>
+			</div>
+			<div class="tab-pane fade width_tab" id="jkda">
+				<table class="table"cellpadding="0" cellspacing="0" >
+					<tr align="left" style="background-color: lightgray;" height="30px">
+						<td>生活习惯</td><td></td><td></td><td></td>
+					</tr>
+					<tr align="left"  height="30px">
+						<td class="width_tabl">睡眠情况：</td>
+						<td>
+							长期的失眠很容易引起老人其它身体及心理上的疾病，老年人失眠怎么治疗是老年人及其家属应该重视的问题。
+							老年失眠症不同于中青年的失眠特点，在病因病机方面与精神思想因素关系不大，
+							不像中青年那样主要由精神负担沉重、思虑过度、心血耗伤所致，故其治疗如同于中青年之失眠，
+							则效果多不满意。其实，老年失眠症是由年老带来的全身和大脑皮质生理变化所导致的，
+							治疗应从改善老年人全身和大脑生理衰退状况为主
+						</td
+						><td></td><td></td>
+					</tr>
+					<tr align="left"  height="30px">
+						<td class="width_tabl">饮食情况：</td>
+						<td>
+							老年人每日进餐次数、每日餐量、每次餐量，根据老年人的饮食习惯选择食物和烹制方法，
+							适当补充蔬菜水果，经常调换口味，促进老年人的食欲。老年人的饮食习惯直接影响着老年人的身体健康。
+						</td>
+						<td></td><td></td>
+					</tr>
+					<tr align="left"  height="30px">
+						<td class="width_tabl">心理状态：</td>
+						<td>
+							认识能力低下：
+							中老年人身体机能衰退，大脑功能发生改变，中枢神经系统递质的合成和代谢减弱，
+							导致感觉能力降低，意识性差，反应迟钝，注意力不集中等。
+						</td>
+						<td></td><td></td>
+					</tr>
+				</table>
+				<table class="table"cellpadding="0" cellspacing="0" >
+					<tr align="left" style="background-color: lightgray;" height="30px">
+						<td>病史</td><td></td><td></td><td></td>
+					</tr>
+					<tr align="center"  height="30px">
+						<td colspan="4">
+							<ul id="myTab_bs" class="nav nav-pills">
+								<li class="active"><!--class="active"-->
+									<a href="#now_bs" data-toggle="tab">
+										<span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;现病史
+									</a>
+								</li>
+								<li>
+									<a href="#before_bs" data-toggle="tab">
+										<span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;既往史
+									</a>
+								</li>
+								<li>
+									<a href="#home_bs" data-toggle="tab">
+										<span class="glyphicon glyphicon-wrench"></span>&nbsp;&nbsp;家族病史
+									</a>
+								</li>
+							</ul>
+							<div id="myTabContent_bs" class="tab-content">
+								<div class="tab-pane fade in active" id="now_bs">
+									<div class="col-md-12 pd10">
+										<div class="col-md-12 pd0">
+											<table class="table table-hover">
+												<tbody>
+													<tr>
+														<td><font color="#000">药物过敏史</font></td>
+														<td>
+															<div class="input-group inputWidth_search" >
+																<input type="text" class="form-control">
+																<span class="input-group-addon"><a href="javascript:void(0)" class="open_ywgms_add">添加</a></span>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">慢病/传染病</font></td>
+														<td>
+															<div class="input-group inputWidth_search" >
+																<input type="text" class="form-control">
+																<span class="input-group-addon"><a href="javascript:void(0)" class="open_bs_add">添加</a></span>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">暴露史</font></td>
+														<td>
+															<div class="input-group inputWidth_search" >
+																<input type="text" class="form-control">
+																<span class="input-group-addon"><a href="javascript:void(0)" class="open_bls_add">添加</a></span>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">遗传病史</font></td>
+														<td>
+															<div class="input-group inputWidth_search" >
+																<input type="text" class="form-control">
+																<span class="input-group-addon"><a href="javascript:void(0)" class="open_ycbs_add">添加</a></span>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">残疾情况</font></td>
+														<td>
+															<div class="input-group inputWidth_search" >
+																<input type="text" class="form-control">
+																<span class="input-group-addon"><a href="javascript:void(0)" class="open_cjqk_add">添加</a></span>
+															</div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane fade" id="before_bs">
+									<div class="col-md-12 pd10">
+										<div class="col-md-12 pd0">
+											<table class="table table-hover">
+												<tbody id="row_jb">
+													<tr>
+														<td><font color="#000">疾病</font></td>
+														<td>
+															名称：	 <select>
+																		<option>高血压</option>
+																		<option>糖尿病</option>
+																		<option>冠心病</option>
+																	</select>
+														</td>
+														<td>
+															确诊时间<input type="text"/>
+														</td>
+														<td>
+															痊愈时间<input type="text"/>
+														</td>
+														<td>
+															<button type="button" class="btn-xs btn-primary add_jb">添加</button>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+											<table class="table table-hover">
+												<tbody id="row_ss">
+													<tr>
+														<td><font color="#000">手术</font></td>
+														<td>
+															名称：<input type="text"/>
+														</td>
+														<td>
+															时间<input type="text"/>
+														</td>
+														<td>
+															<button type="button" class="btn-xs btn-primary add_ss">添加</button>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+											<table class="table table-hover">
+												<tbody id="row_sx">
+													<tr>
+														<td><font color="#000">输血</font></td>
+														<td>
+															原因：<input type="text"/>
+														</td>
+														<td>
+															时间<input type="text"/>
+														</td>
+														<td>
+															<button type="button" class="btn-xs btn-primary add_sx">添加</button>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane fade" id="home_bs">
+									<div class="col-md-12 pd10">
+										<div class="col-md-12 pd0">
+											<table class="table table-hover">
+												<tbody>
+													<tr>
+														<td><font color="#000">父亲</font></td>
+														<td>
+															<div class="input-group inputWidth_search" >
+																<input type="text" class="form-control">
+																<span class="input-group-addon"><a href="javascript:void(0)" class="open_bs_add">添加病史</a></span>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">母亲</font></td>
+														<td>
+															<div class="input-group inputWidth_search" >
+																<input type="text" class="form-control">
+																<span class="input-group-addon"><a href="javascript:void(0)" class="open_bs_add">添加病史</a></span>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">子女</font></td>
+														<td>
+															<div class="input-group inputWidth_search" >
+																<input type="text" class="form-control">
+																<span class="input-group-addon"><a href="javascript:void(0)" class="open_bs_add">添加病史</a></span>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">兄弟姐妹</font></td>
+														<td>
+															<div class="input-group inputWidth_search" >
+																<input type="text" class="form-control">
+																<span class="input-group-addon"><a href="javascript:void(0)" class="open_bs_add">添加病史</a></span>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td><font color="#000">其他亲戚</font></td>
+														<td>
+															<div class="input-group inputWidth_search" >
+																<input type="text" class="form-control">
+																<span class="input-group-addon"><a href="javascript:void(0)" class="open_bs_add">添加病史</a></span>
+															</div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="tab-pane fade width_tab" id="jkzd">
+				<div class="col-md-12 mt10">
+					<div class="col-md-6 mt60 textType_jkzd">
+						<p class="totalType_jkzd">
+							阑尾炎：
+						</p>
+						<div class="contentType_jkzd">
+							阑尾炎是因多种因素而形成的炎性改变，为外科常见病，以青年最为多见，男性多于女性。
+							临床上急性阑尾炎较为常见，各年龄段及妊娠期妇女均可发病。慢性阑尾炎较为少见。
+						</div>
+					</div>
+					<div class="col-md-5">
+						<img src="../About/images/阑尾炎.jpg" class="imgType_jkzd">
+					</div>
+					<div class="col-md-1 mt205">
+						<a href="javascript:window.open('https://baike.baidu.com/item/%E9%98%91%E5%B0%BE%E7%82%8E/466028?fr=aladdin')">更多>></a>
+					</div>
+				</div>
+				<div class="col-md-12 mt10">
+					<div class="col-md-5">
+						<img src="../About/images/心脏病.jpg" class="imgType_jkzd">
+					</div>
+					<div class="col-md-6 mt60 textType_jkzd">
+						<p class="totalType_jkzd">
+							心脏病：
+						</p>
+						<div class="contentType_jkzd">
+							心脏病是一类比较常见的循环系统疾病。循环系统由心脏、血管和调节血液循环的神经体液组织构成，
+							循环系统疾病也称为心血管病，包括上述所有组织器官的疾病，在内科疾病中属于常见病，
+							其中以心脏病最为多见，能显著地影响患者的劳动力。
+						</div>
+					</div>
+					<div class="col-md-1 mt205">
+						<a href="javascript:window.open('https://baike.baidu.com/item/%E5%BF%83%E8%84%8F%E7%97%85/1441350?fr=aladdin')">更多>></a>
+					</div>
+				</div>
+				<div class="col-md-12 mt10">
+					<div class="col-md-6 mt60 textType_jkzd">
+						<p class="totalType_jkzd">
+							高血压：
+						</p>
+						<div class="contentType_jkzd">
+							高血压（hypertension）是指以体循环动脉血压（收缩压和/或舒张压）增高为主要特征
+							（收缩压≥140毫米汞柱，舒张压≥90毫米汞柱），可伴有心、脑、肾等器官的功能或器质性损害的临床综合征。
+						</div>
+					</div>
+					<div class="col-md-5">
+						<img src="../About/images/高血压.jpg" class="imgType_jkzd">
+					</div>
+					<div class="col-md-1 mt205">
+						<a href="javascript:void(0)" class="open_jkzd_gxy">更多>></a>
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane fade width_tab" id="jktj">
+				<button type="button" class="btn btn-primary open_tjxx_add">添加</button>
+				<table class="table mt5">
+					<thead>
+						<tr style="background-color: lightgray;">
+							<th>档案编号</th>
+							<th>体检类别</th>
+							<th>体检日期</th>
+							<th>责任医生</th>
+							<th>录入人</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><a href="javascript:void(0)" class="open_tjxx" style="color:blue">SDGANIAEGLAJSID</a></td>
+							<td>公司体检</td>
+							<td>2018-04-12</td>
+							<td>欧阳锋</td>
+							<td>王大宝</td>
+						</tr>
+						<tr>
+							<td><a href="javascript:void(0)" class="open_tjxx" style="color:blue">INGAISDJFOWIENT</a></td>
+							<td>公司体检</td>
+							<td>2017-10-12</td>
+							<td>欧阳锋</td>
+							<td>王大宝</td>
+						</tr>
+						<tr>
+							<td><a href="javascript:void(0)" class="open_tjxx" style="color:blue">POQFJIGPEITAPDF</a></td>
+							<td>个人体检</td>
+							<td>2016-04-13</td>
+							<td>欧阳克</td>
+							<td>李大山</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="tab-pane fade width_tab" id="hlda">
+				<button type="button" class="btn btn-primary open_hlda_add">添加</button>
+				<table class="table mt5">
+					<thead>
+						<tr style="background-color: lightgray;">
+							<th>档案编号</th>
+							<th>护理类型</th>
+							<th style="width:300px">护理内容</th>
+							<th>护理开始日期</th>
+							<th>护理结束日期</th>
+							<th>护理人员</th>
+							<th>录入人</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>SDGANIAEGLAJSID</td>
+							<td><button class="btn-xs btn-one-hl" disabled="disabled">一级护理</button></td>
+							<td >
+								护士每隔1小时巡视1次，既了解病情和治疗情况，又帮助饮食起居。
+								根据病情需要帮助病人更换体位、擦澡、洗头、剪指（趾）甲等。
+							</td>
+							<td>2018-04-01</td>
+							<td>2018-04-15</td>
+							<td>欧阳锋</td>
+							<td>王大宝</td>
+						</tr>
+						<tr>
+							<td>INGAISDJFOWIENT</td>
+							<td><button class="btn-xs btn-danger" disabled="disabled">特别护理</button></td>
+							<td>
+								安排24h专人护理，严密观察病情及生命体征变化。
+								制定护理计划，严格执行各项诊疗及护理措施，及时准确逐项填写特别护理记录。
+							</td>
+							<td>2018-01-01</td>
+							<td>2018-03-31</td>
+							<td>欧阳锋</td>
+							<td>王大宝</td>
+						</tr>
+						<tr>
+							<td>POQFJIGPEITAPDF</td>
+							<td><button class="btn-xs btn-primary" disabled="disabled">三级护理</button></td>
+							<td>
+								病人入病室前要在接诊室洗头、理发、沐浴、更衣、剪指甲。对有虱虮的病人应进行灭虱。
+							</td>
+							<td>2017-06-01</td>
+							<td>2017-12-31</td>
+							<td>欧阳锋</td>
+							<td>王大宝</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="tab-pane fade width_tab" id="yyda">
+				<button type="button" class="btn btn-primary open_yyda_add">添加</button>
+				<table class="table mt5">
+					<thead>
+						<tr style="background-color: lightgray;">
+							<th>档案编号</th>
+							<th>用药原因</th>
+							<th>购买机构</th>
+							<th>开始用药时间</th>
+							<th>停药时间</th>
+							<th>备注</th>
+							<th>录入人</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><a href="javascript:void(0)" class="open_yyda" style="color:blue">HGNTISONEITTSDER</a></td>
+							<td>感冒</td>
+							<td>东滩诊所</td>
+							<td>2018-03-12</td>
+							<td>2018-03-19</td>
+							<td>流鼻涕</td>
+							<td>王大宝</td>
+						</tr>
+						<tr>
+							<td><a href="javascript:void(0)" class="open_yyda" style="color:blue">OPOOROEIWHTNSGSD</a></td>
+							<td>发烧</td>
+							<td>东滩诊所</td>
+							<td>2018-03-02</td>
+							<td>2018-03-07</td>
+							<td>他人代购</td>
+							<td>张起灵</td>
+						</tr>
+						<tr>
+							<td><a href="javascript:void(0)" class="open_yyda" style="color:blue">IERJTOPQTKLHETDEH</a></td>
+							<td>摔伤</td>
+							<td>东滩第一医院</td>
+							<td>2018-02-13</td>
+							<td>2018-02-18</td>
+							<td></td>
+							<td>陆贞</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="tab-pane fade width_tab" id="bjda">
+				<button type="button" class="btn btn-primary open_bjda_add ml5">添加</button>
+				<table class="table mt5 ml5">
+					<thead>
+						<tr>
+							<th>档案编号</th>
+							<th>保健类型</th>
+							<th>名称</th>
+							<th>护理日期</th>
+							<th>保健时长</th>
+							<th style="width:300px">保健内容</th>
+							<th>服务人员姓名</th>
+							<th>录入人</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>SDGANIAEGLAJSID</td>
+							<td>按摩</td>
+							<td>全身按摩</td>
+							<td>2018-03-12</td>
+							<td>3小时</td>
+							<td>
+								我们可藉由按摩身体，达到放松心情、抒解压力的功效。
+							</td>
+							<td>张起灵</td>
+							<td>王大宝</td>
+						</tr>
+						<tr>
+							<td>INGAISDJFOWIENT</td>
+							<td>针灸</td>
+							<td>针灸养生</td>
+							<td>2018-03-02</td>
+							<td>2小时</td>
+							<td>
+								针灸是针法和灸法的总称。针法是指在中医理论的指导下把针具（通常指毫针）按照一定的角度刺入患者体内，
+								运用捻转与提插等针刺手法来对人体特定部位进行刺激从而达到治疗疾病的目的。
+							</td>
+							<td>张起灵</td>
+							<td>王大宝</td>
+						</tr>
+						<tr>
+							<td>POQFJIGPEITAPDF</td>
+							<td>拔火罐</td>
+							<td>火罐疗法排毒</td>
+							<td>2018-02-13</td>
+							<td>2小时</td>
+							<td>
+								拔罐是以罐为工具，利用燃火、抽气等方法产生负压，使之吸附于体表，造成局部瘀血，
+								以达到通经活络、行气活血、消肿止痛、祛风散寒等作用的疗法。
+							</td>
+							<td>陆贞</td>
+							<td>王大宝</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="tab-pane fade width_tab" id="jsgth">
+				<button type="button" class="btn btn-primary open_jsgth_add ml5">添加</button>
+				<table class="table mt5 ml5">
+					<thead>
+						<tr>
+							<th>档案编号</th>
+							<th>时间</th>
+							<th>服务对象</th>
+							<th>沟通人员</th>
+							<th style="width:300px">沟通内容</th>
+							<th>沟通方式</th>
+							<th>备注</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>SDGANIAEGLAJSID</td>
+							<td>2018-03-12/10:00</td>
+							<td>胡步通</td>
+							<td>刘志勇</td>
+							<td>
+								我们可藉由按摩身体，达到放松心情、抒解压力的功效。
+							</td>
+							<td>电话</td>
+							<td>--</td>
+						</tr>
+						<tr>
+							<td>INGAISDJFOWIENT</td>
+							<td>2018-03-12/10:00</td>
+							<td>胡步通</td>
+							<td>赵清龙</td>
+							<td>
+								针灸是针法和灸法的总称。针法是指在中医理论的指导下把针具（通常指毫针）按照一定的角度刺入患者体内，
+								运用捻转与提插等针刺手法来对人体特定部位进行刺激从而达到治疗疾病的目的。
+							</td>
+							<td>电话</td>
+							<td>--</td>
+						</tr>
+						<tr>
+							<td>POQFJIGPEITAPDF</td>
+							<td>2018-03-12/10:00</td>
+							<td>李凤玲</td>
+							<td>刘志勇</td>
+							<td>
+								拔罐是以罐为工具，利用燃火、抽气等方法产生负压，使之吸附于体表，造成局部瘀血，
+								以达到通经活络、行气活血、消肿止痛、祛风散寒等作用的疗法。
+							</td>
+							<td>当面</td>
+							<td>--</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	<!--添加病史信息-->
+	<div class="modal fade" id="bs_add" tabindex="-1" role="dialog" aria-labelledby="myHeadLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content" style="width:100%;">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<span class="glyphicon glyphicon-pencil"></span>&nbsp;【添加病史信息】
+				</div>
+				<div class="modal-body clearfix" style="height: auto;">
+					<div class="col-md-12 pd0">
+						<div class="col-md-1 pd0 mt10"></div>
+						<div class="col-md-10 pd0">
+							<div class="col-md-12 pd0">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox"> 心脏病
+									</label>
+									<label>
+										<input type="checkbox"> 高血压
+									</label>
+									<label>
+										<input type="checkbox"> 糖尿病
+									</label>
+									<label>
+										<input type="checkbox"> 脑卒中
+									</label>
+									<label>
+										<input type="checkbox"> 冠心病
+									</label>
+									<label>
+										<input type="checkbox"> 哮喘
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1 pd0"></div>
+					</div>
+				</div>
+				<div class="modal-footer mt20">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">
+						确定
+					</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						取消
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--添加药物过敏史信息-->
+	<div class="modal fade" id="ywgms_add" tabindex="-1" role="dialog" aria-labelledby="myHeadLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content" style="width:100%;">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<span class="glyphicon glyphicon-pencil"></span>&nbsp;【添加药物过敏史信息】
+				</div>
+				<div class="modal-body clearfix" style="height: auto;">
+					<div class="col-md-12 pd0">
+						<div class="col-md-1 pd0 mt10"></div>
+						<div class="col-md-10 pd0">
+							<div class="col-md-12 pd0">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox"> 青霉素
+									</label>
+									<label>
+										<input type="checkbox"> 链霉素
+									</label>
+									<label>
+										<input type="checkbox"> 头孢
+									</label>
+									<label>
+										<input type="checkbox"> 阿奇霉素
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1 pd0"></div>
+					</div>
+				</div>
+				<div class="modal-footer mt20">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">
+						确定
+					</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						取消
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--添加暴露史信息-->
+	<div class="modal fade" id="bls_add" tabindex="-1" role="dialog" aria-labelledby="myHeadLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content" style="width:100%;">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<span class="glyphicon glyphicon-pencil"></span>&nbsp;【添加暴露史信息】
+				</div>
+				<div class="modal-body clearfix" style="height: auto;">
+					<div class="col-md-12 pd0">
+						<div class="col-md-1 pd0 mt10"></div>
+						<div class="col-md-10 pd0">
+							<div class="col-md-12 pd0">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox"> 化学品
+									</label>
+									<label>
+										<input type="checkbox"> 毒物
+									</label>
+									<label>
+										<input type="checkbox"> 射线
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1 pd0"></div>
+					</div>
+				</div>
+				<div class="modal-footer mt20">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">
+						确定
+					</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						取消
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--添加遗传病史信息-->
+	<div class="modal fade" id="ycbs_add" tabindex="-1" role="dialog" aria-labelledby="myHeadLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content" style="width:100%;">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<span class="glyphicon glyphicon-pencil"></span>&nbsp;【添加遗传病史信息】
+				</div>
+				<div class="modal-body clearfix" style="height: auto;">
+					<div class="col-md-12 pd0">
+						<div class="col-md-1 pd0 mt10"></div>
+						<div class="col-md-10 pd0">
+							<div class="col-md-12 pd0">
+								<div class="btn-group" data-toggle="buttons">
+									<label class="btn btn-info">
+										<input  type="radio" name="options">有
+									</label>
+									<label class="btn btn-info">
+										<input  type="radio" name="options">无
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1 pd0"></div>
+					</div>
+				</div>
+				<div class="modal-footer mt20">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">
+						确定
+					</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						取消
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--添加残疾情况信息-->
+	<div class="modal fade" id="cjqk_add" tabindex="-1" role="dialog" aria-labelledby="myHeadLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content" style="width:100%;">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<span class="glyphicon glyphicon-pencil"></span>&nbsp;【添加残疾情况信息】
+				</div>
+				<div class="modal-body clearfix" style="height: auto;">
+					<div class="col-md-12 pd0">
+						<div class="col-md-1 pd0 mt10"></div>
+						<div class="col-md-10 pd0">
+							<div class="col-md-12 pd0">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox"> 无残疾
+									</label>
+									<label>
+										<input type="checkbox"> 视力残疾
+									</label>
+									<label>
+										<input type="checkbox"> 听力残疾
+									</label>
+									<label>
+										<input type="checkbox"> 言语残疾
+									</label>
+									<label>
+										<input type="checkbox"> 智力残疾
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1 pd0"></div>
+					</div>
+				</div>
+				<div class="modal-footer mt20">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">
+						确定
+					</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						取消
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--查询体检信息-->
+	<div class="modal fade" id="tjxx" tabindex="-1" role="dialog" aria-labelledby="myHeadLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width:70%;">
+			<div class="modal-content" >
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<span class="glyphicon glyphicon-pencil"></span>&nbsp;【体检详细信息】
+				</div>
+				<div class="modal-body clearfix" style="height: auto;">
+					<div class="col-md-12 pd0">
+						<div class="col-md-6 pd10">
+							<div class="col-md-12 pd0">
+								<table class="table">
+									<thead>
+										<tr style="background-color: lightgray;"><td colspan="4">
+											基本信息
+										</td></tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>体重（kg）</td>
+											<td>80</td>
+											<td>身高（cm）</td>
+											<td>185</td>
+										</tr>
+										<tr>
+											<td>视力</td>
+											<td>5.0</td>
+											<td>五官</td>
+											<td>完美</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="col-md-6 pd10">
+							<div class="col-md-12 pd0">
+								<table class="table">
+									<thead>
+										<tr style="background-color: lightgray;"><td colspan="4">
+											主要检查信息
+										</td></tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>血糖</td>
+											<td>8+++++++++++</td>
+											<td>血小板</td>
+											<td>37.84</td>
+										</tr>
+										<tr>
+											<td>尿蛋白</td>
+											<td>5.0</td>
+											<td>血脂</td>
+											<td>75.23</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer mt20">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">
+						确定
+					</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						取消
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--添加体检信息-->
+	<div class="modal fade" id="tjxx_add" tabindex="-1" role="dialog" aria-labelledby="myHeadLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width:100%;">
+			<div class="modal-content" >
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<span class="glyphicon glyphicon-pencil"></span>&nbsp;【添加体检信息】
+				</div>
+				<div class="modal-body clearfix" style="height: auto;">
+					<div class="col-md-12 pd0" style="padding-bottom: 15px;">
+						<div class="col-md-3 pd10">
+							<div class="input-group inputWidth">
+								<span class="input-group-addon titleWidth">&nbsp;&nbsp;体检类型：</span>
+								<select class="form-control">
+									<option>个人体检</option>
+									<option>公司体检</option>
+								</select>
+								<!--<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【创建时间】信息" aria-describedby="basic-addon1">-->
+							</div>
+						</div>
+						<div class="col-md-3 pd10">
+							<div class="input-group inputWidth">
+								<span class="input-group-addon titleWidth">&nbsp;&nbsp;体检日期：</span>
+								<input type="text" name="csmc" id="csmc" class="form-control" placeholder="输入体检日期" aria-describedby="basic-addon1">
+							</div>
+						</div>
+						<div class="col-md-3 pd10">
+							<div class="input-group inputWidth">
+								<span class="input-group-addon titleWidth">&nbsp;&nbsp;责任医生：</span>
+								<input type="text" name="csmc" id="csmc" class="form-control" placeholder="输入责任医生" aria-describedby="basic-addon1">
+							</div>
+						</div>
+						<div class="col-md-3 pd10">
+							<div class="input-group inputWidth">
+								<span class="input-group-addon titleWidth">&nbsp;&nbsp;录入人：</span>
+								<input type="text" name="csmc" id="csmc" class="form-control" placeholder="输入录入人" aria-describedby="basic-addon1">
+							</div>
+						</div>
+						
+					</div>
+					<div class="col-md-12 pd0">
+						<ul id="myTab_add" class="nav nav-pills">
+							<li class="active"><a href="#ybzzyshfs" data-toggle="tab">一般症状与生活方式</a></li>
+							<li><a href="#zqgnyct" data-toggle="tab">脏器功能与查体</a></li>
+							<li><a href="#fzjc" data-toggle="tab">辅助检查</a></li>
+							<li><a href="#xcwtyzyqk" data-toggle="tab">现存问题与住院情况</a></li>
+							<li><a href="#yyjzyjkpj" data-toggle="tab">用药、接种与健康评价</a></li>
+						</ul>
+						<div id="myTabContent_tj" class="tab-content">
+							<div class="tab-pane fade in active" id="ybzzyshfs">
+								<table class="table mt5"cellpadding="0" cellspacing="0" >
+									<tr align="left" style="background-color: lightgray;" height="30px">
+										<td colspan="8">一般状况</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td class="width_tjtjxx_l">体温（℃）</td>
+										<td class=""><input type="text"/></td>
+										<td class="width_tjtjxx_l">呼吸频率（次/分钟）</td>
+										<td class=""><input type="text"/></td>
+										<td class="width_tjtjxx_l">血压（mmHg）左侧</td>
+										<td class=""><input type="text"/></td>
+										<td class="width_tjtjxx_l">右侧</td>
+										<td class=""><input type="text"/></td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td  class="width_tjtjxx_l">脉率（次/分钟）</td>
+										<td><input type="text"/></td>
+										<td class="width_tjtjxx_l">身高（cm）</td>
+										<td><input type="text"/></td>
+										<td class="width_tjtjxx_l">体重（kg）</td>
+										<td><input type="text"/></td>
+										<td class="width_tjtjxx_l">体质指数</td>
+										<td><input type="text"/></td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td class="width_tjtjxx_l" colspan="2">老人健康状态自我评估</td>
+										<td colspan="2">
+											<input list="jkzt" style="width:200px"/>
+											<datalist id="jkzt">
+												<option>满意</option>
+												<option>很满意</option>
+												<option>不太满意</option>
+												<option>不满意</option>
+												<option>很不满意</option>
+											</datalist>
+										</td>
+										<td class="width_tjtjxx_l" colspan="2">老人生活自理能力自我评估</td>
+										<td colspan="2">
+											<input list="zlnl"  style="width:200px"/>
+											<datalist id="zlnl">
+												<option>可自理（0~3分）</option>
+												<option>轻度依赖（4~8分）</option>
+												<option>中度依赖（9~18分）</option>
+												<option>不能自理（≥19分）</option>
+											</datalist>
+										</td>
+									</tr>
+								</table>
+								<table class="table mt5"cellpadding="0" cellspacing="0" >
+									<tr align="left" style="background-color: lightgray;" height="30px">
+										<td colspan="8">生活方式</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td class="width_tjtjxx_l">体育锻炼频率</td>
+										<td class="">
+											<input list="tydlpl" style="width:200px"/>
+											<datalist id="tydlpl">
+												<option>每天</option>
+												<option>每周一次以上</option>
+												<option>偶尔</option>
+												<option>不锻炼</option>
+											</datalist>
+										</td>
+										<td class="width_tjtjxx_l">每次锻炼时间（分钟）</td>
+										<td class=""><input type="text"/></td>
+										<td class="width_tjtjxx_l">坚持锻炼时间（年）</td>
+										<td class=""><input type="text"/></td>
+										<td class="width_tjtjxx_l">锻炼方式</td>
+										<td class="">
+											<input list="dlfs" style="width:200px"/>
+											<datalist id="dlfs">
+												<option>散步</option>
+												<option>太极拳</option>
+												<option>跑步</option>
+												<option>跳舞</option>
+												<option>做操</option>
+											</datalist>
+										</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td class="width_tjtjxx_l">吸烟状况</td>
+										<td>
+											<input list="xyzk" style="width:200px"/>
+											<datalist id="xyzk">
+												<option>从不吸烟</option>
+												<option>已戒烟</option>
+												<option>吸烟</option>
+											</datalist>
+										</td>
+										<td class="width_tjtjxx_l">平均日吸烟量（支）</td>
+										<td><input type="text"/></td>
+										<td class="width_tjtjxx_l">烟龄（年）</td>
+										<td><input type="text"/></td>
+										<td class="width_tjtjxx_l">吸烟最多焦油量（mg）</td>
+										<td>
+											<input list="xyzdjyl" style="width:200px"/>
+											<datalist id="xyzdjyl">
+												<option>1.0</option>
+												<option>0.8</option>
+												<option>0.5</option>
+											</datalist>
+										</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td class="width_tjtjxx_l">饮酒频率</td>
+										<td>
+											<input list="yjpl" style="width:200px"/>
+											<datalist id="yjpl">
+												<option>每天</option>
+												<option>经常</option>
+												<option>偶尔</option>
+												<option>从不</option>
+											</datalist>
+										</td>
+										<td class="width_tjtjxx_l">平均日饮酒量（两）</td>
+										<td><input type="text"/></td>
+										<td class="width_tjtjxx_l">酒龄（年）</td>
+										<td><input type="text"/></td>
+										<td class="width_tjtjxx_l">饮酒种类</td>
+										<td>
+											<input list="yjzl" style="width:200px"/>
+											<datalist id="yjzl">
+												<option>白酒</option>
+												<option>啤酒</option>
+												<option>红酒</option>
+												<option>其他</option>
+											</datalist>
+										</td>
+									</tr>
+								</table>
+							</div>
+							<div class="tab-pane fade" id="zqgnyct">
+								<table class="table mt5"cellpadding="0" cellspacing="0" >
+									<tr align="left" style="background-color: lightgray;" height="30px">
+										<td colspan="8">脏器功能</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td class="width_tjtjxx_l">口腔口唇</td>
+										<td class="">
+											<input list="jkzt"/>
+											<datalist id="jkzt">
+												<option>红润</option>
+												<option>苍白</option>
+												<option>皲裂</option>
+												<option>疱疹</option>
+												<option>发绀</option>
+											</datalist>
+										</td>
+										<td class="width_tjtjxx_l">齿列</td>
+										<td class="">
+											<input list="cl"/>
+											<datalist id="cl">
+												<option>正常</option>
+												<option>缺齿</option>
+												<option>龋齿</option>
+												<option>义齿</option>
+											</datalist>
+										</td>
+										<td class="width_tjtjxx_l">咽部</td>
+										<td class="">
+											<input list="yb"/>
+											<datalist id="yb">
+												<option>无充血</option>
+												<option>充血</option>
+												<option>淋巴滤泡增生</option>
+											</datalist>
+										</td>
+										<td class="width_tjtjxx_l">听力</td>
+										<td class="">
+											<input list="tl"/>
+											<datalist id="tl">
+												<option>正常</option>
+												<option>听不清/无法听见</option>
+											</datalist>
+										</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td class="width_tjtjxx_l">视力左眼</td>
+										<td><input type="text"/></td>
+										<td class="width_tjtjxx_l">右眼</td>
+										<td><input type="text"/></td>
+										<td class="width_tjtjxx_l">矫正视力：左眼</td>
+										<td><input type="text"/></td>
+										<td class="width_tjtjxx_l">右眼</td>
+										<td><input type="text"/></td>
+									</tr>
+								</table>
+								<table class="table mt5"cellpadding="0" cellspacing="0" >
+									<tr align="left" style="background-color: lightgray;" height="30px">
+										<td colspan="6">查体</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td class="width_tjtjxx_l">皮肤</td>
+										<td class=""><input type="text"/></td>
+										<td class="width_tjtjxx_l">巩膜</td>
+										<td class=""><input type="text"/></td>
+										<td class="width_tjtjxx_l">淋巴结</td>
+										<td class=""><input type="text"/></td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td class="width_tjtjxx_l">肺：桶状胸</td>
+										<td>
+											<input list="tzx"/>
+											<datalist id="tzx">
+												<option>是</option>
+												<option>否</option>
+											</datalist>
+										</td>
+										<td class="width_tjtjxx_l">呼吸音</td>
+										<td><input type="text"/></td>
+										<td class="width_tjtjxx_l">罗音</td>
+										<td><input type="text"/></td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td class="width_tjtjxx_l">杂音</td>
+										<td><input type="text"/></td>
+										<td class="width_tjtjxx_l">包块</td>
+										<td><input type="text"/></td>
+										<td class="width_tjtjxx_l">移动性浊音</td>
+										<td><input type="text"/></td>
+									</tr>
+								</table>
+							</div>
+							<div class="tab-pane fade" id="fzjc">
+								<table class="table mt5"cellpadding="0" cellspacing="0" >
+									<tr align="left" style="background-color: lightgray;" height="30px">
+										<td colspan="6">辅助检查</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td class="width_tjtjxx_l">空腹血糖（mmol/l）</td>
+										<td class=""><input type="text"/></td>
+										<td class="width_tjtjxx_l">糖化血红蛋白</td>
+										<td class=""><input type="text"/></td>
+										<td class="width_tjtjxx_l">乙型肝炎表面抗原</td>
+										<td class="">
+											<input list="yxgybmky"/>
+											<datalist id="yxgybmky">
+												<option>阳性</option>
+												<option>阴性</option>
+											</datalist>
+										</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td class="width_tjtjxx_l">血常规：血红蛋白</td>
+										<td><input type="text"/></td>
+										<td class="width_tjtjxx_l">白细胞</td>
+										<td><input type="text"/></td>
+										<td class="width_tjtjxx_l">血小板</td>
+										<td><input type="text"/></td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td class="width_tjtjxx_l">尿常规：尿蛋白</td>
+										<td><input type="text"/></td>
+										<td class="width_tjtjxx_l">尿酮</td>
+										<td><input type="text"/></td>
+										<td class="width_tjtjxx_l">尿糖</td>
+										<td><input type="text"/></td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td class="width_tjtjxx_l">尿潜血</td>
+										<td><input type="text"/></td>
+										<td class="width_tjtjxx_l">尿微量白蛋白</td>
+										<td><input type="text"/></td>
+										<td class="width_tjtjxx_l">大便潜血</td>
+										<td><input type="text"/></td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td class="width_tjtjxx_l">肝功能：血清谷丙转氨酸</td>
+										<td><input type="text"/></td>
+										<td class="width_tjtjxx_l">血清谷草转氨酸</td>
+										<td><input type="text"/></td>
+										<td class="width_tjtjxx_l">结合胆红素</td>
+										<td><input type="text"/></td>
+									</tr>
+								</table>
+							</div>
+							<div class="tab-pane fade" id="xcwtyzyqk">
+								<table class="table table-hover">
+									<tbody>
+										<tr>
+											<td><font color="#000">脑血管疾病</font></td>
+											<td>
+												<div class="input-group inputWidth_search" >
+													<input type="text" class="form-control">
+													<span class="input-group-addon"><a href="javascript:void(0)" class="open_nxgjb_add">添加</a></span>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td><font color="#000">肾脏疾病</font></td>
+											<td>
+												<div class="input-group inputWidth_search" >
+													<input type="text" class="form-control">
+													<span class="input-group-addon"><a href="javascript:void(0)" class="open_szjb_add">添加</a></span>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td><font color="#000">心脏疾病</font></td>
+											<td>
+												<div class="input-group inputWidth_search" >
+													<input type="text" class="form-control">
+													<span class="input-group-addon"><a href="javascript:void(0)" class="open_xzjb_add">添加</a></span>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td><font color="#000">眼部疾病</font></td>
+											<td>
+												<div class="input-group inputWidth_search" >
+													<input type="text" class="form-control">
+													<span class="input-group-addon"><a href="javascript:void(0)" class="open_ybjb_add">添加</a></span>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td><font color="#000">血管疾病</font></td>
+											<td>
+												<div class="input-group inputWidth_search" >
+													<input type="text" class="form-control">
+													<span class="input-group-addon"><a href="javascript:void(0)" class="open_xgjb_add">添加</a></span>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="tab-pane fade" id="yyjzyjkpj">
+								<div class="col-md-12">
+									<div class="col-md-11">
+										<table class="table mt5"cellpadding="0" cellspacing="0" >
+											<tr align="left" height="30px">
+												<td colspan="8"><b>主要用药情况</b></td>
+											</tr>
+											<tr align="left" style="background-color: lightgray;"  height="30px">
+												<td>药物名称</td>
+												<td>用法</td>
+												<td>用量</td>
+												<td>用药时间</td>
+												<td>服药依从性</td>
+											</tr>
+											<tr align="left"  height="30px">
+												<td>罗红霉素</td>
+												<td>口服</td>
+												<td>一天三次，一次3粒</td>
+												<td>饭后</td>
+												<td>99%</td>
+											</tr>
+											<tr align="left"  height="30px">
+												<td>阿奇霉素</td>
+												<td>口服</td>
+												<td>一天1次，一次1粒</td>
+												<td>饭后</td>
+												<td>99%</td>
+											</tr>
+										</table>
+									</div>
+									<div class="col-md-1 mt40">
+										<button type="button" class="btn-xs btn-primary open_yyqk_add">新增</button>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="col-md-11">
+										<table class="table mt5"cellpadding="0" cellspacing="0" >
+											<tr align="left" height="30px">
+												<td colspan="3"><b>非免疫规划预防接种史</b></td>
+											</tr>
+											<tr align="left" style="background-color: lightgray;"  height="30px">
+												<td>疫苗名称</td>
+												<td>接种日期</td>
+												<td>接种机构</td>
+											</tr>
+											<tr align="left"  height="30px">
+												<td>禽流感疫苗</td>
+												<td>2018-2-14</td>
+												<td>陈家镇大队诊所</td>
+											</tr>
+											<tr align="left"  height="30px">
+												<td>狂犬病疫苗</td>
+												<td>2018-2-13</td>
+												<td>陈家镇大队诊所</td>
+											</tr>
+										</table>
+									</div>
+									<div class="col-md-1 mt40">
+										<button type="button" class="btn-xs btn-primary open_yfjz_add">新增</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer mt20">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">
+						确定
+					</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						取消
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+		<!--添加脑血管疾病信息-->
+		<div class="modal fade" id="nxgjb_add" tabindex="-1" role="dialog" aria-labelledby="myHeadLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width:100%;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<span class="glyphicon glyphicon-pencil"></span>&nbsp;【添加病史信息】
+					</div>
+					<div class="modal-body clearfix" style="height: auto;">
+						<div class="col-md-12 pd0">
+							<div class="col-md-1 pd0 mt10"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="checkbox">
+										<label>
+											<input type="checkbox"> 心脏病
+										</label>
+										<label>
+											<input type="checkbox"> 高血压
+										</label>
+										<label>
+											<input type="checkbox"> 糖尿病
+										</label>
+										<label>
+											<input type="checkbox"> 脑卒中
+										</label>
+										<label>
+											<input type="checkbox"> 冠心病
+										</label>
+										<label>
+											<input type="checkbox"> 哮喘
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+					</div>
+					<div class="modal-footer mt20">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">
+							确定
+						</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							取消
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--添加肾脏疾病信息-->
+		<div class="modal fade" id="szjb_add" tabindex="-1" role="dialog" aria-labelledby="myHeadLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width:100%;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<span class="glyphicon glyphicon-pencil"></span>&nbsp;【添加病史信息】
+					</div>
+					<div class="modal-body clearfix" style="height: auto;">
+						<div class="col-md-12 pd0">
+							<div class="col-md-1 pd0 mt10"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="checkbox">
+										<label>
+											<input type="checkbox"> 心脏病
+										</label>
+										<label>
+											<input type="checkbox"> 高血压
+										</label>
+										<label>
+											<input type="checkbox"> 糖尿病
+										</label>
+										<label>
+											<input type="checkbox"> 脑卒中
+										</label>
+										<label>
+											<input type="checkbox"> 冠心病
+										</label>
+										<label>
+											<input type="checkbox"> 哮喘
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+					</div>
+					<div class="modal-footer mt20">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">
+							确定
+						</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							取消
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--添加心脏疾病信息-->
+		<div class="modal fade" id="xzjb_add" tabindex="-1" role="dialog" aria-labelledby="myHeadLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width:100%;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<span class="glyphicon glyphicon-pencil"></span>&nbsp;【添加病史信息】
+					</div>
+					<div class="modal-body clearfix" style="height: auto;">
+						<div class="col-md-12 pd0">
+							<div class="col-md-1 pd0 mt10"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="checkbox">
+										<label>
+											<input type="checkbox"> 心脏病
+										</label>
+										<label>
+											<input type="checkbox"> 高血压
+										</label>
+										<label>
+											<input type="checkbox"> 糖尿病
+										</label>
+										<label>
+											<input type="checkbox"> 脑卒中
+										</label>
+										<label>
+											<input type="checkbox"> 冠心病
+										</label>
+										<label>
+											<input type="checkbox"> 哮喘
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+					</div>
+					<div class="modal-footer mt20">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">
+							确定
+						</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							取消
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--添加眼部疾病信息-->
+		<div class="modal fade" id="ybjb_add" tabindex="-1" role="dialog" aria-labelledby="myHeadLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width:100%;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<span class="glyphicon glyphicon-pencil"></span>&nbsp;【添加病史信息】
+					</div>
+					<div class="modal-body clearfix" style="height: auto;">
+						<div class="col-md-12 pd0">
+							<div class="col-md-1 pd0 mt10"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="checkbox">
+										<label>
+											<input type="checkbox"> 心脏病
+										</label>
+										<label>
+											<input type="checkbox"> 高血压
+										</label>
+										<label>
+											<input type="checkbox"> 糖尿病
+										</label>
+										<label>
+											<input type="checkbox"> 脑卒中
+										</label>
+										<label>
+											<input type="checkbox"> 冠心病
+										</label>
+										<label>
+											<input type="checkbox"> 哮喘
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+					</div>
+					<div class="modal-footer mt20">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">
+							确定
+						</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							取消
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--添加血管疾病信息-->
+		<div class="modal fade" id="xgjb_add" tabindex="-1" role="dialog" aria-labelledby="myHeadLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width:100%;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<span class="glyphicon glyphicon-pencil"></span>&nbsp;【添加病史信息】
+					</div>
+					<div class="modal-body clearfix" style="height: auto;">
+						<div class="col-md-12 pd0">
+							<div class="col-md-1 pd0 mt10"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="checkbox">
+										<label>
+											<input type="checkbox"> 心脏病
+										</label>
+										<label>
+											<input type="checkbox"> 高血压
+										</label>
+										<label>
+											<input type="checkbox"> 糖尿病
+										</label>
+										<label>
+											<input type="checkbox"> 脑卒中
+										</label>
+										<label>
+											<input type="checkbox"> 冠心病
+										</label>
+										<label>
+											<input type="checkbox"> 哮喘
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+					</div>
+					<div class="modal-footer mt20">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">
+							确定
+						</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							取消
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--添加用药情况信息-->
+		<div class="modal fade" id="yyqk_add" tabindex="-1" role="dialog" aria-labelledby="myHeadLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width:100%;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<span class="glyphicon glyphicon-pencil"></span>&nbsp;【添加用药情况信息】
+					</div>
+					<div class="modal-body clearfix" style="height: auto;">
+						<div class="col-md-12 pd0">
+							<div class="col-md-1 pd0 mt10"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;药物名称：</span>
+										<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【药物名称】信息" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;用法：</span>
+										<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【用法】信息" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;用量：</span>
+										<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【用量】信息" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;用药时间：</span>
+										<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【用药时间】信息" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;服药依从性：</span>
+										<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【服药依从性】信息" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+					</div>
+					<div class="modal-footer mt20">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">
+							确定
+						</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							取消
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--添加预防接种信息-->
+		<div class="modal fade" id="yfjz_add" tabindex="-1" role="dialog" aria-labelledby="myHeadLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width:100%;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<span class="glyphicon glyphicon-pencil"></span>&nbsp;【添加预防接种信息】
+					</div>
+					<div class="modal-body clearfix" style="height: auto;">
+						<div class="col-md-12 pd0">
+							<div class="col-md-1 pd0 mt10"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;疫苗名称：</span>
+										<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【疫苗名称】信息" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;接种日期：</span>
+										<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【接种日期】信息" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;接种机构：</span>
+										<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【接种机构】信息" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+					</div>
+					<div class="modal-footer mt20">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">
+							确定
+						</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							取消
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	<!--添加护理档案信息-->
+	<div class="modal fade" id="hlda_add" tabindex="-1" role="dialog" aria-labelledby="myHeadLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content" style="width:100%;">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<span class="glyphicon glyphicon-pencil"></span>&nbsp;【添加护理档案信息】
+				</div>
+				<div class="modal-body clearfix" style="height: auto;">
+					<div class="col-md-12 pd0">
+						<div class="col-md-1 pd0 mt10"></div>
+						<div class="col-md-10 pd0">
+							<div class="col-md-12 pd0">
+								<div class="input-group inputWidth">
+									<span class="input-group-addon titleWidth">&nbsp;&nbsp;护理类型：</span>
+									<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【护理类型】信息" aria-describedby="basic-addon1">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1 pd0"></div>
+					</div>
+					<div class="col-md-12 pd0 mt10">
+						<div class="col-md-1 pd0"></div>
+						<div class="col-md-10 pd0">
+							<div class="col-md-12 pd0">
+								<div class="input-group inputWidth">
+									<span class="input-group-addon titleWidth">&nbsp;&nbsp;护理内容：</span>
+									<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【护理内容】信息" aria-describedby="basic-addon1">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1 pd0"></div>
+					</div>
+					<div class="col-md-12 pd0 mt10">
+						<div class="col-md-1 pd0"></div>
+						<div class="col-md-10 pd0">
+							<div class="col-md-12 pd0">
+								<div class="input-group inputWidth">
+									<span class="input-group-addon titleWidth">&nbsp;&nbsp;护理开始日期：</span>
+									<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【护理开始日期】信息" aria-describedby="basic-addon1">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1 pd0"></div>
+					</div>
+					<div class="col-md-12 pd0 mt10">
+						<div class="col-md-1 pd0"></div>
+						<div class="col-md-10 pd0">
+							<div class="col-md-12 pd0">
+								<div class="input-group inputWidth">
+									<span class="input-group-addon titleWidth">&nbsp;&nbsp;护理结束日期：</span>
+									<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【护理结束日期】信息" aria-describedby="basic-addon1">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1 pd0"></div>
+					</div>
+					<div class="col-md-12 pd0 mt10">
+						<div class="col-md-1 pd0"></div>
+						<div class="col-md-10 pd0">
+							<div class="col-md-12 pd0">
+								<div class="input-group inputWidth">
+									<span class="input-group-addon titleWidth">&nbsp;&nbsp;护理人员：</span>
+									<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【护理人员】信息" aria-describedby="basic-addon1">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1 pd0"></div>
+					</div>
+					<div class="col-md-12 pd0 mt10">
+						<div class="col-md-1 pd0"></div>
+						<div class="col-md-10 pd0">
+							<div class="col-md-12 pd0">
+								<div class="input-group inputWidth">
+									<span class="input-group-addon titleWidth">&nbsp;&nbsp;录入人：</span>
+									<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【录入人】信息" aria-describedby="basic-addon1">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1 pd0"></div>
+					</div>
+				</div>
+				<div class="modal-footer mt20">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">
+						确定
+					</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						取消
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--添加用药档案信息-->
+	<div class="modal fade" id="yyda_add" tabindex="-1" role="dialog" aria-labelledby="myHeadLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width:80%;">
+			<div class="modal-content" >
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<span class="glyphicon glyphicon-pencil"></span>&nbsp;【添加用药档案信息】
+				</div>
+				<table class="table mt5"cellpadding="0" cellspacing="0" >
+					<tr align="left"  height="30px">
+						<td class="width_tjtjxx_l">用药原因:</td>
+						<td><input type="text"/></td>
+						<td class="width_tjtjxx_l">购买机构:</td>
+						<td><input type="text"/></td>
+						<td class="width_tjtjxx_l">开始用药时间:</td>
+						<td><input type="text"/></td>
+						
+					</tr>
+					<tr align="left"  height="30px">
+						<td class="width_tjtjxx_l">停药时间:</td>
+						<td><input type="text"/></td>
+						<td class="width_tjtjxx_l">备注</td>
+						<td><input type="text"/></td>
+						<td class="width_tjtjxx_l">录入人</td>
+						<td><input type="text"/></td>
+					</tr>
+				</table>
+				<table class="table table-hover" id="row_yyxq">
+					<tr>
+						<td><font color="#000">用药</font></td>
+						<td>名称：<input type="text"/></td>
+						<td>用法：<input type="text"/></td>
+						<td>用量：<input type="text"/></td>
+						<td>功能主治：<input type="text"/></td>
+						<td>
+							<button type="button" class="btn-xs btn-primary add_yyxq">添加</button>
+						</td>
+					</tr>
+				</table>
+				<div class="modal-footer mt20">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">
+						确定
+					</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						取消
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--查询用药档案信息-->
+	<div class="modal fade" id="yyda_serch" tabindex="-1" role="dialog" aria-labelledby="myHeadLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width:50%;">
+			<div class="modal-content" >
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<span class="glyphicon glyphicon-pencil"></span>&nbsp;【用药档案信息】
+				</div>
+				<table class="table table-hover" id="row_yyxq">
+					<tr style="background-color: lightgray;">
+						<td>用药名称</td>
+						<td>用法</td>
+						<td>用量</td>
+						<td>功能主治</td>
+					</tr>
+					<tr>
+						<td>康泰</td>
+						<td>贴肚脐</td>
+						<td>每天一次</td>
+						<td>痔疮</td>
+					</tr>
+					<tr>
+						<td>罗红霉素分散片</td>
+						<td>口服</td>
+						<td>每天三次每次两片</td>
+						<td>消炎</td>
+					</tr>
+				</table>
+				<div class="modal-footer mt20">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">
+						确定
+					</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						取消
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--添加保健档案信息-->
+	<div class="modal fade" id="bjda_add" tabindex="-1" role="dialog" aria-labelledby="myHeadLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width:50%;">
+			<div class="modal-content" >
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<span class="glyphicon glyphicon-pencil"></span>&nbsp;【添加保健档案信息】
+				</div>
+				<div class="modal-body clearfix" style="height: auto;">
+					<div class="col-md-12 pd0">
+						<div class="col-md-1 pd0 mt10"></div>
+						<div class="col-md-10 pd0">
+							<div class="col-md-12 pd0">
+								<div class="input-group inputWidth">
+									<span class="input-group-addon titleWidth">&nbsp;&nbsp;保健类型：</span>
+									<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【保健类型】信息" aria-describedby="basic-addon1">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1 pd0"></div>
+					</div>
+					<div class="col-md-12 pd0 mt10">
+						<div class="col-md-1 pd0"></div>
+						<div class="col-md-10 pd0">
+							<div class="col-md-12 pd0">
+								<div class="input-group inputWidth">
+									<span class="input-group-addon titleWidth">&nbsp;&nbsp;名称：</span>
+									<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【名称】信息" aria-describedby="basic-addon1">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1 pd0"></div>
+					</div>
+					<div class="col-md-12 pd0 mt10">
+						<div class="col-md-1 pd0"></div>
+						<div class="col-md-10 pd0">
+							<div class="col-md-12 pd0">
+								<div class="input-group inputWidth">
+									<span class="input-group-addon titleWidth">&nbsp;&nbsp;保健日期：</span>
+									<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【保健日期】信息" aria-describedby="basic-addon1">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1 pd0"></div>
+					</div>
+					<div class="col-md-12 pd0 mt10">
+						<div class="col-md-1 pd0"></div>
+						<div class="col-md-10 pd0">
+							<div class="col-md-12 pd0">
+								<div class="input-group inputWidth">
+									<span class="input-group-addon titleWidth">&nbsp;&nbsp;保健时长：</span>
+									<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【保健时长】信息" aria-describedby="basic-addon1">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1 pd0"></div>
+					</div>
+					<div class="col-md-12 pd0 mt10">
+						<div class="col-md-1 pd0"></div>
+						<div class="col-md-10 pd0">
+							<div class="col-md-12 pd0">
+								<div class="input-group inputWidth">
+									<span class="input-group-addon titleWidth">&nbsp;&nbsp;保健内容：</span>
+									<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【保健内容】信息" aria-describedby="basic-addon1">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1 pd0"></div>
+					</div>
+					<div class="col-md-12 pd0 mt10">
+						<div class="col-md-1 pd0"></div>
+						<div class="col-md-10 pd0">
+							<div class="col-md-12 pd0">
+								<div class="input-group inputWidth">
+									<span class="input-group-addon titleWidth">&nbsp;&nbsp;服务人员姓名：</span>
+									<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【服务人员姓名】信息" aria-describedby="basic-addon1">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1 pd0"></div>
+					</div>
+					<div class="col-md-12 pd0 mt10">
+						<div class="col-md-1 pd0"></div>
+						<div class="col-md-10 pd0">
+							<div class="col-md-12 pd0">
+								<div class="input-group inputWidth">
+									<span class="input-group-addon titleWidth">&nbsp;&nbsp;录入人：</span>
+									<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【录入人】信息" aria-describedby="basic-addon1">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1 pd0"></div>
+					</div>
+				</div>
+				<div class="modal-footer mt20">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">
+						确定
+					</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						取消
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--添加家属沟通会信息-->
+	<div class="modal fade" id="jsgth_add" tabindex="-1" role="dialog" aria-labelledby="myHeadLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width:50%;">
+			<div class="modal-content" >
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<span class="glyphicon glyphicon-pencil"></span>&nbsp;【添加家属沟通会信息】
+				</div>
+				<div class="modal-body clearfix" style="height: auto;">
+					<div class="col-md-12 pd0">
+						<div class="col-md-1 pd0 mt10"></div>
+						<div class="col-md-10 pd0">
+							<div class="col-md-12 pd0">
+								<div class="input-group inputWidth">
+									<span class="input-group-addon titleWidth">&nbsp;&nbsp;时间：</span>
+									<input type="datetime-local" name="csmc" id="csmc" class="form-control" placeholder="请输入【时间】信息" aria-describedby="basic-addon1">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1 pd0"></div>
+					</div>
+					<div class="col-md-12 pd0 mt10">
+						<div class="col-md-1 pd0"></div>
+						<div class="col-md-10 pd0">
+							<div class="col-md-12 pd0">
+								<div class="input-group inputWidth">
+									<span class="input-group-addon titleWidth">&nbsp;&nbsp;服务对象：</span>
+									<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【服务对象】信息" aria-describedby="basic-addon1">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1 pd0"></div>
+					</div>
+					<div class="col-md-12 pd0 mt10">
+						<div class="col-md-1 pd0"></div>
+						<div class="col-md-10 pd0">
+							<div class="col-md-12 pd0">
+								<div class="input-group inputWidth">
+									<span class="input-group-addon titleWidth">&nbsp;&nbsp;沟通人员：</span>
+									<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【沟通人员】信息" aria-describedby="basic-addon1">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1 pd0"></div>
+					</div>
+					<div class="col-md-12 pd0 mt10">
+						<div class="col-md-1 pd0"></div>
+						<div class="col-md-10 pd0">
+							<div class="col-md-12 pd0">
+								<div class="input-group inputWidth">
+									<span class="input-group-addon titleWidth">&nbsp;&nbsp;沟通方式：</span>
+									<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【沟通方式】信息" aria-describedby="basic-addon1">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1 pd0"></div>
+					</div>
+					<div class="col-md-12 pd0 mt10">
+						<div class="col-md-1 pd0"></div>
+						<div class="col-md-10 pd0">
+							<div class="col-md-12 pd0">
+								<div class="input-group inputWidth">
+									<span class="input-group-addon titleWidth">&nbsp;&nbsp;沟通内容：</span>
+									<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【沟通内容】信息" aria-describedby="basic-addon1">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1 pd0"></div>
+					</div>
+					<div class="col-md-12 pd0 mt10">
+						<div class="col-md-1 pd0"></div>
+						<div class="col-md-10 pd0">
+							<div class="col-md-12 pd0">
+								<div class="input-group inputWidth">
+									<span class="input-group-addon titleWidth">&nbsp;&nbsp;备注：</span>
+									<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【备注】信息" aria-describedby="basic-addon1">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1 pd0"></div>
+					</div>
+				</div>
+				<div class="modal-footer mt20">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">
+						确定
+					</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						取消
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--高血压健康指导信息-->
+	<div class="modal fade" id="jkzd_gxy" tabindex="-1" role="dialog" aria-labelledby="myHeadLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width:50%;">
+			<div class="modal-content" >
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<span class="glyphicon glyphicon-pencil"></span>&nbsp;【高血压健康指导信息】
+				</div>
+				<div class="modal-body clearfix" style="height: auto;">
+					<div class="col-md-12 pd0">
+						<div class="col-md-11 pd0">
+							<table class="table mt5"cellpadding="0" cellspacing="0" >
+								<tr align="left" style="background-color: lightgray;" height="30px">
+									<td>病因</td>
+								</tr>
+								<tr align="left"  height="30px">
+									<td>
+										<p>1.遗传因素</p>
+										大约60%的半数高血压患者有家族史。目前认为是多基因遗传所致，30%～50%的高血压患者有遗传背景。
+									</td>
+								</tr>
+								<tr align="left"  height="30px">
+									<td>
+										<p>2.精神和环境因素</p>
+										长期的精神紧张、激动、焦虑，受噪声或不良视觉刺激等因素也会引起高血压的发生。
+									</td>
+								</tr>
+								<tr align="left"  height="30px">
+									<td>
+										<p>3.年龄因素</p>
+										发病率有随着年龄增长而增高的趋势，40岁以上者发病率高。
+									</td>
+								</tr>
+								<tr align="left"  height="30px">
+									<td>
+										<p>4.生活习惯因素</p>
+										膳食结构不合理，如过多的钠盐、低钾饮食、大量饮酒、摄入过多的饱和脂肪酸均可使血压升高。
+										吸烟可加速动脉粥样硬化的过程，为高血压的危险因素。
+									</td>
+								</tr>
+							</table>
+							<table class="table mt5"cellpadding="0" cellspacing="0" >
+								<tr align="left" style="background-color: lightgray;" height="30px">
+									<td>分类</td>
+								</tr>
+								<tr align="left"  height="30px">
+									<td>
+										<p>1.原发性高血压</p>
+										是一种以血压升高为主要临床表现而病因尚未明确的独立疾病，占所有高血压患者的90%以上。
+									</td>
+								</tr>
+								<tr align="left"  height="30px">
+									<td>
+										<p>2.继发性高血压</p>
+										又称为症状性高血压，在这类疾病中病因明确，高血压仅是该种疾病的临床表现之一，血压可暂时性或持久性升高。
+									</td>
+								</tr>
+								<tr align="left"  height="30px">
+									<td>
+										<p>3.年龄因素</p>
+										发病率有随着年龄增长而增高的趋势，40岁以上者发病率高。
+									</td>
+								</tr>
+								<tr align="left"  height="30px">
+									<td>
+										<p>4.生活习惯因素</p>
+										膳食结构不合理，如过多的钠盐、低钾饮食、大量饮酒、摄入过多的饱和脂肪酸均可使血压升高。
+										吸烟可加速动脉粥样硬化的过程，为高血压的危险因素。
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="col-md-1 pd0"></div>
+					</div>
+				</div>
+				<div class="modal-footer mt20">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">
+						确定
+					</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						取消
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	</body>
+	<script>
+		$(function(){
+			(function ($) {
+                $.getUrlParam = function (name) {
+                    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                    var r = window.location.search.substr(1).match(reg);
+                    if (r != null) return unescape(r[2]); return null;
+                }
+            })(jQuery);
+		
+			//var _name = document.getElementsByName("name");
+			var _name = $.getUrlParam('name');
+			//alert(_name);
+			switch(_name){
+				case "t":
+					$(".name").html("田汝川");
+					break;
+				case "h":
+					$(".name").html("胡步通");
+					break;
+				case "z":
+					$(".name").html("朱锡𤦈");
+					break;
+				default:
+					break;
+			}
+			var _sex = $.getUrlParam('sex');
+			switch(_sex){
+				case "m":
+					$(".sex").html("男");
+					break;
+				case "f":
+					$(".sex").html("女");
+					break;
+				default:
+					break;
+			}
+		
+			// 健康档案
+			$(".open_bs_add").bind("click", function(){
+				$('#bs_add').modal('toggle');
+			});
+			$(".open_ywgms_add").bind("click", function(){
+				$('#ywgms_add').modal('toggle');
+			});
+			$(".open_bls_add").bind("click", function(){
+				$('#bls_add').modal('toggle');
+			});
+			$(".open_ycbs_add").bind("click", function(){
+				$('#ycbs_add').modal('toggle');
+			});
+			$(".open_cjqk_add").bind("click", function(){
+				$('#cjqk_add').modal('toggle');
+			});
+			$(".add_jb").click(function(){
+				$("#row_jb").append("<tr><td></td><td>名称：<select><option>高血压</option>"+
+				"<option>糖尿病</option><option>冠心病</option></select></td><td>确诊时间<input type='text'/></td><td>"+
+				"痊愈时间<input type='text'/></td><td></td></tr>");
+			})
+			$(".add_ss").click(function(){
+				$("#row_ss").append("<tr><td></td><td>名称：<input type='text'/></td><td>"+
+				"时间<input type='text'/></td><td></td></tr>");
+			})
+			$(".add_sx").click(function(){
+				$("#row_sx").append("<tr><td></td><td>原因：<input type='text'/></td><td>"+
+				"时间<input type='text'/></td><td></td></tr>");
+			})
+			// 健康体检
+			$(".open_tjxx").bind("click", function(){
+				$('#tjxx').modal('toggle');
+			});
+			$(".open_tjxx_add").bind("click", function(){
+				$('#tjxx_add').modal('toggle');
+			});
+			$(".open_nxgjb_add").bind("click", function(){
+				$('#nxgjb_add').modal('toggle');
+			});
+			$(".open_szjb_add").bind("click", function(){
+				$('#szjb_add').modal('toggle');
+			});
+			$(".open_xzjb_add").bind("click", function(){
+				$('#xzjb_add').modal('toggle');
+			});
+			$(".open_ybjb_add").bind("click", function(){
+				$('#ybjb_add').modal('toggle');
+			});
+			$(".open_xgjb_add").bind("click", function(){
+				$('#xgjb_add').modal('toggle');
+			});
+			$(".open_yyqk_add").bind("click", function(){
+				$('#yyqk_add').modal('toggle');
+			});
+			$(".open_yfjz_add").bind("click", function(){
+				$('#yfjz_add').modal('toggle');
+			});
+			// 护理档案
+			$(".open_hlda_add").bind("click", function(){
+				$('#hlda_add').modal('toggle');
+			});
+			// 添加用药信息
+			$(".open_yyda_add").bind("click", function(){
+				$('#yyda_add').modal('toggle');
+			});
+			$(".open_yyda").bind("click", function(){
+				$('#yyda_serch').modal('toggle');
+			});
+			// 用药详情添加
+			$(".add_yyxq").click(function(){
+				$("#row_yyxq").append("<tr><td></td><td>名称：<input type='text'/></td><td>用法：<input type='text'/></td>"+
+				"<td>用量：<input type='text'/></td><td>功能主治：<input type='text'/></td><td></td></tr>");
+			})
+			// 添加保健信息
+			$(".open_bjda_add").bind("click", function(){
+				$('#bjda_add').modal('toggle');
+			});
+			// 添加家属沟通会信息
+			$(".open_jsgth_add").bind("click", function(){
+				$('#jsgth_add').modal('toggle');
+			});
+			// 健康指导
+			$(".open_jkzd_gxy").bind("click", function(){
+				$('#jkzd_gxy').modal('toggle');
+			});
+		})
+	</script>
+</html>

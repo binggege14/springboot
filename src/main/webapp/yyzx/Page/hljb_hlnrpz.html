@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../About/css/bootstrap.min.css">
+		<link href="../About/css/myCss.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/main.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/base.css" type="text/css" rel="stylesheet">
+		<!--按钮样式表-->
+		<link href="../About/css/btn.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/css.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/index.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/search.css" type="text/css" rel="stylesheet">
+		<script src="../About/js/jquery.min.js"></script>
+		<script src="../About/js/bootstrap.min.js"></script>
+		<title>护理内容配置</title>
+		<script type="text/javascript">
+		$(function(){
+			$(".back_hljb").click(function(){
+				//$("#ckjkda").css('display','none'); 
+				//$("#hljb").css('display','block'); 			
+				//$("#ckjkda").style.display = 'none';
+				
+				//$(this).parents().hide();
+				//$(this).parentsUntil(".ckjkda").hide();
+				//$(this).parentsUntil("iframe").hide();
+			});			
+		})
+		</script>
+	</head>
+	<body>
+		<div class="col-md-12 pd20 RightContentBody fmt10">
+			<div class="col-md-9 pd0 fmt5">
+				<button class="btn btn-primary" data-toggle="modal" data-target=".myModal1"><span class="glyphicon glyphicon-plus"></span>&nbsp;添加护理内容</button> 
+			</div>
+			<div class="modal fade myModal1">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<span class="glyphicon glyphicon-pencil"></span>&nbsp;【添加护理内容】
+						</div>
+						<div class="modal-body clearfix" style="height: auto;">
+							<div class="col-md-12 pd0">
+								<div class="col-md-1 pd0 mt10"></div>
+								<div class="col-md-10 pd0">
+									<div class="col-md-12 pd0">
+										<div class="input-group inputWidth">
+											<span class="input-group-addon titleWidth">&nbsp;&nbsp;护理项目：</span>
+											<select class="form-control">
+												<option>吸氧</option>
+												<option>协助服药</option>
+												<option>测量血压</option>
+												<option>协助穿衣</option>
+												<option>床上洗头</option>
+												<option>健身</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-1 pd0"></div>
+							</div>
+							<div class="col-md-12 pd0 mt10">
+								<div class="col-md-1 pd0"></div>
+								<div class="col-md-10 pd0">
+									<div class="col-md-12 pd0">
+										<div class="input-group inputWidth">
+											<span class="input-group-addon titleWidth">&nbsp;&nbsp;执行周期：</span>
+											<select class="form-control">
+												<option>每天</option>
+												<option>每周</option>
+												<option>每月</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-1 pd0"></div>
+							</div>
+							<div class="col-md-12 pd0 mt10">
+								<div class="col-md-1 pd0"></div>
+								<div class="col-md-10 pd0">
+									<div class="col-md-12 pd0">
+										<div class="input-group inputWidth">
+											<span class="input-group-addon titleWidth">&nbsp;&nbsp;执行次数：</span>
+											<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【执行次数】信息" aria-describedby="basic-addon1">
+										</div>
+									</div>
+								</div>
+								<div class="col-md-1 pd0"></div>
+							</div>
+							<div class="col-md-12 pd0 mt10">
+								<div class="col-md-1 pd0"></div>
+								<div class="col-md-10 pd0">
+									<div class="col-md-12 pd0">
+										<div class="input-group inputWidth">
+											<span class="input-group-addon titleWidth">&nbsp;&nbsp;备注：</span>
+											<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【备注】信息" aria-describedby="basic-addon1">
+										</div>
+									</div>
+								</div>
+								<div class="col-md-1 pd0"></div>
+							</div>
+							<div class="col-md-12 pd0 mt10">
+								<div class="col-md-1 pd0"></div>
+								<div class="col-md-10 pd0">
+									<div class="col-md-12 pd0">
+										<div class="input-group inputWidth">
+											<span class="input-group-addon titleWidth">&nbsp;&nbsp;排序：</span>
+											<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【排序】信息" aria-describedby="basic-addon1">
+										</div>
+									</div>
+								</div>
+								<div class="col-md-1 pd0"></div>
+							</div>
+						</div>
+						<div class="modal-footer mt20">
+							<button type="button" class="btn btn-primary" data-dismiss="modal">
+								确定
+							</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">
+								取消
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12 pd0 fmt10">
+				<hr class="commonHRCss"/>
+			</div>
+			<div class="col-md-12 pd0">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>护理内容</th>
+							<th>执行周期</th>
+							<th>执行次数</th>
+							<th>备注</th>
+							<th>排序号</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>吸氧</td>
+							<td>每天</td>
+							<td>1</td>
+							<td></td>
+							<td>1</td>
+							<td>
+								<button class="btn btn-primary">修改</button> 
+								<button class="btn btn-danger" onclick="shanchu()">删除</button>
+							</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>协助服药</td>
+							<td>每天</td>
+							<td>3</td>
+							<td></td>
+							<td>2</td>
+							<td>
+								<button class="btn btn-primary">修改</button> 
+								<button class="btn btn-danger" onclick="shanchu()">删除</button>
+							</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>测量血压</td>
+							<td>每天</td>
+							<td>1</td>
+							<td></td>
+							<td>3</td>
+							<td>
+								<button class="btn btn-primary">修改</button> 
+								<button class="btn btn-danger" onclick="shanchu()">删除</button>
+							</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>协助穿衣</td>
+							<td>每天</td>
+							<td>1</td>
+							<td></td>
+							<td>4</td>
+							<td>
+								<button class="btn btn-primary">修改</button> 
+								<button class="btn btn-danger" onclick="shanchu()">删除</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-md-12 pd0">
+				<div class="col-md-12 text-right pd0 fmt20">
+					<nav aria-label="Page navigation">
+						<ul class="pagination">
+							<li>
+								<a href="#" aria-label="Previous">
+									<span aria-hidden="true">&laquo;</span>
+								</a>
+							</li>
+							<li><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li><a href="#">6</a></li>
+							<li>
+								<a href="#" aria-label="Next">
+									<span aria-hidden="true">&raquo;</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<div style="text-align: right;" mt20">
+				<a href="hljb.html" target="ckjkda">
+					<button class="btn btn-success">返回</button>
+				</a>
+			</div>
+		</div>
+	</body>
+</html>

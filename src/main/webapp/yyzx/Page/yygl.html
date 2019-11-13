@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../About/css/bootstrap.min.css">
+		<link href="../About/css/myCss.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/main.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/base.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="../About/css/fullcalendar.css">
+		<!--按钮样式表-->
+		<link href="../About/css/btn.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/css.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/index.css" type="text/css" rel="stylesheet">
+		<link href="../About/css/search.css" type="text/css" rel="stylesheet">
+		<script src="../About/js/jquery.min.js"></script>
+		<script src="../About/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../About/js/fullcalendar.min.js"></script>
+		<title>用药管理</title>
+		<script type="text/javascript">
+		$(function(){
+			$('.alertChart').click(function(){
+				//alert( $(this).children('td').eq(1).text());
+				$(".name").text($(this).children('td').eq(2).text());
+			});
+		})
+		
+		$(function(){
+			$(".open_modal").bind("click", function(){
+				$('#modal').modal('toggle');
+			});
+			$(".open_yyqk").bind("click", function(){
+				$('#yyqk').modal('toggle');
+			});
+		})
+		
+		// 日历安排
+		$(function(){
+			$('#calendar').fullCalendar({
+				header : {
+					left : 'prev,next today',
+					center : 'title',
+					right : 'month,agendaWeek,agendaDay'
+				},
+				events : [
+					//{title: '这是一个all-day数据',"start":"2018-01-02","allDay":true,"backgroundColor":"#c4e1ff"},
+					{"id":"21861","title":"康泰 口服 1粒","start":"2018-04-21 9:30","end":"2018-04-21 09:35","url":null,"allDay":false,"color":"#f30"},
+					{"id":"21862","title":"罗红霉素 口服 1粒","start":"2018-04-21 09:30","end":"2018-04-21 09:35","url":null,"allDay":false,"color":"#360"}
+				],
+				eventClick: function (event) {
+					$('#add_schedule').modal('show');
+				},
+				dayClick : function(date, allDay, jsEvent, view) {
+					$('#add_schedule').modal('show');
+				}
+			});
+			
+			// 切换为（每）周视图
+			//$('#calendar').fullCalendar('changeView','agendaWeek')
+		});
+		
+		</script>
+	</head>
+	<body>
+		<div class="hlfxpg page">
+			<div class="col-md-12 pd20 RightContentBody fmt10">
+				<div class="col-md-3 pd0 fmt5">
+					<div class="input-group inputWidth_search" >
+						<input type="text" class="form-control" placeholder="请输入【客户姓名】">						
+						<span class="input-group-addon"><a href="javascript:alert('查询护理记录')">查询</a></span>								
+					</div>
+				</div>
+				<div class="col-md-1 pd0 fmt5">
+					<a href="jryyap.html" target="ckjkda">
+						<button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;今日用药安排</button>
+					</a>
+				</div>
+				<div class="col-md-8 pd0 fmt5">
+					<!--<a href="hljl_add.html" target="ckjkda">
+						<button class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>&nbsp;添加用药记录</button>
+					</a>-->
+				</div>
+				<div class="col-md-12 pd0 fmt10">
+					<hr class="commonHRCss"/>
+				</div>
+				
+				<div class="col-md-4 pd0" style="border: 1px solid; border-color: #d4c5c5;">
+					<div style="height: 50px;background-color: #3CA2E0;" class="col-md-12 pd0">
+						<div class="col-md-12 mt10 pd0 GZTXX_Content_Table_Head_Font">
+							<div class="col-md-1 text-center pd0 mt2">
+								<span class="glyphicon glyphicon-user"></span>
+							</div>
+							<div class="col-md-11 pd0">
+								客户列表
+							</div>
+						</div>
+					</div>
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th></th>
+								<th>序号</th>
+								<th>姓名</th>
+								<th>性别</th>
+								<th>年龄</th>
+								<th>今日用药档案</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="alertChart">
+								<td><input type="checkbox"></td>
+								<td>1</td>
+								<td class="select">夏王玲</td>
+								<td>女</td>
+								<td>66</td>
+								<td><button class="btn btn-success open_modal">查看</button></td>
+							</tr>
+							<tr class="alertChart">
+								<td><input type="checkbox"></td>
+								<td>2</td>
+								<td class="select">王丽雅</td>
+								<td>女</td>
+								<td>68</td>
+								<td><button class="btn btn-success open_modal">查看</button></td>
+							</tr>
+							<tr class="alertChart">
+								<td><input type="checkbox"></td>
+								<td>3</td>
+								<td class="select">贾文</td>
+								<td>男</td>
+								<td>65</td>
+								<td><button class="btn btn-success open_modal">查看</button></td>
+							</tr>
+							<tr class="alertChart">
+								<td><input type="checkbox"></td>
+								<td>4</td>
+								<td class="select">周安</td>
+								<td>男</td>
+								<td>76</td>
+								<td><button class="btn btn-success open_modal">查看</button></td>
+							</tr>
+							<tr class="alertChart">
+								<td><input type="checkbox"></td>
+								<td>5</td>
+								<td class="select">万淑兰</td>
+								<td>女</td>
+								<td>69</td>
+								<td><button class="btn btn-success open_modal">查看</button></td>
+							</tr>
+							<tr class="alertChart">
+								<td><input type="checkbox"></td>
+								<td>6</td>
+								<td class="select">樊迪</td>
+								<td>女</td>
+								<td>72</td>
+								<td><button class="btn btn-success open_modal">查看</button></td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="col-md-12 pd0">
+						<div class="col-md-12 text-right pd0 fmt20">
+							<nav aria-label="Page navigation">
+								<ul class="pagination">
+									<li>
+										<a href="#" aria-label="Previous">
+											<span aria-hidden="true">&laquo;</span>
+										</a>
+									</li>
+									<li><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">5</a></li>
+									<li><a href="#">6</a></li>
+									<li>
+										<a href="#" aria-label="Next">
+											<span aria-hidden="true">&raquo;</span>
+										</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-8 pd0">
+					<div class="col-md-12 pd0" style="margin-left:5px; border: 1px solid; border-color: #d4c5c5;">
+						<div style="height: 50px;background-color: #3CA2E0;" class="col-md-12 pd0">
+							<div class="col-md-12 mt10 pd0 GZTXX_Content_Table_Head_Font">
+								<div class="col-md-1 text-center pd0 mt2">
+									<span class="glyphicon glyphicon-list"></span>
+								</div>
+								<div class="col-md-11 pd0">
+									用药记录
+								</div>
+							</div>
+						</div>
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th>序号</th>
+									<th>客户姓名</th>
+									<th>药物名称</th>
+									<th>用药原因</th>
+									<th>用法</th>
+									<th>用量</th>
+									<th>用药次数</th>
+									<th>用药时段</th>
+									<th>用药时间</th>
+									<th>录入人</th>
+									<th>备注</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td class="name">夏王玲</td>
+									<td>康泰</td>
+									<td>痔疮</td>
+									<td>口服</td>
+									<td>1日2次，1次1粒</td>
+									<td>1次</td>
+									<td>早上</td>
+									<td>2017-12-20 09:32:23</td>
+									<td>王明亮</td>
+									<td></td>
+									<td>
+										<a href="#" target="ckjkda">
+											<button class="btn btn-primary">修改</button>
+										</a>
+										<a href="#" target="ckjkda">
+											<button class="btn btn-danger">删除</button>
+										</a>
+									</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td class="name">夏王玲</td>
+									<td>罗红霉素分散片</td>
+									<td>消炎</td>
+									<td>口服</td>
+									<td>1日3次，1次3粒</td>
+									<td>1次</td>
+									<td>早上</td>
+									<td>2017-12-20 09:32:23</td>								
+									<td>王明亮</td>
+									<td></td>
+									<td>
+										<a href="#" target="ckjkda">
+											<button class="btn btn-primary">修改</button>
+										</a>
+										<a href="#" target="ckjkda">
+											<button class="btn btn-danger">删除</button>
+										</a>
+									</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td class="name">夏王玲</td>
+									<td>罗红霉素分散片</td>
+									<td>消炎</td>
+									<td>口服</td>
+									<td>1日3次，1次3粒</td>
+									<td>2次</td>
+									<td>中午</td>
+									<td>2017-12-20 12:12:23</td>								
+									<td>王明亮</td>
+									<td></td>
+									<td>
+										<a href="#" target="ckjkda">
+											<button class="btn btn-primary">修改</button>
+										</a>
+										<a href="#" target="ckjkda">
+											<button class="btn btn-danger">删除</button>
+										</a>
+									</td>
+								</tr>							
+							</tbody>
+						</table>
+						<div class="col-md-12 pd0">
+							<div class="col-md-12 text-right pd0 fmt20">
+								<nav aria-label="Page navigation">
+									<ul class="pagination">
+										<li>
+											<a href="#" aria-label="Previous">
+												<span aria-hidden="true">&laquo;</span>
+											</a>
+										</li>
+										<li><a href="#">1</a></li>
+										<li><a href="#">2</a></li>
+										<li><a href="#">3</a></li>
+										<li><a href="#">4</a></li>
+										<li><a href="#">5</a></li>
+										<li><a href="#">6</a></li>
+										<li>
+											<a href="#" aria-label="Next">
+												<span aria-hidden="true">&raquo;</span>
+											</a>
+										</li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>	
+		<div class="yzjl page RightContentBody">
+			<button type="button" class="btn btn-primary open_lsjl_add" name="open_lsjl_add">添加</button>
+			<button type="button" class="btn btn-primary" onclick="nextPage('hlfxpg');"><span class="glyphicon glyphicon-chevron-left"></span>返回</button>
+			<ul id="myTab_yzjl" class="nav nav-tabs mt10">
+				<li class="active"><a href="#lsyz" data-toggle="tab" name="lsyz_cla">临时医嘱</a></li>
+				<li><a href="#cqyz" data-toggle="tab" name="cqyz_cla">长期医嘱</a></li>
+			</ul>
+			<div id="myTabContent_yzjl" class="tab-content">
+				<div class="tab-pane fade in active" id="lsyz">
+					<table class="table mt5 table-bordered" style="text-align: center;">
+						<tbody>
+							<tr class="border_hidden">
+								<td style="border:hidden">姓名：黄老邪</td>
+								<td style="border:hidden">性别：女</td>
+								<td style="border:hidden">年龄：86</td>
+								<td style="border:hidden">房间号：302</td>
+								<td style="border:hidden">床号：2</td>
+								<td colspan="3" style="border:hidden">医嘱单号:7482938592</td>
+							</tr>
+							<tr style="background-color: lightgray;">
+								<td colspan="2">起始</td>
+								<td colspan="2" rowspan="2" style="vertical-align:middle;">医嘱</td>
+								<td rowspan="2" style="vertical-align:middle;">数量</td>
+								<td rowspan="2" style="vertical-align:middle;">用法</td>
+								<td rowspan="2" style="vertical-align:middle;">频次</td>
+								<td rowspan="2" style="vertical-align:middle;">医师签名</td>
+								<td rowspan="2" style="vertical-align:middle;">执行护士签名</td>
+								<td rowspan="2" style="vertical-align:middle;">执行时间</td>
+								<td rowspan="2" style="vertical-align:middle;">操作</td>
+							</tr>
+							<tr style="background-color: lightgray;">
+								<td>日期</td>
+								<td>时间</td>
+							</tr>
+							<tr>
+								<td>2017-3-1</td>
+								<td>19:53</td>
+								<td colspan="2">血细胞分析（三分类以上）</td>
+								<td>--</td>
+								<td>--</td>
+								<td>--</td>
+								<td>黄群</td>
+								<td>王子硕</td>
+								<td>2017-3-1/19：50</td>
+								<td>
+									<span class="label label-primary open_update">修改</span>
+									<span class="label label-danger open_delete">删除</span>
+									<span class="label label-success open_yzjl_png">查看</span>
+								</td>
+							</tr>
+							<tr>
+								<td>2017-3-1</td>
+								<td>19:53</td>
+								<td colspan="2">尿液分析</td>
+								<td>--</td>
+								<td>--</td>
+								<td>--</td>
+								<td>黄群</td>
+								<td>李子树</td>
+								<td>2017-3-1/19：50</td>
+								<td>
+									<span class="label label-primary open_update">修改</span>
+									<span class="label label-danger open_delete">删除</span>
+									<span class="label label-success open_yzjl_png">查看</span>
+								</td>
+							</tr>
+							<tr>
+								<td>2017-3-1</td>
+								<td>19:53</td>
+								<td colspan="2">粪便常规</td>
+								<td>--</td>
+								<td>--</td>
+								<td>--</td>
+								<td>黄群</td>
+								<td>刘长卿</td>
+								<td>2017-3-1/19：50</td>
+								<td>
+									<span class="label label-primary open_update">修改</span>
+									<span class="label label-danger open_delete">删除</span>
+									<span class="label label-success open_yzjl_png">查看</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="tab-pane" id="cqyz">
+					<table class="table mt5 table-bordered" style="text-align: center;">
+						<tbody>
+							<tr class="border_hidden">
+								<td style="border:hidden">姓名：黄老邪</td>
+								<td style="border:hidden">性别：女</td>
+								<td style="border:hidden">年龄：86</td>
+								<td style="border:hidden">房间号：302</td>
+								<td style="border:hidden">床号：2</td>
+								<td colspan="3" style="border:hidden">医嘱单号:7482938592</td>
+							</tr>
+							<tr style="background-color: lightgray;">
+								<td colspan="2">起始</td>
+								<td colspan="2" rowspan="2" style="vertical-align:middle;">医嘱</td>
+								<td rowspan="2" style="vertical-align:middle;">数量</td>
+								<td rowspan="2" style="vertical-align:middle;">用法</td>
+								<td rowspan="2" style="vertical-align:middle;">频次</td>
+								<td rowspan="2" style="vertical-align:middle;">开立医师签名</td>
+								<td rowspan="2" style="vertical-align:middle;">确认护士签名</td>
+								<td colspan="2">停止</td>
+								<td rowspan="2" style="vertical-align:middle;">停止医师</td>
+								<td rowspan="2" style="vertical-align:middle;">停止护士</td>
+								<td rowspan="2" style="vertical-align:middle;">操作</td>
+							</tr>
+							<tr style="background-color: lightgray;">
+								<td>日期</td>
+								<td>时间</td>
+								<td>日期</td>
+								<td>时间</td>
+							</tr>
+							<tr>
+								<td>2017-3-1</td>
+								<td>19:53</td>
+								<td colspan="2">血细胞分析（三分类以上）</td>
+								<td>--</td>
+								<td>--</td>
+								<td>--</td>
+								<td>黄群</td>
+								<td>王子硕</td>
+								<td>2017-3-12</td>
+								<td>13:02</td>
+								<td>黄群</td>
+								<td>王子硕</td>
+								<td>
+									<span class="label label-primary open_update">修改</span>
+									<span class="label label-danger open_delete">删除</span>
+									<span class="label label-success open_yzjl_png">查看</span>
+								</td>
+							</tr>
+							<tr>
+								<td>2017-3-1</td>
+								<td>19:53</td>
+								<td colspan="2">尿液分析</td>
+								<td>--</td>
+								<td>--</td>
+								<td>--</td>
+								<td>黄龙玉</td>
+								<td>张秋月</td>
+								<td>2017-3-12</td>
+								<td>13:02</td>
+								<td>黄龙玉</td>
+								<td>张秋月</td>
+								<td>
+									<span class="label label-primary open_update">修改</span>
+									<span class="label label-danger open_delete">删除</span>
+									<span class="label label-success open_yzjl_png">查看</span>
+								</td>
+							</tr>
+							<tr>
+								<td>2017-3-1</td>
+								<td>19:53</td>
+								<td colspan="2">粪便常规</td>
+								<td>--</td>
+								<td>--</td>
+								<td>--</td>
+								<td>李鹏刚</td>
+								<td>张秋月</td>
+								<td>2017-3-12</td>
+								<td>13:02</td>
+								<td>李鹏刚</td>
+								<td>张秋月</td>
+								<td>
+									<span class="label label-primary open_update">修改</span>
+									<span class="label label-danger open_delete">删除</span>
+									<span class="label label-success open_yzjl_png">查看</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>	
+		<!-- 模态框 -->
+		<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myHeadLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width:120%;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<span class="glyphicon glyphicon-list"></span>&nbsp;【客户用药档案】
+					</div>
+					<div class="modal-body clearfix" style="height: auto;">	
+						<div class="col-md-12" style="border:1px solid #ddd;">
+							<div class="col-md-11">
+								<table class="table mt5"cellpadding="0" cellspacing="0" >
+									<tr align="left" height="30px">
+										<td colspan="8" style="border-top:0;"><b>用药信息</b></td>
+									</tr>
+									<tr align="left" style="background-color: lightgray;"  height="30px">
+										<td>药物名称</td>
+										<td>用法</td>
+										<td>用量</td>
+										<td>功能主治</td>
+										<td>备注</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>康泰</td>
+										<td>口服</td>
+										<td>一天三次，一次3粒</td>
+										<td>痔疮</td>
+										<td>长期用药</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>罗红霉素分散片</td>
+										<td>口服</td>
+										<td>一天1次，一次1粒</td>
+										<td>消炎</td>
+										<td>临时用药</td>
+									</tr>
+								</table>
+							</div>
+							<!--<div class="col-md-1 mt40">
+								<button type="button" class="btn-xs btn-primary"><span class="glyphicon glyphicon-plus"></span></button>
+							</div>-->
+							<div class="col-md-1 mt40">
+								<button type="button" class="btn-xs btn-primary" data-dismiss="modal"  onclick="openYzjl()">医嘱
+								</button>
+							</div>
+						</div>
+						<div class="col-md-12" style="border:1px solid #ddd;">
+							<div class="col-md-11">
+								<table class="table mt5"cellpadding="0" cellspacing="0">
+									<tr align="left" height="30px">
+										<td colspan="8" style="border-top:0;"><b>用药安排</b></td>
+									</tr>
+									<tr align="left" style="background-color: lightgray;"  height="30px">
+										<td>客户姓名</td>
+										<td>药物名称</td>
+										<td>用药时段</td>
+										<td>开始时间</td>
+										<td>结束时间</td>
+										<td>备注</td>
+										<td>操作</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>夏王玲</td>
+										<td>康泰</td>
+										<td>早上</td>
+										<td>2018-3-12/8:21</td>
+										<td>2018-3-12/8:36</td>
+										<td></td>
+										<td>
+											<span class="glyphicon glyphicon-edit"></span>
+											<span class="glyphicon glyphicon-remove"></span>
+										</td>
+									</tr>
+									<tr align="left"  height="30px">
+										<td>夏王玲</td>
+										<td>康泰</td>
+										<td>中午</td>
+										<td>2018-3-12/13:21</td>
+										<td>2018-3-12/13:36</td>
+										<td></td>
+										<td>
+											<span class="glyphicon glyphicon-edit"></span>
+											<span class="glyphicon glyphicon-remove"></span>
+										</td>
+									</tr>
+								</table>
+							</div>
+							<div class="col-md-1 mt40">
+								<button type="button" class="btn-xs btn-primary open_yyqk"><span class="glyphicon glyphicon-plus"></span></button>
+							</div>
+						</div>					
+					</div>
+					<div class="modal-footer mt20">
+						<button type="button" class="btn btn-danger" data-dismiss="modal">
+							关闭
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--添加用药情况信息-->
+		<div class="modal fade" id="yyqk" tabindex="-1" role="dialog" aria-labelledby="myHeadLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width:100%;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<span class="glyphicon glyphicon-pencil"></span>&nbsp;【添加用药记录】
+					</div>
+					<div class="modal-body clearfix" style="height: auto;">
+						<div class="col-md-12 pd0">
+							<div class="col-md-1 pd0 mt10"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;客户名称：</span>
+										<input type="text" class="form-control" value="夏王玲" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;药物名称：</span>
+										<select class="form-control">
+											<option>康泰</option>
+											<option>罗红霉素分散片</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;用法：</span>
+										<input type="text" class="form-control" placeholder="请输入【用法】信息" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;用量：</span>
+										<input type="text" class="form-control" placeholder="请输入【用量】信息" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;用药时段：</span>
+										<select class="form-control">
+											<option>早上</option>
+											<option>中午</option>
+											<option>晚上</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;开始时间：</span>
+										<input type="datetime-local" class="form-control" aria-describedby="basic-addon1"/>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;结束时间</span>
+										<input type="datetime-local" class="form-control" />
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;备注：</span>
+										<input type="text" class="form-control" placeholder="请输入【备注】信息" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+					</div>
+					<div class="modal-footer mt20">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">
+							确定
+						</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							取消
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="modal_ap" role="dialog" aria-label="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width:200%;margin-left:-230px;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<span class="glyphicon glyphicon-plus"></span>&nbsp;护理安排
+					</div>
+					<div class="modal-body clearfix" style="height: auto;">
+						<div id='calendar' style="width: 100%;height: 800px;margin: 20px auto 10px auto;"></div>
+					</div>
+					<div class="modal-footer mt20">
+						<button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="add_schedule" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title">用药安排</h4>
+					</div>
+					<div class="modal-body">
+						<form id="form_schedule" class="form-horizontal form-label-left">
+							<div class="form-group">
+								<label class="control-label col-md-4 col-sm-4 col-xs-12" for="type">药品：</label>
+								<div class="col-md-6 col-sm-6 col-xs-12">
+									<select name="type" class="form-control">
+										<option value="康泰">康泰</option>
+										<option value="罗红霉素">罗红霉素</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-4 col-sm-4 col-xs-12" for="start">用法：</label>
+								<div class="col-md-6 col-sm-6 col-xs-12">
+									<input class="form-control" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-4 col-sm-4 col-xs-12" for="start">开始时间：</label>
+								<div class="col-md-6 col-sm-6 col-xs-12">
+									<input id="date_start" type="datetime-local" name="start" class="form-control">
+								</div>
+							</div>
+							<div id="end" class="form-group">
+								<label class="control-label col-md-4 col-sm-4 col-xs-12" for="end">结束时间：</label>
+								<div class="col-md-6 col-sm-6 col-xs-12">
+									<input id="date_end" type="datetime-local" name="end" class="form-control">
+								</div>
+							</div>
+							<div id="location" class="form-group" style="display: none;">
+								<label class="control-label col-md-4 col-sm-4 col-xs-12" for="location">地　　点：</label>
+								<div class="col-md-6 col-sm-6 col-xs-12">
+									<input type="text" name="location" class="form-control">
+								</div>
+							</div>
+							<div id="reason" class="form-group" style="display: none;">
+								<label class="control-label col-md-4 col-sm-4 col-xs-12" for="reason">事　　由：</label>
+								<div class="col-md-6 col-sm-6 col-xs-12">
+									<input type="text" name="reason" class="form-control">
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button id="button_delete_schedule" type="button" class="btn btn-danger" style="float: left;">删除</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭窗口</button>
+						<button id="button_save_schedule" type="button" class="btn btn-primary">提交</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--添加医嘱记录信息-->
+		<div class="modal fade" id="lsyzjl_add" tabindex="-1" role="dialog" aria-labelledby="myHeadLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content" style="width:100%;">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<span class="glyphicon glyphicon-pencil"></span>&nbsp;【添加临时医嘱记录信息】
+						</div>
+						<div class="modal-body clearfix" style="height: auto;">
+							<div class="col-md-12 pd0">
+								<div class="col-md-1 pd0 mt10"></div>
+								<div class="col-md-10 pd0">
+									<div class="col-md-12 pd0">
+										<div class="input-group inputWidth">
+											<span class="input-group-addon titleWidth">&nbsp;&nbsp;起始日期：</span>
+											<input type="date" name="csmc" id="csmc" class="form-control" placeholder="请输入【起始日期】信息" aria-describedby="basic-addon1">
+										</div>
+									</div>
+								</div>
+								<div class="col-md-1 pd0"></div>
+							</div>
+							<div class="col-md-12 pd0 mt10">
+								<div class="col-md-1 pd0"></div>
+								<div class="col-md-10 pd0">
+									<div class="col-md-12 pd0">
+										<div class="input-group inputWidth">
+											<span class="input-group-addon titleWidth">&nbsp;&nbsp;起始时间：</span>
+											<input type="time" name="csmc" id="csmc" class="form-control" placeholder="请输入【起始时间】信息" aria-describedby="basic-addon1">
+										</div>
+									</div>
+								</div>
+								<div class="col-md-1 pd0"></div>
+							</div>
+							<div class="col-md-12 pd0 mt10">
+								<div class="col-md-1 pd0"></div>
+								<div class="col-md-10 pd0">
+									<div class="col-md-12 pd0">
+										<div class="input-group inputWidth">
+											<span class="input-group-addon titleWidth">&nbsp;&nbsp;医嘱：</span>
+											<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【医嘱】信息" aria-describedby="basic-addon1">
+										</div>
+									</div>
+								</div>
+								<div class="col-md-1 pd0"></div>
+							</div>
+							<div class="col-md-12 pd0 mt10">
+								<div class="col-md-1 pd0"></div>
+								<div class="col-md-10 pd0">
+									<div class="col-md-12 pd0">
+										<div class="input-group inputWidth">
+											<span class="input-group-addon titleWidth">&nbsp;&nbsp;数量：</span>
+											<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【医嘱】信息" aria-describedby="basic-addon1">
+										</div>
+									</div>
+								</div>
+								<div class="col-md-1 pd0"></div>
+							</div>
+							<div class="col-md-12 pd0 mt10">
+								<div class="col-md-1 pd0"></div>
+								<div class="col-md-10 pd0">
+									<div class="col-md-12 pd0">
+										<div class="input-group inputWidth">
+											<span class="input-group-addon titleWidth">&nbsp;&nbsp;用法：</span>
+											<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【医嘱】信息" aria-describedby="basic-addon1">
+										</div>
+									</div>
+								</div>
+								<div class="col-md-1 pd0"></div>
+							</div>
+							<div class="col-md-12 pd0 mt10">
+								<div class="col-md-1 pd0"></div>
+								<div class="col-md-10 pd0">
+									<div class="col-md-12 pd0">
+										<div class="input-group inputWidth">
+											<span class="input-group-addon titleWidth">&nbsp;&nbsp;频次：</span>
+											<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【医嘱】信息" aria-describedby="basic-addon1">
+										</div>
+									</div>
+								</div>
+								<div class="col-md-1 pd0"></div>
+							</div>
+							<div class="col-md-12 pd0 mt10">
+								<div class="col-md-1 pd0"></div>
+								<div class="col-md-10 pd0">
+									<div class="col-md-12 pd0">
+										<div class="input-group inputWidth">
+											<span class="input-group-addon titleWidth">&nbsp;&nbsp;医师签名：</span>
+											<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【医师签名】信息" aria-describedby="basic-addon1">
+										</div>
+									</div>
+								</div>
+								<div class="col-md-1 pd0"></div>
+							</div>
+							<div class="col-md-12 pd0 mt10">
+								<div class="col-md-1 pd0"></div>
+								<div class="col-md-10 pd0">
+									<div class="col-md-12 pd0">
+										<div class="input-group inputWidth">
+											<span class="input-group-addon titleWidth">&nbsp;&nbsp;执行护士签名：</span>
+											<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【执行护士签名】信息" aria-describedby="basic-addon1">
+										</div>
+									</div>
+								</div>
+								<div class="col-md-1 pd0"></div>
+							</div>
+							<div class="col-md-12 pd0 mt10">
+								<div class="col-md-1 pd0"></div>
+								<div class="col-md-10 pd0">
+									<div class="col-md-12 pd0">
+										<div class="input-group inputWidth">
+											<span class="input-group-addon titleWidth">&nbsp;&nbsp;执行时间：</span>
+											<input type="datetime-local" name="csmc" id="csmc" class="form-control" placeholder="请输入【执行时间】信息" aria-describedby="basic-addon1">
+										</div>
+									</div>
+								</div>
+								<div class="col-md-1 pd0"></div>
+							</div>
+							<div class="col-md-12 pd0 mt10">
+								<div class="col-md-1 pd0"></div>
+								<div class="col-md-10 pd0">
+									<div class="col-md-12 pd0">
+										<div class="input-group inputWidth">
+											<span class="input-group-addon titleWidth">&nbsp;&nbsp;上传医嘱：</span>
+											<input type="file" name="csmc" id="csmc" class="form-control" aria-describedby="basic-addon1">
+										</div>
+									</div>
+								</div>
+								<div class="col-md-1 pd0"></div>
+							</div>
+						</div>
+						<div class="modal-footer mt20">
+							<button type="button" class="btn btn-primary" data-dismiss="modal">
+								确定
+							</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">
+								取消
+							</button>
+						</div>
+					</div>
+				</div>
+		</div>
+		<div class="modal fade" id="cqyzjl_add" tabindex="-1" role="dialog" aria-labelledby="myHeadLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width:100%;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<span class="glyphicon glyphicon-pencil"></span>&nbsp;【添加长期医嘱记录信息】
+					</div>
+					<div class="modal-body clearfix" style="height: auto;">
+						<div class="col-md-12 pd0">
+							<div class="col-md-1 pd0 mt10"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;起始日期：</span>
+										<input type="date" name="csmc" id="csmc" class="form-control" placeholder="请输入【起始日期】信息" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;起始时间：</span>
+										<input type="time" name="csmc" id="csmc" class="form-control" placeholder="请输入【起始时间】信息" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;医嘱：</span>
+										<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【医嘱】信息" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;数量：</span>
+										<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【医嘱】信息" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;用法：</span>
+										<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【医嘱】信息" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;频次：</span>
+										<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【医嘱】信息" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;开立医师签名：</span>
+										<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【医师签名】信息" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;确认护士签名：</span>
+										<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【执行护士签名】信息" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;停止日期：</span>
+										<input type="date" name="csmc" id="csmc" class="form-control" placeholder="请输入【执行时间】信息" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;停止时间：</span>
+										<input type="time" name="csmc" id="csmc" class="form-control" placeholder="请输入【执行时间】信息" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;停止医师：</span>
+										<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【医嘱】信息" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;停止护士：</span>
+										<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【医嘱】信息" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+						<div class="col-md-12 pd0 mt10">
+							<div class="col-md-1 pd0"></div>
+							<div class="col-md-10 pd0">
+								<div class="col-md-12 pd0">
+									<div class="input-group inputWidth">
+										<span class="input-group-addon titleWidth">&nbsp;&nbsp;上传医嘱：</span>
+										<input type="file" name="csmc" id="csmc" class="form-control" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 pd0"></div>
+						</div>
+					</div>
+					<div class="modal-footer mt20">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">
+							确定
+						</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							取消
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="yzjl_png" tabindex="-1" role="dialog" aria-labelledby="myHeadLabel" aria-hidden="true">
+			<div class="modal-dialog" style="width:90%;">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<span class="glyphicon glyphicon-pencil"></span>&nbsp;【医嘱记录信息】
+					</div>
+					<div class="modal-body clearfix" style="height: auto;">
+						<div class="col-md-12 pd0">
+							<img style="width:100%" src="../About/images/cqyz.png">
+						</div>
+					</div>
+					<div class="modal-footer mt20">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">
+							确定
+						</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							取消
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		$(function(){
+			$('.page').hide();
+			$('.hlfxpg').show();
+
+			// 医嘱记录
+			$('body').on('click',"[name='open_lsjl_add']",function(){
+			 	$('#lsyzjl_add').modal('toggle');
+			 });
+			 $('body').on('click',"[name='open_cqjl_add']",function(){
+			 	$('#cqyzjl_add').modal('toggle');
+			 });
+			$('body').on('click',"[name='lsyz_cla']",function(){
+				$('.open_cqjl_add').attr("class","btn btn-primary open_lsjl_add");
+				$('.open_lsjl_add').attr("name","open_lsjl_add");
+			});
+			$('body').on('click',"[name='cqyz_cla']",function(){
+				$('.open_lsjl_add').attr("class","btn btn-primary open_cqjl_add");
+				$('.open_cqjl_add').attr("name","open_cqjl_add");
+			});
+			$(".open_yzjl_png").on("click", function(){
+				$('#yzjl_png').modal('toggle');
+			});
+		})
+		function openYzjl(){
+			$('.page').hide();
+			$('.yzjl').show();
+		};
+		var nextPage = function(str){
+			$('.page').hide();
+			$('.' + str).show();
+			if (str == 'gzjh') {
+				$(".dhx_cal_tab.dhx_cal_tab_last").click();
+			}
+		};
+	</script>
+</html>
