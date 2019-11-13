@@ -32,4 +32,6 @@ public interface CheckinMapper {
     int updateByPrimaryKeySelective(Checkin record);
 
     int updateByPrimaryKey(Checkin record);
+
+    List selectByExample();
 }
