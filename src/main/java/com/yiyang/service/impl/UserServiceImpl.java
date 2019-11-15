@@ -1,5 +1,7 @@
 package com.yiyang.service.impl;
 
+import com.yiyang.dao.CareMapper;
+import com.yiyang.entity.Care;
 import com.yiyang.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
