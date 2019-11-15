@@ -2,6 +2,7 @@ package com.yiyang.service.impl;
 
 import com.yiyang.dao.CheckinMapper;
 import com.yiyang.entity.Checkin;
+import com.yiyang.entity.CheckinExample;
 import com.yiyang.service.CheckinService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,9 +30,13 @@ public class CheckinServiceImpl implements CheckinService {
     }
 
     @Override
-    public ArrayList<Checkin> getCheckin() {
-        return (ArrayList<Checkin>) checkinMapper.selectByExample();
+    public List<Checkin> selectByExample(CheckinExample example){
+        return  checkinMapper.selectByExample(example);
     }
 
+    @Override
+    public Checkin selectByPrimaryKey(Integer id) {
+        return checkinMapper.selectByPrimaryKey(id);
+    }
 
 }
