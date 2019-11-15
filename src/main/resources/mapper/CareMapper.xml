@@ -6,7 +6,7 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="price" jdbcType="DOUBLE" property="price" />
     <result column="describes" jdbcType="VARCHAR" property="describes" />
-    <result column="add" jdbcType="VARCHAR" property="add" />
+    <result column="isadd" jdbcType="VARCHAR" property="isadd" />
     <result column="status" jdbcType="VARCHAR" property="status" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -68,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, name, price, describes, add, status
+    id, name, price, describes, isadd, status
   </sql>
   <select id="selectByExample" parameterType="com.yiyang.entity.CareExample" resultMap="BaseResultMap">
     select
@@ -102,10 +102,10 @@
   </delete>
   <insert id="insert" parameterType="com.yiyang.entity.Care">
     insert into care (id, name, price, 
-      describes, add, status
+      describes, isadd, status
       )
     values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{price,jdbcType=DOUBLE}, 
-      #{describes,jdbcType=VARCHAR}, #{add,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}
+      #{describes,jdbcType=VARCHAR}, #{isadd,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.yiyang.entity.Care">
@@ -123,8 +123,8 @@
       <if test="describes != null">
         describes,
       </if>
-      <if test="add != null">
-        add,
+      <if test="isadd != null">
+        isadd,
       </if>
       <if test="status != null">
         status,
@@ -143,8 +143,8 @@
       <if test="describes != null">
         #{describes,jdbcType=VARCHAR},
       </if>
-      <if test="add != null">
-        #{add,jdbcType=VARCHAR},
+      <if test="isadd != null">
+        #{isadd,jdbcType=VARCHAR},
       </if>
       <if test="status != null">
         #{status,jdbcType=VARCHAR},
@@ -172,8 +172,8 @@
       <if test="record.describes != null">
         describes = #{record.describes,jdbcType=VARCHAR},
       </if>
-      <if test="record.add != null">
-        add = #{record.add,jdbcType=VARCHAR},
+      <if test="record.isadd != null">
+        isadd = #{record.isadd,jdbcType=VARCHAR},
       </if>
       <if test="record.status != null">
         status = #{record.status,jdbcType=VARCHAR},
@@ -189,7 +189,7 @@
       name = #{record.name,jdbcType=VARCHAR},
       price = #{record.price,jdbcType=DOUBLE},
       describes = #{record.describes,jdbcType=VARCHAR},
-      add = #{record.add,jdbcType=VARCHAR},
+      isadd = #{record.isadd,jdbcType=VARCHAR},
       status = #{record.status,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -207,8 +207,8 @@
       <if test="describes != null">
         describes = #{describes,jdbcType=VARCHAR},
       </if>
-      <if test="add != null">
-        add = #{add,jdbcType=VARCHAR},
+      <if test="isadd != null">
+        isadd = #{isadd,jdbcType=VARCHAR},
       </if>
       <if test="status != null">
         status = #{status,jdbcType=VARCHAR},
@@ -221,7 +221,7 @@
     set name = #{name,jdbcType=VARCHAR},
       price = #{price,jdbcType=DOUBLE},
       describes = #{describes,jdbcType=VARCHAR},
-      add = #{add,jdbcType=VARCHAR},
+      isadd = #{isadd,jdbcType=VARCHAR},
       status = #{status,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>

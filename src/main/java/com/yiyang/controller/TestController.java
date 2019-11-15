@@ -1,6 +1,5 @@
 package com.yiyang.controller;
 
-import com.yiyang.entity.Care;
 import com.yiyang.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
