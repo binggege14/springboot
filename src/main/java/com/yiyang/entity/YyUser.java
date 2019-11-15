@@ -25,6 +25,8 @@ public class YyUser {
 
     private String staffNumber;
 
+    private String staffPwd;
+
     private String staffType;
 
     private Date entryDate;
@@ -121,6 +123,14 @@ public class YyUser {
 
     public void setStaffNumber(String staffNumber) {
         this.staffNumber = staffNumber == null ? null : staffNumber.trim();
+    }
+
+    public String getStaffPwd() {
+        return staffPwd;
+    }
+
+    public void setStaffPwd(String staffPwd) {
+        this.staffPwd = staffPwd == null ? null : staffPwd.trim();
     }
 
     public String getStaffType() {

@@ -364,73 +364,73 @@ public class CareExample {
             return (Criteria) this;
         }
 
-        public Criteria andAddIsNull() {
-            addCriterion("add is null");
+        public Criteria andIsaddIsNull() {
+            addCriterion("isadd is null");
             return (Criteria) this;
         }
 
-        public Criteria andAddIsNotNull() {
-            addCriterion("add is not null");
+        public Criteria andIsaddIsNotNull() {
+            addCriterion("isadd is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAddEqualTo(String value) {
-            addCriterion("add =", value, "add");
+        public Criteria andIsaddEqualTo(String value) {
+            addCriterion("isadd =", value, "isadd");
             return (Criteria) this;
         }
 
-        public Criteria andAddNotEqualTo(String value) {
-            addCriterion("add <>", value, "add");
+        public Criteria andIsaddNotEqualTo(String value) {
+            addCriterion("isadd <>", value, "isadd");
             return (Criteria) this;
         }
 
-        public Criteria andAddGreaterThan(String value) {
-            addCriterion("add >", value, "add");
+        public Criteria andIsaddGreaterThan(String value) {
+            addCriterion("isadd >", value, "isadd");
             return (Criteria) this;
         }
 
-        public Criteria andAddGreaterThanOrEqualTo(String value) {
-            addCriterion("add >=", value, "add");
+        public Criteria andIsaddGreaterThanOrEqualTo(String value) {
+            addCriterion("isadd >=", value, "isadd");
             return (Criteria) this;
         }
 
-        public Criteria andAddLessThan(String value) {
-            addCriterion("add <", value, "add");
+        public Criteria andIsaddLessThan(String value) {
+            addCriterion("isadd <", value, "isadd");
             return (Criteria) this;
         }
 
-        public Criteria andAddLessThanOrEqualTo(String value) {
-            addCriterion("add <=", value, "add");
+        public Criteria andIsaddLessThanOrEqualTo(String value) {
+            addCriterion("isadd <=", value, "isadd");
             return (Criteria) this;
         }
 
-        public Criteria andAddLike(String value) {
-            addCriterion("add like", value, "add");
+        public Criteria andIsaddLike(String value) {
+            addCriterion("isadd like", value, "isadd");
             return (Criteria) this;
         }
 
-        public Criteria andAddNotLike(String value) {
-            addCriterion("add not like", value, "add");
+        public Criteria andIsaddNotLike(String value) {
+            addCriterion("isadd not like", value, "isadd");
             return (Criteria) this;
         }
 
-        public Criteria andAddIn(List<String> values) {
-            addCriterion("add in", values, "add");
+        public Criteria andIsaddIn(List<String> values) {
+            addCriterion("isadd in", values, "isadd");
             return (Criteria) this;
         }
 
-        public Criteria andAddNotIn(List<String> values) {
-            addCriterion("add not in", values, "add");
+        public Criteria andIsaddNotIn(List<String> values) {
+            addCriterion("isadd not in", values, "isadd");
             return (Criteria) this;
         }
 
-        public Criteria andAddBetween(String value1, String value2) {
-            addCriterion("add between", value1, value2, "add");
+        public Criteria andIsaddBetween(String value1, String value2) {
+            addCriterion("isadd between", value1, value2, "isadd");
             return (Criteria) this;
         }
 
-        public Criteria andAddNotBetween(String value1, String value2) {
-            addCriterion("add not between", value1, value2, "add");
+        public Criteria andIsaddNotBetween(String value1, String value2) {
+            addCriterion("isadd not between", value1, value2, "isadd");
             return (Criteria) this;
         }
 

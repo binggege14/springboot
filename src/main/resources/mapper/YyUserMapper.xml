@@ -13,6 +13,7 @@
     <result column="staff_sex" jdbcType="VARCHAR" property="staffSex" />
     <result column="staff_age" jdbcType="VARCHAR" property="staffAge" />
     <result column="staff_number" jdbcType="VARCHAR" property="staffNumber" />
+    <result column="staff_pwd" jdbcType="VARCHAR" property="staffPwd" />
     <result column="staff_type" jdbcType="VARCHAR" property="staffType" />
     <result column="entry_date" jdbcType="DATE" property="entryDate" />
     <result column="duty" jdbcType="VARCHAR" property="duty" />
@@ -79,7 +80,8 @@
   </sql>
   <sql id="Base_Column_List">
     id, create_by, create_date, update_by, update_date, remarks, del_flag, staff_name, 
-    staff_sex, staff_age, staff_number, staff_type, entry_date, duty, brief, phone_number
+    staff_sex, staff_age, staff_number, staff_pwd, staff_type, entry_date, duty, brief, 
+    phone_number
   </sql>
   <select id="selectByExample" parameterType="com.yiyang.entity.YyUserExample" resultMap="BaseResultMap">
     select
@@ -115,15 +117,15 @@
     insert into yy_user (id, create_by, create_date, 
       update_by, update_date, remarks, 
       del_flag, staff_name, staff_sex, 
-      staff_age, staff_number, staff_type, 
-      entry_date, duty, brief, 
-      phone_number)
+      staff_age, staff_number, staff_pwd, 
+      staff_type, entry_date, duty, 
+      brief, phone_number)
     values (#{id,jdbcType=INTEGER}, #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
       #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=DATE}, #{remarks,jdbcType=VARCHAR}, 
       #{delFlag,jdbcType=VARCHAR}, #{staffName,jdbcType=VARCHAR}, #{staffSex,jdbcType=VARCHAR}, 
-      #{staffAge,jdbcType=VARCHAR}, #{staffNumber,jdbcType=VARCHAR}, #{staffType,jdbcType=VARCHAR}, 
-      #{entryDate,jdbcType=DATE}, #{duty,jdbcType=VARCHAR}, #{brief,jdbcType=VARCHAR}, 
-      #{phoneNumber,jdbcType=VARCHAR})
+      #{staffAge,jdbcType=VARCHAR}, #{staffNumber,jdbcType=VARCHAR}, #{staffPwd,jdbcType=VARCHAR}, 
+      #{staffType,jdbcType=VARCHAR}, #{entryDate,jdbcType=DATE}, #{duty,jdbcType=VARCHAR}, 
+      #{brief,jdbcType=VARCHAR}, #{phoneNumber,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.yiyang.entity.YyUser">
     insert into yy_user
@@ -160,6 +162,9 @@
       </if>
       <if test="staffNumber != null">
         staff_number,
+      </if>
+      <if test="staffPwd != null">
+        staff_pwd,
       </if>
       <if test="staffType != null">
         staff_type,
@@ -210,6 +215,9 @@
       </if>
       <if test="staffNumber != null">
         #{staffNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="staffPwd != null">
+        #{staffPwd,jdbcType=VARCHAR},
       </if>
       <if test="staffType != null">
         #{staffType,jdbcType=VARCHAR},
@@ -270,6 +278,9 @@
       <if test="record.staffNumber != null">
         staff_number = #{record.staffNumber,jdbcType=VARCHAR},
       </if>
+      <if test="record.staffPwd != null">
+        staff_pwd = #{record.staffPwd,jdbcType=VARCHAR},
+      </if>
       <if test="record.staffType != null">
         staff_type = #{record.staffType,jdbcType=VARCHAR},
       </if>
@@ -303,6 +314,7 @@
       staff_sex = #{record.staffSex,jdbcType=VARCHAR},
       staff_age = #{record.staffAge,jdbcType=VARCHAR},
       staff_number = #{record.staffNumber,jdbcType=VARCHAR},
+      staff_pwd = #{record.staffPwd,jdbcType=VARCHAR},
       staff_type = #{record.staffType,jdbcType=VARCHAR},
       entry_date = #{record.entryDate,jdbcType=DATE},
       duty = #{record.duty,jdbcType=VARCHAR},
@@ -345,6 +357,9 @@
       <if test="staffNumber != null">
         staff_number = #{staffNumber,jdbcType=VARCHAR},
       </if>
+      <if test="staffPwd != null">
+        staff_pwd = #{staffPwd,jdbcType=VARCHAR},
+      </if>
       <if test="staffType != null">
         staff_type = #{staffType,jdbcType=VARCHAR},
       </if>
@@ -375,6 +390,7 @@
       staff_sex = #{staffSex,jdbcType=VARCHAR},
       staff_age = #{staffAge,jdbcType=VARCHAR},
       staff_number = #{staffNumber,jdbcType=VARCHAR},
+      staff_pwd = #{staffPwd,jdbcType=VARCHAR},
       staff_type = #{staffType,jdbcType=VARCHAR},
       entry_date = #{entryDate,jdbcType=DATE},
       duty = #{duty,jdbcType=VARCHAR},

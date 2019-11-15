@@ -1,9 +1,9 @@
 package com.yiyang.dao;
 
-import com.yiyang.entity.Care;
-import com.yiyang.entity.CareExample;
 import java.util.List;
 
+import com.yiyang.entity.Care;
+import com.yiyang.entity.CareExample;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;

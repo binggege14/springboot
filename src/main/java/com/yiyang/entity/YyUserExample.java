@@ -872,6 +872,76 @@ public class YyUserExample {
             return (Criteria) this;
         }
 
+        public Criteria andStaffPwdIsNull() {
+            addCriterion("staff_pwd is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStaffPwdIsNotNull() {
+            addCriterion("staff_pwd is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStaffPwdEqualTo(String value) {
+            addCriterion("staff_pwd =", value, "staffPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andStaffPwdNotEqualTo(String value) {
+            addCriterion("staff_pwd <>", value, "staffPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andStaffPwdGreaterThan(String value) {
+            addCriterion("staff_pwd >", value, "staffPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andStaffPwdGreaterThanOrEqualTo(String value) {
+            addCriterion("staff_pwd >=", value, "staffPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andStaffPwdLessThan(String value) {
+            addCriterion("staff_pwd <", value, "staffPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andStaffPwdLessThanOrEqualTo(String value) {
+            addCriterion("staff_pwd <=", value, "staffPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andStaffPwdLike(String value) {
+            addCriterion("staff_pwd like", value, "staffPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andStaffPwdNotLike(String value) {
+            addCriterion("staff_pwd not like", value, "staffPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andStaffPwdIn(List<String> values) {
+            addCriterion("staff_pwd in", values, "staffPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andStaffPwdNotIn(List<String> values) {
+            addCriterion("staff_pwd not in", values, "staffPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andStaffPwdBetween(String value1, String value2) {
+            addCriterion("staff_pwd between", value1, value2, "staffPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andStaffPwdNotBetween(String value1, String value2) {
+            addCriterion("staff_pwd not between", value1, value2, "staffPwd");
+            return (Criteria) this;
+        }
+
         public Criteria andStaffTypeIsNull() {
             addCriterion("staff_type is null");
             return (Criteria) this;

@@ -9,7 +9,7 @@ public class Care {
 
     private String describes;
 
-    private String add;
+    private String isadd;
 
     private String status;
 
@@ -45,12 +45,12 @@ public class Care {
         this.describes = describes == null ? null : describes.trim();
     }
 
-    public String getAdd() {
-        return add;
+    public String getIsadd() {
+        return isadd;
     }
 
-    public void setAdd(String add) {
-        this.add = add == null ? null : add.trim();
+    public void setIsadd(String isadd) {
+        this.isadd = isadd == null ? null : isadd.trim();
     }
 
     public String getStatus() {
