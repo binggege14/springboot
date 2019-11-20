@@ -15,4 +15,7 @@ public interface YyUserService {
 
     //删除用户
     int delYyUser(Long id);
+
+    //用户登录
+    YyUser login(String staffNumber,String staffPwd);
 }

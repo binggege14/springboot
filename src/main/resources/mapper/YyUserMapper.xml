@@ -399,4 +399,11 @@
       phone_number = #{phoneNumber,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="login" parameterType="com.yiyang.entity.YyUser" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from yy_user
+    where staff_number = #{staffNumber,jdbcType=VARCHAR}and staff_pwd = #{staffPwd,jdbcType=VARCHAR}
+  </select>
 </mapper>

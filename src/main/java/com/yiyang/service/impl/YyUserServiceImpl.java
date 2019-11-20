@@ -29,4 +29,9 @@ public class YyUserServiceImpl implements YyUserService {
     public int delYyUser(Long id) {
         return yyUserMapper.deleteByPrimaryKey(id.intValue());
     }
+
+    //用户登录
+    public YyUser login(String staffNumber,String staffPwd){
+        return yyUserMapper.login(staffNumber,staffPwd);
+    }
 }

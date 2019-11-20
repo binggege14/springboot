@@ -32,4 +32,6 @@ public interface YyUserMapper {
     int updateByPrimaryKeySelective(YyUser record);
 
     int updateByPrimaryKey(YyUser record);
+
+    YyUser login(@Param(value = "staffNumber") String staffNumber,@Param(value = "staffPwd") String staffPwd);
 }

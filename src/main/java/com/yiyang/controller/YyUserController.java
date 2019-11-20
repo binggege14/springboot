@@ -21,4 +21,17 @@ public class YyUserController {
         YyUser yyUser=yyUserService.getYyUser(id);
         return "id:"+yyUser.getId()+",name:"+yyUser.getStaffName();
     }
+
+    //删除用户
+    @RequestMapping("/yyUser/del/{id}")
+    public @ResponseBody void delYyUser(@PathVariable("id") Long id){
+        yyUserService.delYyUser(id);
+    }
+
+    //登录
+    @RequestMapping("/yyUser/login/{staff_number}&{staff_pwd}")
+    public @ResponseBody String login(@PathVariable("staff_number") String staff_number,@PathVariable("staff_pwd") String staff_pwd){
+        YyUser yyUser=yyUserService.login(staff_number,staff_pwd);
+        return "id:"+yyUser.getId()+",name:"+yyUser.getStaffName()+",del:"+yyUser.getDelFlag();
+    }
 }
