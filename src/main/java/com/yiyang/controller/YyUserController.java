@@ -34,4 +34,10 @@ public class YyUserController {
         YyUser yyUser=yyUserService.login(staff_number,staff_pwd);
         return "id:"+yyUser.getId()+",name:"+yyUser.getStaffName()+",del:"+yyUser.getDelFlag();
     }
+
+    //修改密码
+    @RequestMapping("/yyUser/updatePwd/{staff_number}&{staff_pwd}")
+    public @ResponseBody void updatePwd(@PathVariable("staff_number") String staff_number,@PathVariable("staff_pwd") String staff_pwd){
+        yyUserService.updatePwd(staff_number,staff_pwd);
+    }
 }

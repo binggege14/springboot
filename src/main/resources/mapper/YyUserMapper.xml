@@ -406,4 +406,11 @@
     from yy_user
     where staff_number = #{staffNumber,jdbcType=VARCHAR}and staff_pwd = #{staffPwd,jdbcType=VARCHAR}
   </select>
+
+  <update id="updatePwd" parameterType="com.yiyang.entity.YyUser">
+    update yy_user
+    set
+      staff_pwd = #{staffNPwd,jdbcType=VARCHAR}
+    where staff_number = #{staffNumber,jdbcType=VARCHAR}
+  </update>
 </mapper>

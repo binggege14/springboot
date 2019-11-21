@@ -34,4 +34,6 @@ public interface YyUserMapper {
     int updateByPrimaryKey(YyUser record);
 
     YyUser login(@Param(value = "staffNumber") String staffNumber,@Param(value = "staffPwd") String staffPwd);
+
+    int updatePwd(@Param(value = "staffNumber") String staffNumber,@Param(value = "staffNPwd") String staffNPwd);
 }

@@ -18,4 +18,7 @@ public interface YyUserService {
 
     //用户登录
     YyUser login(String staffNumber,String staffPwd);
+
+    //修改密码
+    int updatePwd(String staffNumber,String staffNPwd);
 }

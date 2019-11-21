@@ -34,4 +34,9 @@ public class YyUserServiceImpl implements YyUserService {
     public YyUser login(String staffNumber,String staffPwd){
         return yyUserMapper.login(staffNumber,staffPwd);
     }
+
+    //修改密码
+    public int updatePwd(String staffNumber,String staffNPwd){
+        return yyUserMapper.updatePwd(staffNumber,staffNPwd);
+    }
 }
