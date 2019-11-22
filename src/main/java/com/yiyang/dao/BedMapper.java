@@ -32,4 +32,6 @@ public interface BedMapper {
     int updateByPrimaryKeySelective(Bed record);
 
     int updateByPrimaryKey(Bed record);
+
+    int updateBedStatus(@Param(value = "id") Integer id,@Param(value = "bedStatus") String bedStatus);
 }

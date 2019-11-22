@@ -95,7 +95,8 @@
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from bed
+    update bed
+    set del_flag = "1"
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.yiyang.entity.BedExample">
@@ -270,6 +271,13 @@
       remarks = #{remarks,jdbcType=VARCHAR},
       del_flag = #{delFlag,jdbcType=VARCHAR},
       room_number = #{roomNumber,jdbcType=VARCHAR},
+      bed_status = #{bedStatus,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <update id="updateBedStatus" parameterType="com.yiyang.entity.Bed">
+    update bed
+    set
       bed_status = #{bedStatus,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
