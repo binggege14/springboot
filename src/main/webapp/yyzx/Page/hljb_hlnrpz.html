@@ -16,6 +16,10 @@
 		<title>护理内容配置</title>
 		<script type="text/javascript">
 		$(document).ready(function () {
+			$("form").submit(function () {
+				$('#modal').modal('hide')
+				window.location.reload()
+			})
 			loadList();
 			function loadList(){
 				$.ajax({
@@ -44,6 +48,22 @@
 						})
 					}
 				})
+				//下拉框
+				$.ajax({
+					url:'/care/selectnames',
+					data:'',
+					type:'post',
+					dataType:'json',
+					success:function (res) {
+						// alert(res);
+						var $tr;
+						$(res).each(function (i) {
+							$tr=$("<option>"+res[i]+"</option>")
+							$('#remarks').append($tr)
+						})
+					}
+				})
+
 
 			}
 
@@ -76,7 +96,10 @@
 			<div class="col-md-9 pd0 fmt5">
 				<button class="btn btn-primary" data-toggle="modal" data-target=".myModal1"><span class="glyphicon glyphicon-plus"></span>&nbsp;添加护理内容</button> 
 			</div>
-			<div class="modal fade myModal1">
+
+			<iframe id="iframeForm" name="iframeForm" style="display:none;"></iframe>
+			<form action="/carelevel/addcare" method="post" id="careForm" name='iframeForm'  target="iframeForm" >
+			<div class="modal fade myModal1" id="modal">
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
@@ -92,13 +115,13 @@
 									<div class="col-md-12 pd0">
 										<div class="input-group inputWidth">
 											<span class="input-group-addon titleWidth">&nbsp;&nbsp;护理项目：</span>
-											<select class="form-control">
-												<option>吸氧</option>
-												<option>协助服药</option>
-												<option>测量血压</option>
-												<option>协助穿衣</option>
-												<option>床上洗头</option>
-												<option>健身</option>
+											<select class="form-control" id="remarks" name="remarks">
+<!--												<option>吸氧</option>-->
+<!--												<option>协助服药</option>-->
+<!--												<option>测量血压</option>-->
+<!--												<option>协助穿衣</option>-->
+<!--												<option>床上洗头</option>-->
+<!--												<option>健身</option>-->
 											</select>
 										</div>
 									</div>
@@ -110,56 +133,33 @@
 								<div class="col-md-10 pd0">
 									<div class="col-md-12 pd0">
 										<div class="input-group inputWidth">
-											<span class="input-group-addon titleWidth">&nbsp;&nbsp;执行周期：</span>
-											<select class="form-control">
-												<option>每天</option>
-												<option>每周</option>
-												<option>每月</option>
+											<span class="input-group-addon titleWidth">&nbsp;&nbsp;是否启用：</span>
+											<select class="form-control" id="status" name="status">
+												<option>启用</option>
+												<option>禁用</option>
 											</select>
 										</div>
 									</div>
 								</div>
 								<div class="col-md-1 pd0"></div>
 							</div>
+
 <!--							<div class="col-md-12 pd0 mt10">-->
 <!--								<div class="col-md-1 pd0"></div>-->
 <!--								<div class="col-md-10 pd0">-->
 <!--									<div class="col-md-12 pd0">-->
 <!--										<div class="input-group inputWidth">-->
-<!--											<span class="input-group-addon titleWidth">&nbsp;&nbsp;执行次数：</span>-->
-<!--											<input type="text" name="csmc" id="" class="form-control" placeholder="请输入【执行次数】信息" aria-describedby="basic-addon1">-->
+<!--											<span class="input-group-addon titleWidth">&nbsp;&nbsp;备注：</span>-->
+<!--											<input type="text" name="csmc" id="" class="form-control" placeholder="请输入【备注】信息" aria-describedby="basic-addon1">-->
 <!--										</div>-->
 <!--									</div>-->
 <!--								</div>-->
 <!--								<div class="col-md-1 pd0"></div>-->
 <!--							</div>-->
-							<div class="col-md-12 pd0 mt10">
-								<div class="col-md-1 pd0"></div>
-								<div class="col-md-10 pd0">
-									<div class="col-md-12 pd0">
-										<div class="input-group inputWidth">
-											<span class="input-group-addon titleWidth">&nbsp;&nbsp;备注：</span>
-											<input type="text" name="csmc" id="" class="form-control" placeholder="请输入【备注】信息" aria-describedby="basic-addon1">
-										</div>
-									</div>
-								</div>
-								<div class="col-md-1 pd0"></div>
-							</div>
-							<div class="col-md-12 pd0 mt10">
-								<div class="col-md-1 pd0"></div>
-								<div class="col-md-10 pd0">
-									<div class="col-md-12 pd0">
-										<div class="input-group inputWidth">
-											<span class="input-group-addon titleWidth">&nbsp;&nbsp;排序：</span>
-											<input type="text" name="csmc" id="" class="form-control" placeholder="请输入【排序】信息" aria-describedby="basic-addon1">
-										</div>
-									</div>
-								</div>
-								<div class="col-md-1 pd0"></div>
-							</div>
+
 						</div>
 						<div class="modal-footer mt20">
-							<button type="button" class="btn btn-primary" data-dismiss="modal">
+							<button type="submit" class="btn btn-primary">
 								确定
 							</button>
 							<button type="button" class="btn btn-default" data-dismiss="modal">
@@ -169,6 +169,8 @@
 					</div>
 				</div>
 			</div>
+			</form>
+
 			<div class="col-md-12 pd0 fmt10">
 				<hr class="commonHRCss"/>
 			</div>
@@ -199,41 +201,7 @@
 <!--							</td>-->
 <!--						</tr>-->
 <!--						<tr>-->
-<!--							<td>2</td>-->
-<!--							<td>协助服药</td>-->
-<!--							<td>每天</td>-->
-<!--							<td>3</td>-->
-<!--							<td></td>-->
-<!--							<td>2</td>-->
-<!--							<td>-->
-<!--								<button class="btn btn-primary">修改</button> -->
-<!--								<button class="btn btn-danger" onclick="shanchu()">删除</button>-->
-<!--							</td>-->
-<!--						</tr>-->
-<!--						<tr>-->
-<!--							<td>3</td>-->
-<!--							<td>测量血压</td>-->
-<!--							<td>每天</td>-->
-<!--							<td>1</td>-->
-<!--							<td></td>-->
-<!--							<td>3</td>-->
-<!--							<td>-->
-<!--								<button class="btn btn-primary">修改</button> -->
-<!--								<button class="btn btn-danger" onclick="shanchu()">删除</button>-->
-<!--							</td>-->
-<!--						</tr>-->
-<!--						<tr>-->
-<!--							<td>4</td>-->
-<!--							<td>协助穿衣</td>-->
-<!--							<td>每天</td>-->
-<!--							<td>1</td>-->
-<!--							<td></td>-->
-<!--							<td>4</td>-->
-<!--							<td>-->
-<!--								<button class="btn btn-primary">修改</button> -->
-<!--								<button class="btn btn-danger" onclick="shanchu()">删除</button>-->
-<!--							</td>-->
-<!--						</tr>-->
+
 					</tbody>
 				</table>
 			</div>

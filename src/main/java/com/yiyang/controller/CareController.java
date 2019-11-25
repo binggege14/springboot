@@ -53,6 +53,12 @@ public class CareController {
       }
         return JSON.toJSONString(names);
     }
+    @RequestMapping(value="care/change",method = RequestMethod.POST)
+    @ResponseBody
+    public void update(Care care){
+
+        careService.updateByPrimaryKeySelective(care);
+    }
 
 
 

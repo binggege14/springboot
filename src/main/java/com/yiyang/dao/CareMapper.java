@@ -38,4 +38,5 @@ public interface CareMapper {
     List<Care> selectAll();
     List<Care> selectByKey(String key);
     List<String> selectNames();
+
 }

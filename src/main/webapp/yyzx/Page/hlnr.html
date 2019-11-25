@@ -48,7 +48,7 @@
 									"<td></td>" +
 									"<td>" +
 									"<a href='#' target='ckjkda'>" +
-									"<button class='change btn btn-primary' change data-toggle='modal' data-target='.myModal1'>修改</button>" +
+									"<button class='change btn btn-primary'  data-toggle='modal' data-target='#changeModal'>修改</button>" +
 									"</a>" +
 									"<a href='' target='ckjkda'>" +
 									"<button class='btn btn-danger' >删除</button>" +
@@ -83,24 +83,34 @@
                     })
                 }
             });
-			//修改点击
+			// 修改点击
             $(document).on("click",".change",function(){
 
 
                 // alert($(this).parents("tr").find("td:eq(1)").text());
-                var id=$(this).parents("tr").find("td:eq(1)").text();
-				console.log(empid)
+				var id=$(this).parents("tr").find("td:eq(1)").text();
+				var name=$(this).parents("tr").find("td:eq(2)").text();
+				var price=$(this).parents("tr").find("td:eq(3)").text();
+				var describes=$(this).parents("tr").find("td:eq(4)").text();
+				var isadd=$(this).parents("tr").find("td:eq(5)").text();
+				var status=$(this).parents("tr").find("td:eq(6)").text();
+				$("#cid").val(id)
+				$("#cname").val(name)
+				$("#cprice").val(price)
+				$("#cdescribes").val(describes)
+				$("#isadd").val(isadd)
+				$("#status").val(status)
+				// console.log(id,name,price,describes,isadd,status)
                 // var empId=$(this).attr("delete-id");
-
-                    $.ajax({
-                        url:"/care/change",
-                        data:{id:id},
-                        type:"post",
-                        // success:function(result){
-                        //
-                        //
-                        // }
-                    })
+                    // $.ajax({
+                    //     url:"/care/change",
+                    //     data:{id:id},
+                    //     type:"post",
+                    //     // success:function(result){
+                    //     //
+                    //     //
+                    //     // }
+                    // })
 
             });
 
@@ -126,7 +136,7 @@
                                "<td></td>" +
                                "<td>" +
                                "<a href='#' target='ckjkda'>" +
-                               "<button class='change btn btn-primary'  data-toggle='modal' data-target='.myModal1'>修改</button>" +
+                               "<button class='change btn btn-primary'  data-toggle='modal' data-target='#changeModal'>修改</button>" +
                                "</a>" +
                                "<a href='' target='ckjkda'>" +
                                "<button class='btn btn-danger' >删除</button>" +
@@ -158,7 +168,7 @@
 					</div>
 				</div>
 				<div class="col-md-9 pd0 fmt5">
-					<button class="btn btn-primary" data-toggle="modal" data-target=".myModal1"><span class="glyphicon glyphicon-plus"></span>&nbsp;添加</button> 
+					<button class="btn btn-primary" data-toggle="modal" data-target="#modle"><span class="glyphicon glyphicon-plus"></span>&nbsp;添加</button>
 				</div>
 
 				<iframe id="iframeForm" name="iframeForm" style="display:none;"></iframe>
@@ -252,18 +262,6 @@
 									<div class="col-md-1 pd0"></div>
 								</div>
 
-<!--																<div class="col-md-12 pd0 mt10">-->
-<!--									<div class="col-md-1 pd0"></div>-->
-<!--									<div class="col-md-10 pd0">-->
-<!--										<div class="col-md-12 pd0">-->
-<!--											<div class="input-group inputWidth">-->
-<!--												<span class="input-group-addon titleWidth">&nbsp;&nbsp;备注：</span>-->
-<!--												<input type="text" class="form-control" aria-describedby="basic-addon1">-->
-<!--											</div>-->
-<!--										</div>-->
-<!--									</div>-->
-<!--									<div class="col-md-1 pd0"></div>-->
-<!--								</div>-->
 							</div>
 							<div class="modal-footer mt20">
 								<button type="submit" class="btn btn-primary" id="sub">
@@ -276,6 +274,111 @@
 						</div>
 					</div>
 				</div>
+				</form>
+
+					<!--				修改-->
+				<form action="/care/change" method="post" id="ChangeForm" name='iframeForm'  target="iframeForm" >
+					<div class="modal fade myModal1" id="changeModal">
+						<div class="modal-dialog">
+							<div class="modal-content" style="width:100%;">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+									<span class="glyphicon glyphicon-pencil"></span>&nbsp;【修改护理内容】
+								</div>
+								<div class="modal-body clearfix" style="height: auto;">
+									<div class="col-md-12 pd0">
+										<div class="col-md-1 pd0 mt10"></div>
+										<div class="col-md-10 pd0">
+											<div class="col-md-12 pd0">
+												<div class="input-group inputWidth">
+													<span class="input-group-addon titleWidth">&nbsp;&nbsp;编号：</span>
+													<input type="text" class="form-control" placeholder="请输入【编号】信息" aria-describedby="basic-addon1" name="id" id="cid">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-1 pd0"></div>
+									</div>
+									<div class="col-md-12 pd0 mt10">
+										<div class="col-md-1 pd0"></div>
+										<div class="col-md-10 pd0">
+											<div class="col-md-12 pd0">
+												<div class="input-group inputWidth">
+													<span class="input-group-addon titleWidth">&nbsp;&nbsp;名称：</span>
+													<input type="text" class="form-control" placeholder="请输入【名称】信息"  aria-describedby="basic-addon1" name="name" id="cname">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-1 pd0"></div>
+									</div>
+									<div class="col-md-12 pd0 mt10">
+										<div class="col-md-1 pd0"></div>
+										<div class="col-md-10 pd0">
+											<div class="col-md-12 pd0">
+												<div class="input-group inputWidth">
+													<span class="input-group-addon titleWidth">&nbsp;&nbsp;价格：</span>
+													<input type="text" class="form-control" name="price" id="cprice">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-1 pd0"></div>
+									</div>
+									<div class="col-md-12 pd0 mt10">
+										<div class="col-md-1 pd0"></div>
+										<div class="col-md-10 pd0">
+											<div class="col-md-12 pd0">
+												<div class="input-group inputWidth">
+													<span class="input-group-addon titleWidth">&nbsp;&nbsp;描述：</span>
+													<input type="text" class="form-control" placeholder="请输入【描述】信息"  aria-describedby="basic-addon1" name="describes" id="cdescribes">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-1 pd0"></div>
+									</div>
+									<div class="col-md-12 pd0 mt10">
+										<div class="col-md-1 pd0"></div>
+										<div class="col-md-10 pd0">
+											<div class="col-md-12 pd0">
+												<div class="input-group inputWidth">
+													<span class="input-group-addon titleWidth">&nbsp;&nbsp;是否增值服务：</span>
+													<select class="form-control" name="isadd" id="cisadd">
+														<option>否</option>
+														<option>是</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-1 pd0"></div>
+									</div>
+									<div class="col-md-12 pd0 mt10">
+										<div class="col-md-1 pd0"></div>
+										<div class="col-md-10 pd0">
+											<div class="col-md-12 pd0">
+												<div class="input-group inputWidth">
+													<span class="input-group-addon titleWidth">&nbsp;&nbsp;状态：</span>
+													<select class="form-control" name="status" id="cstatus">
+														<option>启用</option>
+														<option>禁用</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-1 pd0"></div>
+									</div>
+
+								</div>
+								<div class="modal-footer mt20">
+									<button type="submit" class="btn btn-primary" id="csub">
+										确定
+									</button>
+									<button type="button" class="btn btn-default" data-dismiss="modal">
+										取消
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
 				</form>
 
 				<div class="col-md-12 pd0 fmt10">

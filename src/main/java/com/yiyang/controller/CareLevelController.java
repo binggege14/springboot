@@ -38,6 +38,7 @@ public class CareLevelController {
 
         return JSON.toJSONString(careLevelService.selectAll());
     }
+//    护理级别层添加
     @RequestMapping(value="carelevel/add",method = RequestMethod.POST)
     @ResponseBody
     public void Add(Careleve careleve){
@@ -46,11 +47,22 @@ public class CareLevelController {
         careLevelService.insertSelective(careleve);
 
     }
+    //    护理内容层添加
+    @RequestMapping(value="carelevel/addcare",method = RequestMethod.POST)
+    @ResponseBody
+    public void AddCare(Careleve careleve,HttpSession session){
+        careleve.setLevelName(String.valueOf(session.getAttribute("levelName")));
+//        System.out.println(session.getAttribute("levelName"));
+//        System.out.println(careleve.getRemarks());
+//        System.out.println(careleve.getStatus());
+        careLevelService.insertSelective(careleve);
+
+    }
     @RequestMapping(value="carelevel/GetName",method = RequestMethod.POST)
     @ResponseBody
     public void GetName(String name,HttpServletRequest request){
         HttpSession session=request.getSession();
-        session.setAttribute("levelName",name);
+
         session.setAttribute("levelName",name);
         System.out.println(name);
 //        return "redirect:/yyzx1/yyzx/page/hljb_hlnrpz.html";
