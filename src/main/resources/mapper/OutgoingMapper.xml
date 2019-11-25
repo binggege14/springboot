@@ -415,4 +415,11 @@
       audittime = #{audittime,jdbcType=DATE}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <update id="updateStatus" parameterType="com.yiyang.entity.Outgoing">
+    update outgoing
+    set
+      AUDITSTATUS = #{Status,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
 </mapper>
