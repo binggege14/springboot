@@ -32,4 +32,6 @@ public interface OutgoingMapper {
     int updateByPrimaryKeySelective(Outgoing record);
 
     int updateByPrimaryKey(Outgoing record);
+
+    int updateStatus(Integer id,String Status);
 }
