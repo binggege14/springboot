@@ -225,4 +225,25 @@
       status = #{status,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+    <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from care
+        where name = #{name,jdbcType=VARCHAR}
+    </select>
+    <select id="selectAll"  resultMap="BaseResultMap">
+        select *
+        from care
+    </select>
+  <select id="selectByKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select *
+    from care
+    where name LIKE #{key}
+    or describes LIKE #{key}
+    or id like #{key}
+    or price like #{key}
+    or isadd like #{key}
+    or status like #{key}
+  </select>
+
 </mapper>

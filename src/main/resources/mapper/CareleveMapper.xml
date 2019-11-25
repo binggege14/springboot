@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yiyang.dao.CareleveMapper">
+
   <resultMap id="BaseResultMap" type="com.yiyang.entity.Careleve">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="create_by" jdbcType="VARCHAR" property="createBy" />
@@ -9,6 +10,7 @@
     <result column="level_name" jdbcType="VARCHAR" property="levelName" />
     <result column="status" jdbcType="VARCHAR" property="status" />
   </resultMap>
+
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -89,6 +91,20 @@
     <include refid="Base_Column_List" />
     from careleve
     where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from careleve
+    where level_name = #{levelName,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectAll" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select *
+    from careleve
+    group by level_name
+    order by id
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from careleve
@@ -225,4 +241,15 @@
       status = #{status,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="selectConnect" parameterType="java.lang.String" resultType="java.util.Map">
+    select careleve.id,`name`,describes,price,care.status,remarks
+    from care,careleve
+    where `name`=remarks and level_name=#{name}
+--     select careleve.id,`name`,describes,price,care.status,remarks,level_name
+--     from care,careleve
+--     where `name`=remarks and level_name='一级'
+
+
+  </select>
 </mapper>

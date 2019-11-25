@@ -15,9 +15,137 @@
 		<script src="../About/js/bootstrap.min.js"></script>
 		<title>护理内容</title>
 		<script type="text/javascript">
-		$(function(){
+		$(document).ready(function () {
+			$("form").submit(function () {
+				$('#modle').modal('hide')
+                window.location.reload()
+			})
+			$('#modle').on('hidden.bs.modal', function (){
+				document.getElementById("careForm").reset();
+			});
+
+			$(document).on("click","#select",function(){
+				var key=document.getElementById("key").value
+
+				$.ajax({
+					url:"/care/selectbykey",
+					data:{key:key},
+					type:"post",
+					dataType:'json',
+					success:function (res) {
+						$("tbody").html("");
+						var $tr;
+						$(res).each(function () {
+							$tr=$(
+									"<tr>" +
+									"<td>"+this.id+"</td>" +
+									"<td>"+this.id+"</td>" +
+									"<td>"+this.name+"</td>" +
+									"<td>"+this.price+"</td>" +
+									"<td>"+this.describes+"</td>" +
+									"<td>"+this.isadd+"</td>" +
+									"<td>"+this.status+"</td>" +
+									"<td></td>" +
+									"<td>" +
+									"<a href='#' target='ckjkda'>" +
+									"<button class='change btn btn-primary' change data-toggle='modal' data-target='.myModal1'>修改</button>" +
+									"</a>" +
+									"<a href='' target='ckjkda'>" +
+									"<button class='btn btn-danger' >删除</button>" +
+									"</a>" +
+									"</td>" +
+									"</tr>"
+							)
+							$('tbody').append($tr)
+						})
+					}
+				})
+
+			})
+
+            $(document).on("click",".btn-danger",function(){
+
+                //1.弹出确认删除对话框
+                // alert($(this).parents("tr").find("td:eq(1)").text());
+                var empid=$(this).parents("tr").find("td:eq(1)").text();
+                var empName=$(this).parents("tr").find("td:eq(2)").text();
+                // var empId=$(this).attr("delete-id");
+                if(confirm("确认删除【"+empName+"】吗？")) {
+                    //点击true，发送ajax请求
+                    $.ajax({
+                        url:"/care/del",
+                        data:{id:empid},
+                        type:"post",
+                        // success:function(result){
+                        //
+                        //
+                        // }
+                    })
+                }
+            });
+			//修改点击
+            $(document).on("click",".change",function(){
+
+
+                // alert($(this).parents("tr").find("td:eq(1)").text());
+                var id=$(this).parents("tr").find("td:eq(1)").text();
+				console.log(empid)
+                // var empId=$(this).attr("delete-id");
+
+                    $.ajax({
+                        url:"/care/change",
+                        data:{id:id},
+                        type:"post",
+                        // success:function(result){
+                        //
+                        //
+                        // }
+                    })
+
+            });
+
+            loadList();
+			    function loadList(){
+                $.ajax({
+                    url:'/care/list',
+                    data:'',
+                    type:'post',
+                    dataType:'json',
+                    success:function (res) {
+                       var $tr;
+                       $(res).each(function () {
+                           $tr=$(
+                               "<tr>" +
+                               "<td>"+this.id+"</td>" +
+                               "<td>"+this.id+"</td>" +
+                               "<td>"+this.name+"</td>" +
+                               "<td>"+this.price+"</td>" +
+                               "<td>"+this.describes+"</td>" +
+                               "<td>"+this.isadd+"</td>" +
+                               "<td>"+this.status+"</td>" +
+                               "<td></td>" +
+                               "<td>" +
+                               "<a href='#' target='ckjkda'>" +
+                               "<button class='change btn btn-primary'  data-toggle='modal' data-target='.myModal1'>修改</button>" +
+                               "</a>" +
+                               "<a href='' target='ckjkda'>" +
+                               "<button class='btn btn-danger' >删除</button>" +
+                               "</a>" +
+                               "</td>" +
+                               "</tr>"
+                           )
+                           $('tbody').append($tr)
+                       })
+                    }
+                })
+                }
 
 		})
+
+
+
+
+
 		</script>
 	</head>
 	<body>
@@ -25,14 +153,17 @@
 			<div class="col-md-12 pd20 RightContentBody fmt10">
 				<div class="col-md-3 pd0 fmt5">
 					<div class="input-group inputWidth_search" >
-						<input type="text" class="form-control" placeholder="名称">
-						<span class="input-group-addon"><a href="javascript:alert('查询护理内容')">查询</a></span>								
+						<input type="text" class="form-control" placeholder="名称" name="key" id="key">
+						<span class="input-group-addon" id="select"><a href="#">查询</a></span>
 					</div>
 				</div>
 				<div class="col-md-9 pd0 fmt5">
 					<button class="btn btn-primary" data-toggle="modal" data-target=".myModal1"><span class="glyphicon glyphicon-plus"></span>&nbsp;添加</button> 
-				</div>			
-				<div class="modal fade myModal1">
+				</div>
+
+				<iframe id="iframeForm" name="iframeForm" style="display:none;"></iframe>
+				<form action="/care" method="post" id="careForm" name='iframeForm'  target="iframeForm" >
+				<div class="modal fade myModal1" id="modle">
 					<div class="modal-dialog">
 						<div class="modal-content" style="width:100%;">
 							<div class="modal-header">
@@ -48,7 +179,7 @@
 										<div class="col-md-12 pd0">
 											<div class="input-group inputWidth">
 												<span class="input-group-addon titleWidth">&nbsp;&nbsp;编号：</span>
-												<input type="text" class="form-control" placeholder="请输入【编号】信息" aria-describedby="basic-addon1">
+												<input type="text" class="form-control" placeholder="请输入【编号】信息" aria-describedby="basic-addon1" name="id" id="id">
 											</div>
 										</div>
 									</div>
@@ -60,7 +191,7 @@
 										<div class="col-md-12 pd0">
 											<div class="input-group inputWidth">
 												<span class="input-group-addon titleWidth">&nbsp;&nbsp;名称：</span>
-												<input type="text" class="form-control" placeholder="请输入【名称】信息"  aria-describedby="basic-addon1">
+												<input type="text" class="form-control" placeholder="请输入【名称】信息"  aria-describedby="basic-addon1" name="name" id="name">
 											</div>
 										</div>
 									</div>
@@ -72,7 +203,7 @@
 										<div class="col-md-12 pd0">
 											<div class="input-group inputWidth">
 												<span class="input-group-addon titleWidth">&nbsp;&nbsp;价格：</span>
-												<input type="text" class="form-control">
+												<input type="text" class="form-control" name="price" id="price">
 											</div>
 										</div>
 									</div>
@@ -84,7 +215,7 @@
 										<div class="col-md-12 pd0">
 											<div class="input-group inputWidth">
 												<span class="input-group-addon titleWidth">&nbsp;&nbsp;描述：</span>
-												<input type="text" class="form-control" placeholder="请输入【描述】信息"  aria-describedby="basic-addon1">
+												<input type="text" class="form-control" placeholder="请输入【描述】信息"  aria-describedby="basic-addon1" name="describes" id="describes">
 											</div>
 										</div>
 									</div>
@@ -96,7 +227,7 @@
 										<div class="col-md-12 pd0">
 											<div class="input-group inputWidth">
 												<span class="input-group-addon titleWidth">&nbsp;&nbsp;是否增值服务：</span>
-												<select class="form-control">
+												<select class="form-control" name="isadd" id="isadd">
 													<option>否</option>
 													<option>是</option>
 												</select>
@@ -111,7 +242,7 @@
 										<div class="col-md-12 pd0">
 											<div class="input-group inputWidth">
 												<span class="input-group-addon titleWidth">&nbsp;&nbsp;状态：</span>
-												<select class="form-control" >
+												<select class="form-control" name="status" id="status">
 													<option>启用</option>
 													<option>禁用</option>
 												</select>
@@ -120,21 +251,22 @@
 									</div>
 									<div class="col-md-1 pd0"></div>
 								</div>
-								<div class="col-md-12 pd0 mt10">
-									<div class="col-md-1 pd0"></div>
-									<div class="col-md-10 pd0">
-										<div class="col-md-12 pd0">
-											<div class="input-group inputWidth">
-												<span class="input-group-addon titleWidth">&nbsp;&nbsp;备注：</span>
-												<input type="text" class="form-control" aria-describedby="basic-addon1">
-											</div>
-										</div>
-									</div>
-									<div class="col-md-1 pd0"></div>
-								</div>
+
+<!--																<div class="col-md-12 pd0 mt10">-->
+<!--									<div class="col-md-1 pd0"></div>-->
+<!--									<div class="col-md-10 pd0">-->
+<!--										<div class="col-md-12 pd0">-->
+<!--											<div class="input-group inputWidth">-->
+<!--												<span class="input-group-addon titleWidth">&nbsp;&nbsp;备注：</span>-->
+<!--												<input type="text" class="form-control" aria-describedby="basic-addon1">-->
+<!--											</div>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--									<div class="col-md-1 pd0"></div>-->
+<!--								</div>-->
 							</div>
 							<div class="modal-footer mt20">
-								<button type="button" class="btn btn-primary" data-dismiss="modal">
+								<button type="submit" class="btn btn-primary" id="sub">
 									确定
 								</button>
 								<button type="button" class="btn btn-default" data-dismiss="modal">
@@ -144,6 +276,8 @@
 						</div>
 					</div>
 				</div>
+				</form>
+
 				<div class="col-md-12 pd0 fmt10">
 					<hr class="commonHRCss"/>
 				</div>
@@ -163,114 +297,26 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>1</td>
-								<td>HLXM0001</td>
-								<td>吸氧</td>
-								<td>50元/次</td>
-								<td></td>
-								<td>否</td>
-								<td>启用</td>
-								<td></td>
-								<td>
-									<a href="#" target="ckjkda">
-										<button class="btn btn-primary">修改</button>
-									</a>
-									<a href="#" target="ckjkda">
-										<button class="btn btn-danger">删除</button>
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>HLXM0002</td>
-								<td>协助服药</td>
-								<td>免费</td>
-								<td></td>
-								<td>否</td>
-								<td>启用</td>
-								<td></td>
-								<td>
-									<a href="#" target="ckjkda">
-										<button class="btn btn-primary">修改</button>
-									</a>
-									<a href="#" target="ckjkda">
-										<button class="btn btn-danger">删除</button>
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>HLXM0003</td>
-								<td>测量血压</td>
-								<td>免费</td>
-								<td></td>
-								<td>否</td>
-								<td>启用</td>
-								<td></td>
-								<td>
-									<a href="#" target="ckjkda">
-										<button class="btn btn-primary">修改</button>
-									</a>
-									<a href="#" target="ckjkda">
-										<button class="btn btn-danger">删除</button>
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>4</td>
-								<td>HLXM0004</td>
-								<td>协助穿衣</td>
-								<td>10元/次</td>
-								<td></td>
-								<td>否</td>
-								<td>启用</td>
-								<td></td>
-								<td>
-									<a href="#" target="ckjkda">
-										<button class="btn btn-primary">修改</button>
-									</a>
-									<a href="#" target="ckjkda">
-										<button class="btn btn-danger">删除</button>
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>5</td>
-								<td>HLXM0005</td>
-								<td>床上洗头</td>
-								<td>20元/次</td>
-								<td></td>
-								<td>是</td>
-								<td>启用</td>
-								<td></td>
-								<td>
-									<a href="#" target="ckjkda">
-										<button class="btn btn-primary">修改</button>
-									</a>
-									<a href="#" target="ckjkda">
-										<button class="btn btn-danger">删除</button>
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>6</td>
-								<td>HLXM0006</td>
-								<td>健身</td>
-								<td>10元/小时</td>
-								<td></td>
-								<td>是</td>
-								<td>启用</td>
-								<td></td>
-								<td>
-									<a href="#" target="ckjkda">
-										<button class="btn btn-primary">修改</button>
-									</a>
-									<a href="#" target="ckjkda">
-										<button class="btn btn-danger">删除</button>
-									</a>
-								</td>
-							</tr>
+<!--							<tr>-->
+<!--								<td>1</td>-->
+<!--								<td>HLXM0001</td>-->
+<!--								<td>吸氧</td>-->
+<!--								<td>50元/次</td>-->
+<!--								<td></td>-->
+<!--								<td>否</td>-->
+<!--								<td>启用</td>-->
+<!--								<td></td>-->
+<!--								<td>-->
+<!--									<a href="#" target="ckjkda">-->
+<!--										<button class="btn btn-primary">修改</button>-->
+<!--									</a>-->
+<!--									<a href="#" target="ckjkda">-->
+<!--										<button class="btn btn-danger">删除</button>-->
+<!--									</a>-->
+<!--								</td>-->
+<!--							</tr>-->
+
+
 						</tbody>
 					</table>
 				</div>

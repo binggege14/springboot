@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
 @Controller
 
 public class IndexController {
@@ -20,5 +23,7 @@ public class IndexController {
     public String test(){
         return "redirect:/yyzx1/yyzx/page/index.html";
     }
+
+
 }
 

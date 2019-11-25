@@ -15,7 +15,76 @@
 		<script src="../About/js/bootstrap.min.js"></script>
 		<title>护理级别</title>
 		<script type="text/javascript">
-		$(function(){
+		$(document).ready(function () {
+			$("form").submit(function () {
+				$('#modle').modal('hide')
+				window.location.reload()
+
+			})
+			//隐藏模态框
+			$('#modle').on('hidden.bs.modal', function (){
+				document.getElementById("carelevelForm").reset();
+			});
+			//获取级别名
+			$(document).on("click",".btn-success",function(){
+				// alert($(this).parents("tr").find("td:eq(1)").text())
+				var name=$(this).parents("tr").find("td:eq(1)").text();
+				$.ajax({
+					url:'/carelevel/GetName',
+					data:{name:name},
+					type:'post'
+				})
+			})
+
+			$.ajax({
+				url:'/carelevel',
+				data:'',
+				type:'post',
+				dataType:'json',
+				success:function (res) {
+					var $tr;
+					$(res).each(function () {
+						$tr=$(
+							"<tr>" +
+								"<td></td>" +
+								"<td>"+this.levelName+"</td>" +
+								"<td>"+this.status+"</td>" +
+								"<td></td>" +
+								"<td>" +
+								"<a href='#' target='ckjkda'>" +
+								"<button class='btn btn-primary'>修改</button>" +
+								"</a>" +
+								"<a href='#' target='ckjkda'>" +
+								// "<button class='btn btn-danger'>删除</button>" +
+								"</a>" +
+								"<a href='hljb_hlnrpz.html' target='ckjkda'>" +
+								"<button class='btn btn-success'>护理内容配置</button>" +
+								"</a>" +
+								"</td>" +
+								"</tr>"
+						)
+						$('tbody').append($tr)
+
+					})
+				}
+			})
+			//下拉框
+
+				$.ajax({
+				url:'/care/selectnames',
+				data:'',
+				type:'post',
+				dataType:'json',
+				success:function (res) {
+					// alert(res);
+					var $tr;
+					$(res).each(function (i) {
+						$tr=$("<option>"+res[i]+"</option>")
+						$('#remarks').append($tr)
+					})
+				}
+			})
+
 
 		})
 		</script>
@@ -31,7 +100,9 @@
 				</div>
 				<div class="col-md-9 pd0 fmt5">
 					<button class="btn btn-primary" data-toggle="modal" data-target=".myModal1"><span class="glyphicon glyphicon-plus"></span>&nbsp;添加</button> 
-				</div>			
+				</div>
+				<iframe id="iframeForm" name="iframeForm" style="display:none;"></iframe>
+				<form action="/carelevel/add" method="post" id="carelevelForm" name='iframeForm'  target="iframeForm">
 				<div class="modal fade myModal1">
 					<div class="modal-dialog">
 						<div class="modal-content" style="width:100%;">
@@ -41,6 +112,7 @@
 								</button>
 								<span class="glyphicon glyphicon-pencil"></span>&nbsp;【添加护理级别】
 							</div>
+
 							<div class="modal-body clearfix" style="height: auto;">
 								<div class="col-md-12 pd0">
 									<div class="col-md-1 pd0 mt10"></div>
@@ -48,19 +120,20 @@
 										<div class="col-md-12 pd0">
 											<div class="input-group inputWidth">
 												<span class="input-group-addon titleWidth">&nbsp;&nbsp;名称：</span>
-												<input type="text" class="form-control" placeholder="请输入【名称】信息" aria-describedby="basic-addon1">
+												<input type="text" class="form-control" placeholder="请输入【名称】信息" aria-describedby="basic-addon1" id="levelName" name="levelName">
 											</div>
 										</div>
 									</div>
 									<div class="col-md-1 pd0"></div>
 								</div>
+
 								<div class="col-md-12 pd0 mt10">
 									<div class="col-md-1 pd0"></div>
 									<div class="col-md-10 pd0">
 										<div class="col-md-12 pd0">
 											<div class="input-group inputWidth">
 												<span class="input-group-addon titleWidth">&nbsp;&nbsp;状态：</span>
-												<select class="form-control" >
+												<select class="form-control" id="status" name="status">
 													<option>启用</option>
 													<option>禁用</option>
 												</select>
@@ -69,21 +142,39 @@
 									</div>
 									<div class="col-md-1 pd0"></div>
 								</div>
+
 								<div class="col-md-12 pd0 mt10">
 									<div class="col-md-1 pd0"></div>
 									<div class="col-md-10 pd0">
 										<div class="col-md-12 pd0">
 											<div class="input-group inputWidth">
-												<span class="input-group-addon titleWidth">&nbsp;&nbsp;备注：</span>
-												<input type="text" class="form-control" aria-describedby="basic-addon1">
+												<span class="input-group-addon titleWidth">&nbsp;内容选择</span>
+												<select class="form-control" id="remarks" name="remarks">
+<!--													<option>启用</option>-->
+<!--													<option>禁用</option>-->
+												</select>
 											</div>
 										</div>
 									</div>
 									<div class="col-md-1 pd0"></div>
 								</div>
+
+<!--								<div class="col-md-12 pd0 mt10">-->
+<!--									<div class="col-md-1 pd0"></div>-->
+<!--									<div class="col-md-10 pd0">-->
+<!--										<div class="col-md-12 pd0">-->
+<!--											<div class="input-group inputWidth">-->
+<!--												<span class="input-group-addon titleWidth">&nbsp;&nbsp;配置：</span>-->
+<!--												<input type="text" class="form-control" aria-describedby="basic-addon1" id="remarks" name="remarks">-->
+<!--											</div>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--									<div class="col-md-1 pd0"></div>-->
+<!--								</div>-->
 							</div>
+
 							<div class="modal-footer mt20">
-								<button type="button" class="btn btn-primary" data-dismiss="modal">
+								<button type="submit" class="btn btn-primary" >
 									确定
 								</button>
 								<button type="button" class="btn btn-default" data-dismiss="modal">
@@ -93,6 +184,8 @@
 						</div>
 					</div>
 				</div>
+				</form>
+
 				<div class="col-md-12 pd0 fmt10">
 					<hr class="commonHRCss"/>
 				</div>
@@ -100,7 +193,7 @@
 					<table class="table table-hover">
 						<thead>
 							<tr>
-								<th>序号</th>
+								<th></th>
 								<th>护理级别</th>
 								<th>状态</th>
 								<th>备注</th>
@@ -108,74 +201,74 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>1</td>
-								<td>一级</td>
-								<td>启用</td>
-								<td></td>
-								<td>
-									<a href="#" target="ckjkda">
-										<button class="btn btn-primary">修改</button>
-									</a>
-									<a href="#" target="ckjkda">
-										<button class="btn btn-danger">删除</button>
-									</a>
-									<a href="hljb_hlnrpz.html" target="ckjkda">
-										<button class="btn btn-success">护理内容配置</button>
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>二级</td>
-								<td>启用</td>
-								<td></td>
-								<td>
-									<a href="#" target="ckjkda">
-										<button class="btn btn-primary">修改</button>
-									</a>
-									<a href="#" target="ckjkda">
-										<button class="btn btn-danger">删除</button>
-									</a>
-									<a href="hljb_hlnrpz.html" target="ckjkda">
-										<button class="btn btn-success">护理内容配置</button>
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>三级</td>
-								<td>启用</td>
-								<td></td>
-								<td>
-									<a href="#" target="ckjkda">
-										<button class="btn btn-primary">修改</button>
-									</a>
-									<a href="#" target="ckjkda">
-										<button class="btn btn-danger">删除</button>
-									</a>
-									<a href="hljb_hlnrpz.html" target="ckjkda">
-										<button class="btn btn-success">护理内容配置</button>
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>4</td>
-								<td>四级</td>
-								<td>未启用</td>
-								<td></td>
-								<td>
-									<a href="#" target="ckjkda">
-										<button class="btn btn-primary">修改</button>
-									</a>
-									<a href="#" target="ckjkda">
-										<button class="btn btn-danger">删除</button>
-									</a>
-									<a href="hljb_hlnrpz.html" target="ckjkda">
-										<button class="btn btn-success">护理内容配置</button>
-									</a>
-								</td>
-							</tr>
+<!--							<tr>-->
+<!--								<td>1</td>-->
+<!--								<td>一级</td>-->
+<!--								<td>启用</td>-->
+<!--								<td></td>-->
+<!--								<td>-->
+<!--									<a href="#" target="ckjkda">-->
+<!--										<button class="btn btn-primary">修改</button>-->
+<!--									</a>-->
+<!--									<a href="#" target="ckjkda">-->
+<!--										<button class="btn btn-danger">删除</button>-->
+<!--									</a>-->
+<!--									<a href="hljb_hlnrpz.html" target="ckjkda">-->
+<!--										<button class="btn btn-success">护理内容配置</button>-->
+<!--									</a>-->
+<!--								</td>-->
+<!--							</tr>-->
+<!--							<tr>-->
+<!--								<td>2</td>-->
+<!--								<td>二级</td>-->
+<!--								<td>启用</td>-->
+<!--								<td></td>-->
+<!--								<td>-->
+<!--									<a href="#" target="ckjkda">-->
+<!--										<button class="btn btn-primary">修改</button>-->
+<!--									</a>-->
+<!--									<a href="#" target="ckjkda">-->
+<!--										<button class="btn btn-danger">删除</button>-->
+<!--									</a>-->
+<!--									<a href="hljb_hlnrpz.html" target="ckjkda">-->
+<!--										<button class="btn btn-success">护理内容配置</button>-->
+<!--									</a>-->
+<!--								</td>-->
+<!--							</tr>-->
+<!--							<tr>-->
+<!--								<td>3</td>-->
+<!--								<td>三级</td>-->
+<!--								<td>启用</td>-->
+<!--								<td></td>-->
+<!--								<td>-->
+<!--									<a href="#" target="ckjkda">-->
+<!--										<button class="btn btn-primary">修改</button>-->
+<!--									</a>-->
+<!--									<a href="#" target="ckjkda">-->
+<!--										<button class="btn btn-danger">删除</button>-->
+<!--									</a>-->
+<!--									<a href="hljb_hlnrpz.html" target="ckjkda">-->
+<!--										<button class="btn btn-success">护理内容配置</button>-->
+<!--									</a>-->
+<!--								</td>-->
+<!--							</tr>-->
+<!--							<tr>-->
+<!--								<td>4</td>-->
+<!--								<td>四级</td>-->
+<!--								<td>未启用</td>-->
+<!--								<td></td>-->
+<!--								<td>-->
+<!--									<a href="#" target="ckjkda">-->
+<!--										<button class="btn btn-primary">修改</button>-->
+<!--									</a>-->
+<!--									<a href="#" target="ckjkda">-->
+<!--										<button class="btn btn-danger">删除</button>-->
+<!--									</a>-->
+<!--									<a href="hljb_hlnrpz.html" target="ckjkda">-->
+<!--										<button class="btn btn-success">护理内容配置</button>-->
+<!--									</a>-->
+<!--								</td>-->
+<!--							</tr>-->
 						</tbody>
 					</table>
 				</div>

@@ -1,6 +1,7 @@
 package com.yiyang.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.yiyang.entity.Care;
 import com.yiyang.entity.CareExample;
@@ -32,4 +33,9 @@ public interface CareMapper {
     int updateByPrimaryKeySelective(Care record);
 
     int updateByPrimaryKey(Care record);
+    Care selectByName(String name);
+    List<Care> CareList(@Param("firstIndex") int firstIndex,@Param("lastIndex") int lastIndex);
+    List<Care> selectAll();
+    List<Care> selectByKey(String key);
+    List<String> selectNames();
 }

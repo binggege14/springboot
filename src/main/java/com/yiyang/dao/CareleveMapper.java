@@ -1,5 +1,6 @@
 package com.yiyang.dao;
 
+import com.yiyang.entity.Care;
 import com.yiyang.entity.Careleve;
 import com.yiyang.entity.CareleveExample;
 import java.util.List;
@@ -32,4 +33,8 @@ public interface CareleveMapper {
     int updateByPrimaryKeySelective(Careleve record);
 
     int updateByPrimaryKey(Careleve record);
+    List<Careleve> selectAll();
+    List<Careleve> selectByName(String name);
+    List<Care> selectConnect(String name);
+
 }

@@ -14,6 +14,11 @@ public class Careleve {
     private String levelName;
 
     private String status;
+    public Careleve(String levelName,String remarks,String status){
+            this.levelName=levelName;
+            this.remarks=remarks;
+            this.status=status;
+    }
 
     public Integer getId() {
         return id;

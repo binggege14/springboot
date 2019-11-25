@@ -15,16 +15,59 @@
 		<script src="../About/js/bootstrap.min.js"></script>
 		<title>护理内容配置</title>
 		<script type="text/javascript">
-		$(function(){
-			$(".back_hljb").click(function(){
-				//$("#ckjkda").css('display','none'); 
-				//$("#hljb").css('display','block'); 			
-				//$("#ckjkda").style.display = 'none';
-				
-				//$(this).parents().hide();
-				//$(this).parentsUntil(".ckjkda").hide();
-				//$(this).parentsUntil("iframe").hide();
-			});			
+		$(document).ready(function () {
+			loadList();
+			function loadList(){
+				$.ajax({
+					url:'/carelevel/set',
+					data:'',
+					type:'post',
+					dataType:'json',
+					success:function (res) {
+						// alert(res);
+						var $tr;
+						$(res).each(function () {
+							$tr=$("<tr>" +
+									"<td>"+this.id+"</td>" +
+									"<td>"+this.name+"</td>" +
+									"<td>"+this.describes+"</td>" +
+									"<td>"+this.price+"</td>" +
+									"<td>"+this.status+"</td>" +
+									"<td></td>" +
+									"<td>" +
+									"<button class='btn btn-primary'>修改</button> " +
+									"<button class='btn btn-danger' >删除</button>" +
+									"</td>" +
+									"</tr>")
+							$('tbody').append($tr)
+
+						})
+					}
+				})
+
+			}
+
+			$(document).on("click",".btn-danger",function(){
+
+				//1.弹出确认删除对话框
+				// alert($(this).parents("tr").find("td:eq(0)").text());
+				var id=$(this).parents("tr").find("td:eq(0)").text();
+				var Name=$(this).parents("tr").find("td:eq(1)").text();
+				// var empId=$(this).attr("delete-id");
+				if(confirm("确认删除【"+Name+"】吗？")) {
+					//点击true，发送ajax请求
+					$.ajax({
+						url:"/carelevel/delset",
+						data:{id:id},
+						type:"post",
+						success:function(result){
+							window.location.reload()
+
+						}
+					})
+				}
+			});
+
 		})
 		</script>
 	</head>
@@ -78,25 +121,25 @@
 								</div>
 								<div class="col-md-1 pd0"></div>
 							</div>
-							<div class="col-md-12 pd0 mt10">
-								<div class="col-md-1 pd0"></div>
-								<div class="col-md-10 pd0">
-									<div class="col-md-12 pd0">
-										<div class="input-group inputWidth">
-											<span class="input-group-addon titleWidth">&nbsp;&nbsp;执行次数：</span>
-											<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【执行次数】信息" aria-describedby="basic-addon1">
-										</div>
-									</div>
-								</div>
-								<div class="col-md-1 pd0"></div>
-							</div>
+<!--							<div class="col-md-12 pd0 mt10">-->
+<!--								<div class="col-md-1 pd0"></div>-->
+<!--								<div class="col-md-10 pd0">-->
+<!--									<div class="col-md-12 pd0">-->
+<!--										<div class="input-group inputWidth">-->
+<!--											<span class="input-group-addon titleWidth">&nbsp;&nbsp;执行次数：</span>-->
+<!--											<input type="text" name="csmc" id="" class="form-control" placeholder="请输入【执行次数】信息" aria-describedby="basic-addon1">-->
+<!--										</div>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--								<div class="col-md-1 pd0"></div>-->
+<!--							</div>-->
 							<div class="col-md-12 pd0 mt10">
 								<div class="col-md-1 pd0"></div>
 								<div class="col-md-10 pd0">
 									<div class="col-md-12 pd0">
 										<div class="input-group inputWidth">
 											<span class="input-group-addon titleWidth">&nbsp;&nbsp;备注：</span>
-											<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【备注】信息" aria-describedby="basic-addon1">
+											<input type="text" name="csmc" id="" class="form-control" placeholder="请输入【备注】信息" aria-describedby="basic-addon1">
 										</div>
 									</div>
 								</div>
@@ -108,7 +151,7 @@
 									<div class="col-md-12 pd0">
 										<div class="input-group inputWidth">
 											<span class="input-group-addon titleWidth">&nbsp;&nbsp;排序：</span>
-											<input type="text" name="csmc" id="csmc" class="form-control" placeholder="请输入【排序】信息" aria-describedby="basic-addon1">
+											<input type="text" name="csmc" id="" class="form-control" placeholder="请输入【排序】信息" aria-describedby="basic-addon1">
 										</div>
 									</div>
 								</div>
@@ -136,61 +179,61 @@
 							<th>序号</th>
 							<th>护理内容</th>
 							<th>执行周期</th>
-							<th>执行次数</th>
-							<th>备注</th>
-							<th>排序号</th>
+							<th>价格</th>
+							<th>状态</th>
+							<th></th>
 							<th>操作</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>1</td>
-							<td>吸氧</td>
-							<td>每天</td>
-							<td>1</td>
-							<td></td>
-							<td>1</td>
-							<td>
-								<button class="btn btn-primary">修改</button> 
-								<button class="btn btn-danger" onclick="shanchu()">删除</button>
-							</td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td>协助服药</td>
-							<td>每天</td>
-							<td>3</td>
-							<td></td>
-							<td>2</td>
-							<td>
-								<button class="btn btn-primary">修改</button> 
-								<button class="btn btn-danger" onclick="shanchu()">删除</button>
-							</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>测量血压</td>
-							<td>每天</td>
-							<td>1</td>
-							<td></td>
-							<td>3</td>
-							<td>
-								<button class="btn btn-primary">修改</button> 
-								<button class="btn btn-danger" onclick="shanchu()">删除</button>
-							</td>
-						</tr>
-						<tr>
-							<td>4</td>
-							<td>协助穿衣</td>
-							<td>每天</td>
-							<td>1</td>
-							<td></td>
-							<td>4</td>
-							<td>
-								<button class="btn btn-primary">修改</button> 
-								<button class="btn btn-danger" onclick="shanchu()">删除</button>
-							</td>
-						</tr>
+<!--						<tr>-->
+<!--							<td>1</td>-->
+<!--							<td>吸氧</td>-->
+<!--							<td>每天</td>-->
+<!--							<td>1</td>-->
+<!--							<td></td>-->
+<!--							<td>1</td>-->
+<!--							<td>-->
+<!--								<button class="btn btn-primary">修改</button> -->
+<!--								<button class="btn btn-danger" onclick="shanchu()">删除</button>-->
+<!--							</td>-->
+<!--						</tr>-->
+<!--						<tr>-->
+<!--							<td>2</td>-->
+<!--							<td>协助服药</td>-->
+<!--							<td>每天</td>-->
+<!--							<td>3</td>-->
+<!--							<td></td>-->
+<!--							<td>2</td>-->
+<!--							<td>-->
+<!--								<button class="btn btn-primary">修改</button> -->
+<!--								<button class="btn btn-danger" onclick="shanchu()">删除</button>-->
+<!--							</td>-->
+<!--						</tr>-->
+<!--						<tr>-->
+<!--							<td>3</td>-->
+<!--							<td>测量血压</td>-->
+<!--							<td>每天</td>-->
+<!--							<td>1</td>-->
+<!--							<td></td>-->
+<!--							<td>3</td>-->
+<!--							<td>-->
+<!--								<button class="btn btn-primary">修改</button> -->
+<!--								<button class="btn btn-danger" onclick="shanchu()">删除</button>-->
+<!--							</td>-->
+<!--						</tr>-->
+<!--						<tr>-->
+<!--							<td>4</td>-->
+<!--							<td>协助穿衣</td>-->
+<!--							<td>每天</td>-->
+<!--							<td>1</td>-->
+<!--							<td></td>-->
+<!--							<td>4</td>-->
+<!--							<td>-->
+<!--								<button class="btn btn-primary">修改</button> -->
+<!--								<button class="btn btn-danger" onclick="shanchu()">删除</button>-->
+<!--							</td>-->
+<!--						</tr>-->
 					</tbody>
 				</table>
 			</div>
