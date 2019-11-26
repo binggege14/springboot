@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class BedController {
 
     @Autowired
-    BedService bedService;
+    private BedService bedService;
 
     //查找床位
     @RequestMapping("/bed/get/{id}")

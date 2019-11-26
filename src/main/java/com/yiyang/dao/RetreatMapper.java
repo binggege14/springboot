@@ -32,4 +32,6 @@ public interface RetreatMapper {
     int updateByPrimaryKeySelective(Retreat record);
 
     int updateByPrimaryKey(Retreat record);
+
+    int updateStatus(Integer id,String Status);
 }

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class OutgoingController {
     @Autowired
-    OutgoingService outgoingService;
+    private OutgoingService outgoingService;
 
     @RequestMapping("/outgoing/get/{id}")
     public @ResponseBody
